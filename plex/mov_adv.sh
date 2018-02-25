@@ -164,6 +164,6 @@ else
 		echo "Skipping deleting local dirs."
 		echo ""
 	fi
-	"/usr/lib/plexmediaserver/Plex Media Scanner" -s
+	wget http://ndo2.iamnico.xyz:32400/library/sections/2/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm
 	echo "Copy to encrypted Gdrive finished!"
 fi
