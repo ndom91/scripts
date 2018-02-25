@@ -12,12 +12,12 @@ I've tried to put things such as $FTP_DIR and $UPLOAD_DIR, etc. in variables so 
 
 The general rundown however, is this:
 
-    List the contents of your Movies/TV folder
-    Ask if you want to upload all the subfolders/items
-    Change the names of the selected folders to something more recognizable by plex than "Old.School.2002.Xvid.h264.aXXo-team.xyz-420boii
-    Upload clean folder names via rclone
-    Ask user if he wants to delete local copies after transfer
-    Force plex to refresh and add recently copied media work in progress - having trouble working with plex cli
+    1. List the contents of your Movies/TV folder
+    2. Ask if you want to upload all the subfolders/items
+    3. Change the names of the selected folders to something more recognizable by plex than "Old.School.2002.Xvid.h264.aXXo-team.xyz-420boii
+    4. Upload clean folder names via rclone
+    5. Ask user if he wants to delete local copies after transfer
+    6. Force plex to refresh and add recently copied media work in progress - having trouble working with plex cli
 
 If you have any suggestions or comments, feel free to get in touch with my or fork this :)
 
