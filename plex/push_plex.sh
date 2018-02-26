@@ -23,7 +23,7 @@ else
   echo ""
   echo "Uploading TV Content..."
   echo ""
-  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /home/ndo/Documents/rclone_tv_move_$TIME.log --log-level INFO $TV_DIR GdriveEnc:plex_enc/tv
+  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_tv_move_$TIME.log --log-level INFO $TV_DIR GdriveEnc:plex_enc/tv
   echo "TV content uploaded"
   echo ""
   rm -r $TV_DIR/*
@@ -42,7 +42,7 @@ else
   echo ""
   echo "Uploading Movie Content.."
   echo ""
-  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /home/ndo/Documents/rclone_movie_move_$TIME.log --log-level INFO $MOV_DIR GdriveEnc:plex_enc/movies
+  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_movie_move_$TIME.log --log-level INFO $MOV_DIR GdriveEnc:plex_enc/movies
   echo ""
   echo "Movie content uploaded"
   echo ""
