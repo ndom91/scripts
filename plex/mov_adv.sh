@@ -3,13 +3,13 @@
 ########################
 #      VARIABLES       #
 
-FTP_DIR=/home/ndo/Downloads/Movies
+FTP_DIR=/home/ndo/ftp/files/torrentz/Movies
 RCLONE_LOG_DIR=~/rclonelogs
-
+TARGET_DIR=/home/ndo/ftp/files/torrentcomplete/movies
 
 dt=$(date '+%d%m%Y')
 #Folders=(*/)
-Folders=(/home/ndo/Downloads/Movies/*/) 
+Folders=(/home/ndo/ftp/files/torrentz/Movies/*/) 
 countDir=${#Folders[@]}
 export LD_LIBRARY_PATH=/usr/lib/plexmediaserver
 
@@ -45,9 +45,9 @@ then
 	echo "Your new directory will be:   '$tvNewName1' "
 	echo ""
 	echo "Doing the Local Switcheroo(R)"
-	mkdir $FTP_DIR/"$tvNewName1"
+	mkdir $TARGET_DIR/"$tvNewName1"
 	echo "..."
-	mv "$oldDir1"/* $FTP_DIR/"$tvNewName1"
+	mv "$oldDir1"/* $TARGET_DIR/"$tvNewName1"
 	rm -r "$oldDir1"
 	echo ""
 	echo "Local Switchero (R) finished!"
@@ -57,14 +57,14 @@ then
 	echo ""
 	echo "Begin rclone log output: "
 	echo ""
-	rclone copy --log-file $RCLONE_LOG_DIR/movie_copy_$dt.log --log-level INFO --drive-chunk-size 16M $FTP_DIR GdriveEnc:plex_enc/movies & tail -F -q --pid=$! $RCLONE_LOG_DIR/movie_copy_$dt.log
+	rclone copy --log-file $RCLONE_LOG_DIR/movie_copy_$dt.log --log-level INFO --drive-chunk-size 16M $TARGET_DIR GdriveEnc:plex_enc/movies & tail -F -q --pid=$! $RCLONE_LOG_DIR/movie_copy_$dt.log
 	echo ""
 	read -p "Copy process finished, do you want old directory? <y/n>" prompt
 	if [[ $prompt == "y" ]]
 	then
 		echo ""
 		echo "Deleting local copies at $FTP_DIR/$oldDir1"
-		rm -r $FTP_DIR/"$tvNewName1"
+		rm -r $TARGET_DIR/"$tvNewName1"
 		echo ""
 		echo "local copies deleted!"
 	else
@@ -103,7 +103,7 @@ else
 			echo "Remaining Folders:"
 			printf '%s\n' "${Folders[@]}"
 			echo ""
-			if $prompt = "1337"
+			if [[ $prompt ==  "1337" ]]
 			then
 				break
 			fi
@@ -136,18 +136,18 @@ else
 	echo ""
 	for (( i=0;i<${#newFolder[@]};i++ ))
 		do
-		mkdir $FTP_DIR/"${newFolder[$i]}"
+		mkdir $TARGET_DIR/"${newFolder[$i]}"
 		echo "Created directory ${newFolder[$i]}"
-		mv "${Folders[$i]}"* $FTP_DIR/"${newFolder[$i]}"
+		mv "${Folders[$i]}"* $TARGET_DIR/"${newFolder[$i]}"
 		rm -r "${Folders[$i]}"
-		echo "Moved the contents of ${Folders[$i]} into new directory"
+		echo "Moved the contents of ${Folders[$i]} into $TARGET_DIR"
 		echo ""
 		done
 	echo "Local Switcheroo (R) finished!"
 	echo ""
 	echo "Copying into GdriveEnc:plex_enc/movies. Being rclone log:"
 	echo ""
-	rclone copy --log-file $RCLONE_LOG_DIR/movies_copy_$dt.log --log-level INFO --drive-chunk-size 16M $FTP_DIR GdriveEnc:plex_enc/movies & tail -F -q --pid=$! $RCLONE_LOG_DIR/movies_copy_$dt.log
+	rclone copy --log-file $RCLONE_LOG_DIR/movies_copy_$dt.log --log-level INFO --drive-chunk-size 16M $TARGET_DIR GdriveEnc:plex_enc/movies & tail -F -q --pid=$! $RCLONE_LOG_DIR/movies_copy_$dt.log
 	echo ""
 	read -p "Copy process finished. Do you want to delete local dirs? <y/n>" prompt
 	echo ""
@@ -157,13 +157,13 @@ else
 		echo ""
 		for (( i=0;i<${#newFolder[@]};i++ ))
 			do
-			rm -r $FTP_DIR/"${newFolder[$i]}"
+			rm -r $TARGET_DIR/"${newFolder[$i]}"
 			echo "Deleted ${newFolder[$i]}"
 			done
 	else
 		echo "Skipping deleting local dirs."
 		echo ""
 	fi
-	wget http://ndo2.iamnico.xyz:32400/library/sections/2/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm
+	curl http://ndo2.iamnico.xyz:32400/library/sections/5/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm
 	echo "Copy to encrypted Gdrive finished!"
 fi

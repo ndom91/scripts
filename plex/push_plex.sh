@@ -2,8 +2,8 @@
 
 # VARIABLES
 TIME=$(date '+%d%m%Y')
-TV_DIR=/home/ndo/ftp/files/torrentcomplete/TV
-MOV_DIR=/home/ndo/ftp/files/torrentcomplete/Movies
+TV_DIR=/home/ndo/ftp/files/torrentcomplete/tv
+MOV_DIR=/home/ndo/ftp/files/torrentcomplete/movies
 
 for pid in $(pidof -x push_plex.sh); do
     if [ $pid != $$ ]; then
@@ -23,13 +23,13 @@ else
   echo ""
   echo "Uploading TV Content..."
   echo ""
-  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_tv_move_$TIME.log --log-level INFO $TV_DIR GdriveEnc:plex_enc/tv
+  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_tv_move_$TIME.log --log-level INFO --drive-chunk-size 16M $TV_DIR GdriveEnc:plex_enc/tv
   echo "TV content uploaded"
   echo ""
-  rm -r $TV_DIR/*
+  sleep 20
   echo "Refreshing TV Library..."
   #Refresh TV
-  curl http://ndo2.iamnico.xyz:32400/library/sections/4/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm
+  curl http://ndo2.iamnico.xyz:32400/library/sections/6/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm
   echo ""
   echo "Plex TV Refreshed."
 fi
@@ -42,14 +42,14 @@ else
   echo ""
   echo "Uploading Movie Content.."
   echo ""
-  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_movie_move_$TIME.log --log-level INFO $MOV_DIR GdriveEnc:plex_enc/movies
+  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_movie_move_$TIME.log --log-level INFO --drive-chunk-size 16M $MOV_DIR GdriveEnc:plex_enc/movies
   echo ""
   echo "Movie content uploaded"
   echo ""
-  rm -r $MOV_DIR/*
+  sleep 20
   echo "Refreshing movie library.."
   #Refresh Movies
-  curl http://ndo2.iamnico.xyz:32400/library/sections/2/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm
+  curl http://ndo2.iamnico.xyz:32400/library/sections/5/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm
   echo ""
   echo "Plex Movie Refreshed."
 fi
