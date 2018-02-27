@@ -7,6 +7,6 @@ Subject: Backup completed on $CURDATE for ndo3
 
 ndo3 has completed its weekly backup on $CURDATE. 
 
-Please check out ndo-pi:/mnt/NDO_Backup/ndo3
+Please check out ndo-pi:/
 
 EOF
