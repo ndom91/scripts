@@ -33,7 +33,7 @@ for (( i = 0 ; i < "${#TV_ARRAY[@]}"; i++ )); do
 				echo "Warning: $TV_BASE found in /mnt/media/tv, not moving!"
 			else
 				/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_tv_move_$TIME.log --log-level INFO --drive-chunk-size 16M "${TV_ARRAY[$i]}" GdriveEnc:plex_enc/tv
-				echo "${TV_ARRAY[$i]} moved"
+				echo "${TV_ARRAY[$i]}/$TV_BASE moved"
 				tv_counter=$((tv_counter+1))
 			fi
 		else
