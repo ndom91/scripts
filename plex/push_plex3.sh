@@ -11,8 +11,6 @@ MOV_ARRAY=(/home/ndo/ftp/files/torrentcomplete/movies/*)
 tv_counter=0
 mov_counter=0
 
-SILENT=0
-
 for pid in $(pidof -x push_plex.sh); do
     if [ $pid != $$ ]; then
         echo "[$(date)] : push_plex.sh : Process is already running with PID $pid"
@@ -89,10 +87,6 @@ else
    fi
    
 fi
-
-#if (( $SILENT == 0 )); then
-#	exec 1>/dev/null
-#fi
 
 echo ""
 echo "Upload script complete!"

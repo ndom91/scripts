@@ -12,7 +12,7 @@ if (( $countmoved > 1 )); then
 else
 	(echo "From: ndo <ndo0@iamnico.xyz>";
         echo "To: yo@iamnico.xyz";
-        echo "Subject: plex upload complete - $CURDATE";
+        echo "Subject: Plex upload complete - $CURDATE";
 
         echo "$output";) | sendmail -oi yo@iamnico.xyz;
 
