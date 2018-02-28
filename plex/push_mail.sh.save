@@ -1,0 +1,35 @@
+#!/bin/bash
+
+CURDATE=$(date "+%d-%b-%Y")
+
+/home/ndo/Documents/scripts/plex/push_plex3.sh > push_output.txt
+
+countmoved=$(grep -c "Nothing moved - no need to refresh!" push_output.txt)
+
+echo "$countmoved"
+
+output=$(cat push_output.txt)
+
+if (( $countmoved > 1 )); then
+	sendmail -oi yo@iamnico.xyz << EOF
+	From: ndo <ndo0@iamnico.xyz>
+	To: yo@iamnico.xyz
+	Subject: plex upload complete
+
+	"$output"
+
+	EOF
+else
+	sendmail -oi yo@iamnico.xyz << EOF
+        From: ndo <ndo0@iamnico.xyz>
+        To: yo@iamnico.xyz
+        Subject: plex upload skipped
+
+        "$output"
+
+        EOF
+
+
+fi
+
+

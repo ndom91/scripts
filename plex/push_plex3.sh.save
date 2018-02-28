@@ -1,7 +1,5 @@
 #!/bin/bash
 
-MAILTO="yo@iamnico.xyz"
-
 TIME=$(date '+%d%m%Y')
 TV_DIR=/home/ndo/ftp/files/torrentcomplete/tv
 MOV_DIR=/home/ndo/ftp/files/torrentcomplete/movies
@@ -10,8 +8,6 @@ TV_ARRAY=(/home/ndo/ftp/files/torrentcomplete/tv/*)
 MOV_ARRAY=(/home/ndo/ftp/files/torrentcomplete/movies/*) 
 tv_counter=0
 mov_counter=0
-
-SILENT=0
 
 for pid in $(pidof -x push_plex.sh); do
     if [ $pid != $$ ]; then
@@ -39,7 +35,6 @@ for (( i = 0 ; i < "${#TV_ARRAY[@]}"; i++ )); do
 				/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_tv_move_$TIME.log --log-level INFO --drive-chunk-size 16M "${TV_ARRAY[$i]}" GdriveEnc:plex_enc/tv
 				echo "${TV_ARRAY[$i]}/$TV_BASE moved"
 				tv_counter=$((tv_counter+1))
-				SILENT=$((SILENT+1))
 			fi
 		else
 			echo "$file is empty. moving on.."
@@ -74,7 +69,6 @@ else
 	  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_tv_move_$TIME.log --log-level INFO --drive-chunk-size 16M "${MOV_ARRAY[$i]}" GdriveEnc:plex_enc/movies
 	  echo "${MOV_ARRAY[$i]} moved"
 	  mov_counter=$((mov_counter+1))
-          SILENT=$((SILENT+1))
 	fi
   done
   echo ""
@@ -89,10 +83,5 @@ else
    fi
    
 fi
-
-#if (( $SILENT == 0 )); then
-#	exec 1>/dev/null
-#fi
-
 echo ""
 echo "Upload script complete!"
