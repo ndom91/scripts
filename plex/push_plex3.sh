@@ -22,7 +22,7 @@ echo "Beginning content upload to Plex."
 echo ""
 
 if [ -z "$(ls -A $TV_DIR)" ]; then
-   echo "No TV Content to Upload.."
+   echo "No TV Content to Upload.. None!"
 else
   
 for (( i = 0 ; i < "${#TV_ARRAY[@]}"; i++ )); do
@@ -54,13 +54,13 @@ done
 		echo "Plex TV Refreshed."
 		echo ""
 	else
-		echo "Nothing moved - no need to refresh!"
+		echo "Nothing moved - no need to refresh! None!"
 		echo ""
 	fi
 fi
 
 if [ -z "$(ls -A $MOV_DIR)" ]; then
-  echo "No Movie Content to Upload.."
+  echo "No Movie Content to Upload.. None!"
 else
   echo ""
   for (( i = 0 ; i < "${#MOV_ARRAY[@]}"; i++ )); do
@@ -83,7 +83,7 @@ else
 	  echo ""
 	  echo "Plex Movie Refreshed."
    else
-	  echo "Nothing moved - no need to refresh!"
+	  echo "Nothing moved - no need to refresh! None!"
    fi
    
 fi

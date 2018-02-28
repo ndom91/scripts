@@ -6,7 +6,7 @@ PLEXPATH=/home/ndo/Documents/scripts/plex
 /home/ndo/Documents/scripts/plex/push_plex3.sh > $PLEXPATH/push_output.txt
 output=$(cat $PLEXPATH/push_output.txt)
 
-countmoved=$(grep -c "Nothing moved - no need to refresh!" $PLEXPATH/push_output.txt)
+countmoved=$(grep -c " None!" $PLEXPATH/push_output.txt)
 
 if (( $countmoved == 2 )); then
 	exit 1

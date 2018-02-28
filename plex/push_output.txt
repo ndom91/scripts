@@ -4,14 +4,6 @@ Beginning content upload to Plex.
 
 Nothing moved - no need to refresh!
 
-
-Chris Rock Tamborine (2018)
-/home/ndo/ftp/files/torrentcomplete/movies/Chris Rock Tamborine (2018) moved
-Shaun of the Dead (2004)
-Shaun of the Dead (2004) already at destination
-
-Refreshing Movie Library...
-
-Plex Movie Refreshed.
+No Movie Content to Upload..
 
 Upload script complete!
