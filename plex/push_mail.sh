@@ -2,12 +2,12 @@
 
 CURDATE=$(date '+%d-%m-%Y %H:%M')
 
-/home/ndo/Documents/scripts/plex/push_plex3.sh > push_output.txt
+/home/ndo/Documents/scripts/plex/push_plex3.sh > /home/ndo/Documents/scripts/plex/push_output.txt
 output=$(cat push_output.txt)
 
 countmoved=$(grep -c "Nothing moved - no need to refresh!" "push_output.txt")
 
-if (( $countmoved > 1 )); then
+if (( $countmoved == 2 )); then
 	exit 1
 else
 	(echo "From: ndo <ndo0@iamnico.xyz>";

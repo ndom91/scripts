@@ -30,7 +30,7 @@ for (( i = 0 ; i < "${#TV_ARRAY[@]}"; i++ )); do
 		TV_BASE=$(basename "$file")
 		if ls -1qA "${TV_ARRAY[$i]}" | grep -q . 
 			then
-			tv_count=$(find /mnt/media/tv -name "$TV_BASE" | wc -l)
+			tv_count=$(find /mnt/gdrive/plex_enc/tv -name "$TV_BASE" | wc -l)
 			if [[ $tv_count -gt 0 ]]; then
 				echo "Warning: $TV_BASE found in /mnt/media/tv, not moving!"
 			else
@@ -66,10 +66,10 @@ else
   for (( i = 0 ; i < "${#MOV_ARRAY[@]}"; i++ )); do
 	MOV_MATCH=$(basename "${MOV_ARRAY[$i]}")
     echo "$MOV_MATCH"
-	if [ -d "/mnt/media/tv/$TV_MATCH" ]; then
+	if [ -d "/mnt/gdrive/plex_enc/movies/$MOV_MATCH" ]; then
 	  echo "$MOV_MATCH already at destination"
 	else
-	  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_tv_move_$TIME.log --log-level INFO --drive-chunk-size 16M "${MOV_ARRAY[$i]}" GdriveEnc:plex_enc/movies
+	  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_movie_move_$TIME.log --log-level INFO --drive-chunk-size 16M "${MOV_ARRAY[$i]}" GdriveEnc:plex_enc/movies
 	  echo "${MOV_ARRAY[$i]} moved"
 	  mov_counter=$((mov_counter+1))
           SILENT=$((SILENT+1))
