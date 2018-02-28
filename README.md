@@ -6,7 +6,7 @@ The plex ones, however, are used only on my plex server, but they're relatively 
 
 
 # PLEX
-{% highlight bash linesnos %}
+{% highlight bash linenos %}
 push_plex3.sh
 push_mail.sh
 mov_adv.sh
