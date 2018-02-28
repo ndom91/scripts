@@ -28,11 +28,11 @@ for (( i = 0 ; i < "${#TV_ARRAY[@]}"; i++ )); do
 		TV_BASE=$(basename "$file")
 		if ls -1qA "${TV_ARRAY[$i]}" | grep -q . 
 			then
-			tv_count=$(find /home/ndo/Documents/fortest3/ -name $TV_BASE | wc -l)
+			tv_count=$(find /mnt/media/tv -name "$TV_BASE" | wc -l)
 			if [[ $tv_count -gt 0 ]]; then
 				echo "Warning: $TV_BASE found in /mnt/media/tv, not moving!"
 			else
-				usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_tv_move_$TIME.log --log-level INFO --drive-chunk-size 16M "${TV_ARRAY[$i]}" GdriveEnc:plex_enc/tv
+				/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_tv_move_$TIME.log --log-level INFO --drive-chunk-size 16M "${TV_ARRAY[$i]}" GdriveEnc:plex_enc/tv
 				echo "${TV_ARRAY[$i]} moved"
 				tv_counter=$((tv_counter+1))
 			fi
