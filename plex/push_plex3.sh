@@ -34,10 +34,9 @@ for (( i = 0 ; i < "${#TV_ARRAY[@]}"; i++ )); do
 			if [[ $tv_count -gt 0 ]]; then
 				echo "Warning: $TV_BASE found in /mnt/media/tv, not moving!"
 			else
-				/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_tv_move_$TIME.log --log-level INFO --drive-chunk-size 16M "${TV_ARRAY[$i]}" GdriveEnc:plex_enc/tv
+				/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_tv_move_$TIME.log --log-level INFO --drive-chunk-size 16M "$TV_DIR"/* GdriveEnc:plex_enc/tv
 				echo "${TV_ARRAY[$i]}/$TV_BASE moved"
 				tv_counter=$((tv_counter+1))
-				SILENT=$((SILENT+1))
 			fi
 		else
 			echo "$file is empty. moving on.."
@@ -49,7 +48,7 @@ done
 	if (( tv_counter > 0 )); then
 		sleep 20
 		echo "Refreshing TV Library..."
-		curl http://ndo2.iamnico.xyz:32400/library/sections/6/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm >/dev/null 2>&1
+		curl http://ndo2.iamnico.xyz:32400/library/sections/6/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm >> /dev/null 2>&1
 		echo ""
 		echo "Plex TV Refreshed."
 		echo ""
@@ -69,17 +68,16 @@ else
 	if [ -d "/mnt/gdrive/plex_enc/movies/$MOV_MATCH" ]; then
 	  echo "$MOV_MATCH already at destination"
 	else
-	  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_movie_move_$TIME.log --log-level INFO --drive-chunk-size 16M "${MOV_ARRAY[$i]}" GdriveEnc:plex_enc/movies
+	  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_movie_move_$TIME.log --log-level INFO --drive-chunk-size 16M "$MOV_DIR"/* GdriveEnc:plex_enc/movies
 	  echo "${MOV_ARRAY[$i]} moved"
 	  mov_counter=$((mov_counter+1))
-          SILENT=$((SILENT+1))
 	fi
   done
   echo ""
   if (( mov_counter > 0 )); then
 	  sleep 20
 	  echo "Refreshing Movie Library..."
-	  curl http://ndo2.iamnico.xyz:32400/library/sections/5/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm >/dev/null 2>&1
+	  curl http://ndo2.iamnico.xyz:32400/library/sections/5/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm >> /dev/null 2>&1
 	  echo ""
 	  echo "Plex Movie Refreshed."
    else

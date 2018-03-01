@@ -2,8 +2,16 @@ Beginning content upload to Plex.
 
 /home/ndo/ftp/files/torrentcomplete/tv/The Late Show with Stephen Colbert/* is empty. moving on..
 
-Nothing moved - no need to refresh!
+Nothing moved - no need to refresh! None!
 
-No Movie Content to Upload..
 
-Upload script complete!
+Fantastic Beasts and Where to Find Them (2016)
+/home/ndo/ftp/files/torrentcomplete/movies/Fantastic Beasts and Where to Find Them (2016) moved
+Finding Dory (2016)
+/home/ndo/ftp/files/torrentcomplete/movies/Finding Dory (2016) moved
+WALL·E (2008)
+/home/ndo/ftp/files/torrentcomplete/movies/WALL·E (2008) moved
+
+Refreshing Movie Library...
+
+Plex Movie Refreshed.
