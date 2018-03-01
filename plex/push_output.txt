@@ -1,19 +1,12 @@
 Beginning content upload to Plex.
 
-/home/ndo/ftp/files/torrentcomplete/tv/The Late Show with Stephen Colbert/* is empty. moving on..
+/home/ndo/ftp/files/torrentcomplete/tv/Atlanta/* is empty. moving on..
+/home/ndo/ftp/files/torrentcomplete/tv/The Late Show with Stephen Colbert/The Late Show with Stephen Colbert - 3x95 - Donald Glover, Omarosa Manigault-Newman, Ibeyi.mkv moved
 
-Nothing moved - no need to refresh! None!
+Refreshing TV Library...
 
+Plex TV Refreshed.
 
-Fantastic Beasts and Where to Find Them (2016)
-/home/ndo/ftp/files/torrentcomplete/movies/Fantastic Beasts and Where to Find Them (2016) moved
-Finding Dory (2016)
-/home/ndo/ftp/files/torrentcomplete/movies/Finding Dory (2016) moved
-WALL·E (2008)
-/home/ndo/ftp/files/torrentcomplete/movies/WALL·E (2008) moved
-
-Refreshing Movie Library...
-
-Plex Movie Refreshed.
+No Movie Content to Upload.. None!
 
 Upload script complete!
