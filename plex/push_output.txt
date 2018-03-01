@@ -1,12 +1,4 @@
 Beginning content upload to Plex.
 
-/home/ndo/ftp/files/torrentcomplete/tv/Atlanta/* is empty. moving on..
-/home/ndo/ftp/files/torrentcomplete/tv/The Late Show with Stephen Colbert/The Late Show with Stephen Colbert - 3x95 - Donald Glover, Omarosa Manigault-Newman, Ibeyi.mkv moved
+Atlanta - 1x03 
 
-Refreshing TV Library...
-
-Plex TV Refreshed.
-
-No Movie Content to Upload.. None!
-
-Upload script complete!
