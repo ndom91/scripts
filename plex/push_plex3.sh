@@ -34,7 +34,7 @@ for (( i = 0 ; i < "${#TV_ARRAY[@]}"; i++ )); do
 			if [[ $tv_count -gt 0 ]]; then
 				echo "Warning: $TV_BASE found in /mnt/media/tv, not moving!"
 			else
-				/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_tv_move_$TIME.log --log-level INFO --drive-chunk-size 16M "$TV_DIR"/* GdriveEnc:plex_enc/tv
+				/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_tv_move_$TIME.log --log-level INFO --drive-chunk-size 16M "$TV_DIR"/"$TV_BASE" GdriveEnc:plex_enc/tv/"$TV_BASE"
 				echo "${TV_ARRAY[$i]}/$TV_BASE moved"
 				tv_counter=$((tv_counter+1))
 			fi
@@ -68,7 +68,7 @@ else
 	if [ -d "/mnt/gdrive/plex_enc/movies/$MOV_MATCH" ]; then
 	  echo "$MOV_MATCH already at destination"
 	else
-	  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /opt/rclone_upload_logs/rclone_movie_move_$TIME.log --log-level INFO --drive-chunk-size 16M "$MOV_DIR"/* GdriveEnc:plex_enc/movies
+	  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_movie_move_$TIME.log --log-level INFO --drive-chunk-size 16M "$MOV_DIR"/"$MOV_MATCH" GdriveEnc:plex_enc/movies/"$MOV_MATCH"
 	  echo "${MOV_ARRAY[$i]} moved"
 	  mov_counter=$((mov_counter+1))
 	fi
