@@ -24,41 +24,40 @@ echo ""
 if [ -z "$(ls -A $TV_DIR)" ]; then
    echo "No TV Content to Upload.. None!"
 else
-  
-for (( i = 0 ; i < "${#TV_ARRAY[@]}"; i++ )); do
-	for file in "${TV_ARRAY[$i]}"/*; do 
-		TV_BASE=$(basename "$file")
-		SHOW_NAME="${TV_BASE%-*}"
-		echo "$SHOW_NAME"
-		echo ""
-		if ls -1qA "${TV_ARRAY[$i]}" | grep -q . 
-			then
-			tv_count=$(find /mnt/gdrive/plex_enc/tv -name "$TV_BASE" | wc -l)
-			if [[ $tv_count -gt 0 ]]; then
-				echo "Warning: $TV_BASE found in /mnt/media/tv, not moving!"
+	for (( i = 0 ; i < "${#TV_ARRAY[@]}"; i++ )); do
+		for file in "${TV_ARRAY[$i]}"/*; do 
+			TV_BASE=$(basename "$file")
+			echo ""
+			dir=$(basename "${TV_ARRAY[$i]}")
+			echo "$dir"
+			if ls -1qA "${TV_ARRAY[$i]}" | grep -q . 
+				then
+				tv_count=$(find /mnt/gdrive/plex_enc/tv -name "$TV_BASE" | wc -l)
+				if [[ $tv_count -gt 0 ]]; then
+					echo "Warning: $TV_BASE found in /mnt/gdrive.., not moving!"
+				else
+					/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_tv_move_$TIME.log --log-level INFO --drive-chunk-size 16M "${TV_ARRAY[$i]}" GdriveEnc:plex_enc/tv/"$dir"
+					echo "${TV_ARRAY[$i]}/$TV_BASE moved"
+					tv_counter=$((tv_counter+1))
+				fi
 			else
-				/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_tv_move_$TIME.log --log-level INFO --drive-chunk-size 16M "${TV_ARRAY[$i]}" GdriveEnc:plex_enc/tv/"$SHOW_NAME"
-				echo "${TV_ARRAY[$i]}/$TV_BASE moved"
-				tv_counter=$((tv_counter+1))
+				echo "$file is empty. moving on.."
+				break && break
 			fi
-		else
-			echo "$file is empty. moving on.."
-			break && break
-		fi
+		done
 	done
-done
-	echo ""
-	if (( tv_counter > 0 )); then
-		sleep 20
-		echo "Refreshing TV Library..."
-		curl http://ndo2.iamnico.xyz:32400/library/sections/6/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm >> /dev/null 2>&1
 		echo ""
-		echo "Plex TV Refreshed."
-		echo ""
-	else
-		echo "Nothing moved - no need to refresh! None!"
-		echo ""
-	fi
+		if (( tv_counter > 0 )); then
+			sleep 20
+			echo "Refreshing TV Library..."
+			curl http://ndo2.iamnico.xyz:32400/library/sections/6/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm >> /dev/null 2>&1
+			echo ""
+			echo "Plex TV Refreshed."
+			echo ""
+		else
+			echo "Nothing moved - no need to refresh! None!"
+			echo ""
+		fi
 fi
 
 if [ -z "$(ls -A $MOV_DIR)" ]; then

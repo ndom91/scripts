@@ -1,4 +1,14 @@
 Beginning content upload to Plex.
 
-Atlanta - 1x03 
 
+Atlanta
+/home/ndo/ftp/files/torrentcomplete/tv/Atlanta/* is empty. moving on..
+
+The Late Show with Stephen Colbert
+/home/ndo/ftp/files/torrentcomplete/tv/The Late Show with Stephen Colbert/* is empty. moving on..
+
+Nothing moved - no need to refresh! None!
+
+No Movie Content to Upload.. None!
+
+Upload script complete!
