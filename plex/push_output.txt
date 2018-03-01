@@ -2,19 +2,28 @@ Beginning content upload to Plex.
 
 
 Atlanta
-/home/ndo/ftp/files/torrentcomplete/tv/Atlanta/* is empty. moving on..
+/home/ndo/ftp/files/torrentcomplete/tv/Atlanta/Atlanta - 1x07 - B.A.N.mkv moved
 
 The Late Show with Stephen Colbert
 /home/ndo/ftp/files/torrentcomplete/tv/The Late Show with Stephen Colbert/* is empty. moving on..
 
-Nothing moved - no need to refresh! None!
+Refreshing TV Library...
+
+Plex TV Refreshed.
 
 
 Departed, The (2006)
-/home/ndo/ftp/files/torrentcomplete/movies/Departed, The (2006) moved
+Departed, The (2006) already at destination
 
-Refreshing Movie Library...
+Nothing moved - no need to refresh! None!
 
-Plex Movie Refreshed.
+Bon Iver - I Can't Make You Love Me _ Nick of Time-Q3VjaCy5gck.opus
+/home/ndo/ftp/files/torrentcomplete/music/Bon Iver - I Can't Make You Love Me _ Nick of Time-Q3VjaCy5gck.opus moved
+JAY-Z
+/home/ndo/ftp/files/torrentcomplete/music/JAY-Z moved
+
+Refreshing Music Library...
+
+Plex Music Refreshed.
 
 Upload script complete!

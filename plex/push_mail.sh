@@ -8,7 +8,7 @@ output=$(cat $PLEXPATH/push_output.txt)
 
 countmoved=$(grep -c " None!" $PLEXPATH/push_output.txt)
 
-if (( $countmoved == 2 )); then
+if (( $countmoved == 3 )); then
 	exit 1
 else
 	(echo "From: ndo2 <ndo2@iamnico.xyz>";
