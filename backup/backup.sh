@@ -1,14 +1,27 @@
 #!/bin/bash
-#This tars system and uploads to gd.
-#Check excludes.
+
+###################################################
+#
+# Author: ndom91
+#
+# Desc: tars system and uploads to rclone gdrive
+#
+###################################################
+
+###################
+# VARIABLES
+###################
+
 TIME=$(date +%b-%d-%y)
 FILENAME="backup-ndo3-$TIME.tar.gz"
 SRCDIR="/"
 DESDIR=/home/ndo/backups
 
-
-
 echo "Starting backup..."
+
+##########################################################
+# !!watch excludes - must be customized for each system!!
+##########################################################
 
 tar --exclude=/swapfile \
 --exclude=cache \
@@ -31,6 +44,9 @@ tar --exclude=/swapfile \
 -cvpzf \
 $DESDIR/$FILENAME $SRCDIR
 
+####################################
+# CLEAN UP
+####################################
 
 echo "Backup complete. Now moving to ndo-pi.."
 

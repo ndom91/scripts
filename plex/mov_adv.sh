@@ -16,6 +16,10 @@ export LD_LIBRARY_PATH=/usr/lib/plexmediaserver
 #     /VARIABLES      �#
 ########################
 
+#######################
+# WELCOME
+#######################
+
 echo ""
 echo "#######################################################"
 echo "#                                                     #"
@@ -25,6 +29,10 @@ echo "#      you've downloaded $countDir thing(s)!                  #"
 echo "#              Lets get started!                      #"
 echo "#                                                     #"
 echo "#######################################################"
+
+######################################################################
+# first check if its only one or more folders were renaming / moving
+######################################################################
 
 if [ $countDir = 1 ] 
 then

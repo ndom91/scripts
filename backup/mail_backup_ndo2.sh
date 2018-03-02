@@ -1,5 +1,23 @@
 #!/bin/bash
+
+###################################################
+#
+# Author: ndom91
+#
+# Desc: tars system and uploads to rclone gdrive
+#
+###################################################
+
+###################
+# VARIABLES
+###################
+
 CURDATE=`date "+%d-%b-%Y"`
+
+########################
+# ACTION
+########################
+
 mail -oi yo@iamnico.xyz << EOF
 From: ndo <ndo2@iamnico.xyz>
 To: yo@iamnico.xyz
