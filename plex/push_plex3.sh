@@ -27,14 +27,15 @@ echo ""
 
 if [ -z "$(ls -A $TV_DIR)" ]; then
    echo ""
-   echo "No TV Content to Upload.. None!"
+   echo "TV folder empty, nothing to upload.. None!"
 else
 	for (( i = 0 ; i < "${#TV_ARRAY[@]}"; i++ )); do
 		for file in "${TV_ARRAY[$i]}"/*; do 
 			TV_BASE=$(basename "$file")
 			echo ""
 			dir=$(basename "${TV_ARRAY[$i]}")
-			if ls -1qA "${TV_ARRAY[$i]}" | grep -q . 
+			if  [ "$(ls -A "${TV_ARRAY[$i]}"/* 2> /dev/null)" ];
+			#if ls -1qA "${TV_ARRAY[$i]}" | grep -q . 
 				then
 				tv_count=$(find /mnt/gdrive/plex_enc/tv -name "$TV_BASE" | wc -l)
 				if [[ $tv_count -gt 0 ]]; then
@@ -64,7 +65,7 @@ fi
 
 if [ -z "$(ls -A $MOV_DIR)" ]; then
   echo ""
-  echo "No Movie Content to Upload.. None!"
+  echo "Movie folder empty, nothing to upload.. None!"
 else
   echo ""
   for (( i = 0 ; i < "${#MOV_ARRAY[@]}"; i++ )); do
@@ -94,7 +95,7 @@ fi
 
 if [ -z "$(ls -A $MUS_DIR)" ]; then
   echo ""
-  echo "No Music Content to Upload.. None!"
+  echo "Music folder empty, nothing to upload.. None!"
 else
   echo ""
   for (( i = 0 ; i < "${#MUS_ARRAY[@]}"; i++ )); do
