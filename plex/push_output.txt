@@ -1,7 +1,7 @@
 Beginning content upload to Plex.
 
 
-/home/ndo/ftp/files/torrentcomplete/tv/Adventure Time/* is empty. moving on..
+Adventure Time - 9x14 - Three Buckets.mkv moved
 
 /home/ndo/ftp/files/torrentcomplete/tv/Atlanta/* is empty. moving on..
 
@@ -9,11 +9,11 @@ Beginning content upload to Plex.
 
 /home/ndo/ftp/files/torrentcomplete/tv/The Late Show with Stephen Colbert/* is empty. moving on..
 
-Nothing moved - no need to refresh! None!
+Refreshing TV Library...
+Plex TV Refreshed.
 
+Movie folder empty, nothing to upload.. None!
 
-No Movie Content to Upload.. None!
-
-No Music Content to Upload.. None!
+Music folder empty, nothing to upload.. None!
 
 Upload script complete!

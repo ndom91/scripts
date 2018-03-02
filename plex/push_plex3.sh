@@ -3,6 +3,7 @@
 MAILTO="yo@iamnico.xyz"
 
 TIME=$(date '+%d%m%Y')
+CURDATE=$(date '+%d-%m-%Y %H:%M')
 TV_DIR=/home/ndo/ftp/files/torrentcomplete/tv
 MOV_DIR=/home/ndo/ftp/files/torrentcomplete/movies
 MUS_DIR=/home/ndo/ftp/files/torrentcomplete/music
@@ -51,11 +52,12 @@ else
 			fi
 		done
 	done
-		echo ""
 		if (( tv_counter > 0 )); then
+			echo ""
 			sleep 60
 			echo "Refreshing TV Library..."
 			curl http://ndo2.iamnico.xyz:32400/library/sections/6/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm >> /dev/null 2>&1
+			echo ""
 			echo "Plex TV Refreshed."
 		else
 			echo "Nothing moved - no need to refresh! None!"
@@ -123,4 +125,5 @@ else
 fi
 
 echo ""
-echo "Upload script complete!"
+echo "rclone upload complete!"
+echo "$CURDATE"
