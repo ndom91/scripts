@@ -1,29 +1,15 @@
 Beginning content upload to Plex.
 
 
-Atlanta
-/home/ndo/ftp/files/torrentcomplete/tv/Atlanta/Atlanta - 1x07 - B.A.N.mkv moved
+/home/ndo/ftp/files/torrentcomplete/tv/Atlanta/* is empty. moving on..
 
-The Late Show with Stephen Colbert
-/home/ndo/ftp/files/torrentcomplete/tv/The Late Show with Stephen Colbert/* is empty. moving on..
+/home/ndo/ftp/files/torrentcomplete/tv/The Late Show with Stephen Colbert/The Late Show with Stephen Colbert - 3x96 - Jeff Daniels, Krysten Ritter, Noah Kahan.mkv moved
 
 Refreshing TV Library...
 
 Plex TV Refreshed.
 
-
-Departed, The (2006)
-Departed, The (2006) already at destination
-
-Nothing moved - no need to refresh! None!
-
-Bon Iver - I Can't Make You Love Me _ Nick of Time-Q3VjaCy5gck.opus
-/home/ndo/ftp/files/torrentcomplete/music/Bon Iver - I Can't Make You Love Me _ Nick of Time-Q3VjaCy5gck.opus moved
-JAY-Z
-/home/ndo/ftp/files/torrentcomplete/music/JAY-Z moved
-
-Refreshing Music Library...
-
-Plex Music Refreshed.
+No Movie Content to Upload.. None!
+No Music Content to Upload.. None!
 
 Upload script complete!
