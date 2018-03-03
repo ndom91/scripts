@@ -1,6 +1,6 @@
 Beginning content upload to Plex.
 
-03-03-2018 13:41
+03-03-2018 23:41
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -13,14 +13,19 @@ Nothing moved, no need to refresh! None!
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Movies empty, nothing to upload.. None!
+'Bridge of Spies (2015)' already at destination. Not moving.
+
+Nothing moved, no need to refresh! None!
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Music empty, nothing to upload.. None!
+'Cœur de pirate' already at destination
+
+Nothing moved, no need to refresh! None!
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 rclone upload complete!
 
-127 milliseconds
+296 milliseconds
