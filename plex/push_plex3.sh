@@ -40,6 +40,10 @@ for pid in $(pidof -x push_plex.sh); do
 done
 
 echo "Beginning content upload to Plex."
+echo "$CURDATE"
+echo ""
+
+echo "###################################"
 echo ""
 
 ##########
@@ -49,8 +53,7 @@ echo ""
 # Check if dir is empty
 
 if [ -z "$(ls -A $TV_DIR)" ]; then
-   echo ""
-   echo "TV folder empty, nothing to upload.. None!"
+	echo "TV folder empty, nothing to upload.. None!"
 else
 	# If its not empty, put subdirs into array
 
@@ -60,7 +63,6 @@ else
 
 		for file in "${TV_ARRAY[$i]}"/*; do 
 			TV_BASE=$(basename "$file")
-			echo ""
 			dir=$(basename "${TV_ARRAY[$i]}")
 
 			# check individual TV show folders, if they've got content move on
@@ -88,7 +90,7 @@ else
 
 				# TV show folder is empty
 
-				echo "$file is empty. moving on.."
+				echo "$dir is empty. moving on.."
 				break && break
 			fi
 		done
@@ -100,16 +102,18 @@ else
 
 		if (( tv_counter > 0 )); then
 			echo ""
-			sleep 60
+			sleep 90
 			echo "Refreshing TV Library..."
 			curl http://ndo2.iamnico.xyz:32400/library/sections/6/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm >> /dev/null 2>&1
-			echo ""
 			echo "Plex TV Refreshed."
 		else
-			echo "Nothing moved - no need to refresh! None!"
 			echo ""
+			echo "Nothing moved, no need to refresh! None!"
 		fi
 fi
+
+echo ""
+echo "###################################"
 
 ##############
 # MOVIES
@@ -118,47 +122,49 @@ fi
 # check if movie dir is empty, if yes skip movies
 
 if [ -z "$(ls -A $MOV_DIR)" ]; then
-  echo ""
-  echo "Movie folder empty, nothing to upload.. None!"
+	echo ""
+	echo "Movies empty, nothing to upload.. None!"
 else
-  echo ""
+	echo ""
 
-  # if not empty, add all contents to array
+	# if not empty, add all contents to array
 
-  for (( i = 0 ; i < "${#MOV_ARRAY[@]}"; i++ )); do
+	for (( i = 0 ; i < "${#MOV_ARRAY[@]}"; i++ )); do
 	MOV_MATCH=$(basename "${MOV_ARRAY[$i]}")
- 
-	# check if movie file is already at destination
 
-	if [ -d "/mnt/gdrive/plex_enc/movies/$MOV_MATCH" ]; then
-	  echo "$MOV_MATCH already at destination. Not moving."
-	else
+		# check if movie file is already at destination
 
-	  # if not already at dest then rclone move it to GdriveEnc:plex_enc/movies/[basename]
+		if [ -d "/mnt/gdrive/plex_enc/movies/$MOV_MATCH" ]; then
+		  echo "$MOV_MATCH already at destination. Not moving."
+		else
 
-	  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_movie_move_$TIME.log --log-level INFO --drive-chunk-size 16M "$MOV_DIR"/"$MOV_MATCH" GdriveEnc:plex_enc/movies/"$MOV_MATCH"
-	  echo "$MOV_MATCH moved"
-	  mov_counter=$((mov_counter+1))
-	fi
-  done
-  echo ""
+		  # if not already at dest then rclone move it to GdriveEnc:plex_enc/movies/[basename]
 
-  # mov_counter refreshes plex if anything was added -
-  # NOTE: timing still might be off, gdrive/plex doesnt recognize the content
-  #       immediately after its uploaded sometimes: ++sleep
+		  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_movie_move_$TIME.log --log-level INFO --drive-chunk-size 16M "$MOV_DIR"/"$MOV_MATCH" GdriveEnc:plex_enc/movies/"$MOV_MATCH"
+		  echo "$MOV_MATCH moved to GdriveEnc:/plex_enc/movies"
+		  mov_counter=$((mov_counter+1))
+		fi
+	done
+	echo ""
 
-  if (( mov_counter > 0 )); then
-	  sleep 60
+	# mov_counter refreshes plex if anything was added -
+	# NOTE: timing still might be off, gdrive/plex doesnt recognize the content
+	#       immediately after its uploaded sometimes: ++sleep
+
+	if (( mov_counter > 0 )); then
+	  sleep 90
 	  echo "Refreshing Movie Library..."
 	  curl http://ndo2.iamnico.xyz:32400/library/sections/5/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm >> /dev/null 2>&1
-	  echo ""
 	  echo "Plex Movie Refreshed."
-   else
-	  echo "Nothing moved - no need to refresh! None!"
+	else
+	  echo "Nothing moved, no need to refresh! None!"
 	  echo ""
-   fi
+	fi
 
 fi
+
+echo ""
+echo "##########################################"
 
 ################
 # MUSIC
@@ -167,43 +173,45 @@ fi
 # check if music dir is empty, if yes then skip music
 
 if [ -z "$(ls -A $MUS_DIR)" ]; then
-  echo ""
-  echo "Music folder empty, nothing to upload.. None!"
+	echo ""
+	echo "Music empty, nothing to upload.. None!"
 else
-  echo ""
+	echo ""
 
- # if not empty, run all through array of subdirs
+	# if not empty, run all through array of subdirs
 
-  for (( i = 0 ; i < "${#MUS_ARRAY[@]}"; i++ )); do
-	MUS_MATCH=$(basename "${MUS_ARRAY[$i]}")
+	for (( i = 0 ; i < "${#MUS_ARRAY[@]}"; i++ )); do
+		MUS_MATCH=$(basename "${MUS_ARRAY[$i]}")
 
-	# check dest if album already exists at
+			# check dest if album already exists at
 
-	if [ -d "/mnt/gdrive/plex_enc/music/$MUS_MATCH" ]; then
-	  echo "$MUS_MATCH already at destination"
-	else
+			if [ -d "/mnt/gdrive/plex_enc/music/$MUS_MATCH" ]; then
+			  echo "$MUS_MATCH already at destination"
+			else
 
-	  # if it doesnt already exists then rclone move it to GdriveEnc:plex_enc/music/[basename]
+			  # if it doesnt already exists then rclone move it to GdriveEnc:plex_enc/music/[basename]
 
-	  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_music_move_$TIME.log --log-level INFO --drive-chunk-size 16M "$MUS_DIR"/"$MUS_MATCH" GdriveEnc:plex_enc/music/"$MUS_MATCH"
-	  echo "$MUS_MATCH moved"
-	  mus_counter=$((mus_counter+1))
-	fi
-  done
-  echo ""
+			  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_music_move_$TIME.log --log-level INFO --drive-chunk-size 16M "$MUS_DIR"/"$MUS_MATCH" GdriveEnc:plex_enc/music/"$MUS_MATCH"
+			  echo "$MUS_MATCH moved to GdriveEnc:plex_enc/music"
+			  mus_counter=$((mus_counter+1))
+			fi
+	  done
+	  echo ""
 
-  # mus_counter refreshes plex music library if anything was moved
+	# mus_counter refreshes plex music library if anything was moved
 
-  if (( mus_counter > 0 )); then
-	  sleep 60
+	if (( mus_counter > 0 )); then
+	  sleep 90
 	  echo "Refreshing Music Library..."
 	  curl http://ndo2.iamnico.xyz:32400/library/sections/7/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm >> /dev/null 2>&1
-	  echo ""
 	  echo "Plex Music Refreshed."
-   else
-	  echo "Nothing moved - no need to refresh! None!"
-   fi
+	else
+	  echo "Nothing moved, no need to refresh! None!"
+	fi
 fi
+
+echo ""
+echo "##########################################"
 
 # DONE! print $curtime
 
