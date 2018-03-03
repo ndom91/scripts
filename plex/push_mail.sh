@@ -25,8 +25,6 @@ else
         echo "Subject: Plex upload complete - $CURDATE";
 
         echo "$output";) | /usr/sbin/sendmail -oi yo@iamnico.xyz;
-
-
 fi
 
 

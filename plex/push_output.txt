@@ -1,24 +1,26 @@
 Beginning content upload to Plex.
-03-03-2018 12:49
 
-###################################
+03-03-2018 13:41
 
-Adventure Time is empty. moving on..
-Atlanta is empty. moving on..
-Last Week Tonight with John Oliver is empty. moving on..
-The Late Show with Stephen Colbert is empty. moving on..
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+'Adventure Time' is empty. moving on..
+'Atlanta' is empty. moving on..
+'Last Week Tonight with John Oliver' is empty. moving on..
+'The Late Show with Stephen Colbert' is empty. moving on..
 
 Nothing moved, no need to refresh! None!
 
-###################################
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Movies empty, nothing to upload.. None!
 
-##########################################
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Music empty, nothing to upload.. None!
 
-##########################################
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 rclone upload complete!
-03-03-2018 12:49
+
+127 milliseconds
