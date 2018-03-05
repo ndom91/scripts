@@ -17,6 +17,7 @@ push_mail.sh
 mov_adv.sh
 tv_adv.sh
 refreshplex.sh
+push_output.txt
 {% endhighlight %}
 The push scripts work together to move items downloaded and renamed by programs such as **@Couchpotato** or **@Sickbeard** to my encrypted Gdrive via **@rclone**.
 **mov_adv.sh** and **tv_adv.sh** are similar, but do the renaming themselves. These can be used if your managing your plex
@@ -28,7 +29,7 @@ sshfs_ndo0.sh
 sshfs_ndo2.sh
 sshfs_ndo3_ndopi.sh
 {% endhighlight %}
-These are just my standard mount boot scripts I have in here so all my machines can use them easily.
+These are just my standard mount boot scripts I have in here so all my machines can use them easily. 
 
 ## BACKUP
 {% highlight bash linenos %}
@@ -36,15 +37,19 @@ backup.sh
 mail_backup.
 backup_ndo2.sh
 mail_backup_ndo2.sh
+backup_ndo2_daily.sh
+mail_backup_ndo2_daily.sh
 {% endhighlight %}
 Same deal with the backup scripts - all my machines use a slight variation of this to tar and **@rclone** move my backups to my Gdrive.
 
 ## INIT
 {% highlight bash linenos %}
 initsoftware.sh
+software.txt
+xfce4-keyboard-shortcuts.xml
 {% endhighlight %}
 And finally these are just some more random init scripts. There should be some more coming here soon..
-initsoftware is actually for new installs. It will update, download and install my favorite applications.
+initsoftware is actually for new installs. It will update, download and install my favorite applications based on the list in software.txt file. Also I uploaded my xfce keyboard shortcuts so I can push it to all the different machines I use.
 
 Feel free to use how you see fit..
 
