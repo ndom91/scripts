@@ -85,7 +85,7 @@ else
 					# NOT in destination - move to GdriveEnc:plex_enc/tv/[basename]
 
 					/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_tv_move_$TIME.log --log-level INFO --drive-chunk-size 16M "${TV_ARRAY[$i]}" GdriveEnc:plex_enc/tv/"$dir"
-					/usr/bin/rclone rmdir --config /home/ndo/.config/rclone/rclone.conf GdriveEnc:plex_enc/tv/"$dir"
+					rmdir /home/ndo/ftp/files/torrentcomplete/tv/"$dir"
 					echo "'$TV_BASE' moved"
 					tv_counter=$((tv_counter+1))
 				fi
@@ -105,7 +105,7 @@ else
 
 		if (( tv_counter > 0 )); then
 			echo ""
-			sleep 90
+			sleep 120
 			echo "Refreshing TV Library..."
 			curl http://ndo2.iamnico.xyz:32400/library/sections/6/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm >> /dev/null 2>&1
 			echo "Plex TV Refreshed."
@@ -144,7 +144,7 @@ else
 		  # if not already at dest then rclone move it to GdriveEnc:plex_enc/movies/[basename]
 
 		  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_movie_move_$TIME.log --log-level INFO --drive-chunk-size 16M "$MOV_DIR"/"$MOV_MATCH" GdriveEnc:plex_enc/movies/"$MOV_MATCH"
-		  /usr/bin/rclone rmdir --config /home/ndo/.config/rclone/rclone.conf GdriveEnc:plex_enc/tv/"$MOV_MATCH"
+		  rmdir /home/ndo/ftp/files/torrentcomplete/movies/"$MOV_MATCH"
 		  echo "'$MOV_MATCH' moved to GdriveEnc:/plex_enc/movies"
 		  mov_counter=$((mov_counter+1))
 		fi
@@ -156,7 +156,7 @@ else
 	#       immediately after its uploaded sometimes: ++sleep
 
 	if (( mov_counter > 0 )); then
-	  sleep 90
+	  sleep 120
 	  echo "Refreshing Movie Library..."
 	  curl http://ndo2.iamnico.xyz:32400/library/sections/5/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm >> /dev/null 2>&1
 	  echo "Plex Movie Refreshed."
@@ -196,7 +196,7 @@ else
 			  # if it doesnt already exists then rclone move it to GdriveEnc:plex_enc/music/[basename]
 
 			  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_music_move_$TIME.log --log-level INFO --drive-chunk-size 16M "$MUS_DIR"/"$MUS_MATCH" GdriveEnc:plex_enc/music/"$MUS_MATCH"
-			  /usr/bin/rclone rmdir --config /home/ndo/.config/rclone/rclone.conf GdriveEnc:plex_enc/tv/"$MUS_MATCH"
+			  rmdir /home/ndo/ftp/files/torrentcomplete/music/"$MUS_MATCH"
 			  echo "'$MUS_MATCH' moved to GdriveEnc:plex_enc/music"
 			  mus_counter=$((mus_counter+1))
 			fi
@@ -206,7 +206,7 @@ else
 	# mus_counter refreshes plex music library if anything was moved
 
 	if (( mus_counter > 0 )); then
-	  sleep 90
+	  sleep 120
 	  echo "Refreshing Music Library..."
 	  curl http://ndo2.iamnico.xyz:32400/library/sections/7/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm >> /dev/null 2>&1
 	  echo "Plex Music Refreshed."
