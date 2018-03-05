@@ -40,7 +40,7 @@ tar --exclude=/swapfile \
 --exclude=/home/ndo/Downloads \
 --exclude=/home/ndo/ftp/files \
 -cvpzf \
-$DESDIR/$FILENAME $SRCDIR
+$DESDIR/$FILENAME $SRCDIR >> /dev/null 2>&1
 
 ####################################
 # CLEAN UP
@@ -48,9 +48,13 @@ $DESDIR/$FILENAME $SRCDIR
 
 echo "Backup complete. Now moving to Gdrive:/ndoX_backup.."
 
-/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /home/ndo/rclonelogs/backup-$TIME.log --log-level DEBUG $DESDIR/$FILENAME Gdrive:ndoX_backup >> /dev/null
+/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /home/ndo/rclonelogs/backup-$TIME.log --log-level DEBUG $DESDIR/$FILENAME Gdrive:ndoX_backup/weekly >> /dev/null
 
-echo "Move complete, sending mail"
+echo "Move complete, cleaning up"
+
+/usr/bin/rclone delete --config /home/ndo/.config/rclone/rclone.conf --min-age 3w Gdrive:ndoX_backup/weekly/
+
+echo "Clean up complete, sending mail"
 
 /home/ndo/Documents/mail_backup.sh
 

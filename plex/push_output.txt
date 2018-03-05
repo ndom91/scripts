@@ -1,6 +1,6 @@
 Beginning content upload to Plex.
 
-04-03-2018 02:41
+05-03-2018 23:41
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -23,4 +23,4 @@ Music empty, nothing to upload.. None!
 
 rclone upload complete!
 
-62 milliseconds
+51 milliseconds
