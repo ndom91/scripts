@@ -7,12 +7,12 @@ The plex ones, however, are used only on my plex server, but they're relatively 
 
 ## PLEX
 <pre>
-push_plex3.sh<a href="https://github.com/ndom91/scripts/blob/master/plex/push_plex3.sh">[dl]</a>
-[push_mail.sh](https://github.com/ndom91/scripts/blob/master/plex/push_mail.sh)
-mov_adv.sh [dl](https://github.com/ndom91/scripts/blob/master/plex/mov_adv.sh)
-[tv_adv.sh](https://github.com/ndom91/scripts/blob/master/plex/tv_adv.sh)
-[refreshplex.sh](https://github.com/ndom91/scripts/blob/master/mounplexts/refreshplex.sh)
-[push_output.txt](https://github.com/ndom91/scripts/blob/master/plex/push_output.txt) 
+push_plex3.sh<a href="https://github.com/ndom91/scripts/blob/master/plex/push_plex3.sh"> [dl]</a>
+[push_mail.sh](https://github.com/ndom91/scripts/blob/master/plex/push_mail.sh"> [dl]</a>
+mov_adv.sh [dl](https://github.com/ndom91/scripts/blob/master/plex/mov_adv.sh"> [dl]</a>
+[tv_adv.sh](https://github.com/ndom91/scripts/blob/master/plex/tv_adv.sh"> [dl]</a>
+[refreshplex.sh](https://github.com/ndom91/scripts/blob/master/mounplexts/refreshplex.sh"> [dl]</a>
+[push_output.txt](https://github.com/ndom91/scripts/blob/master/plex/push_output.txt"> [dl]</a> 
 </pre>
 The push scripts work together to move items downloaded and renamed by programs such as [@Couchpotato](https://github.com/CouchPotato/CouchPotatoServer) or [@Sickrage](https://github.com/SickRage/SickRage) to my encrypted Gdrive via [@rclone](https://github.com/ncw/rclone). 
 **mov_adv.sh** and **tv_adv.sh** are similar, but do the renaming themselves. These can be used if your managing your plex
@@ -20,15 +20,15 @@ system on your own, downloading files and upload / adding without the aid of any
 
 ## MOUNTS
 ~~~ bash
-[sshfs_ndo0.sh](https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo0.sh)
-[sshfs_ndo2.sh](https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo2.sh)
-[sshfs_ndo3_ndopi.sh](https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo3_ndopi.sh)
+sshfs_ndo0.sh<a href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo0.sh"> [dl]</a>
+sshfs_ndo2.sh<a href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo2.sh"> [dl]</a>
+sshfs_ndo3_ndopi.sh<a href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo3_ndopi.sh"> [dl]</a>
 ~~~ 
 These are just my standard mount boot scripts I have in here so all my machines can use them easily. 
 
 ## BACKUP
 {% highlight bash linenos %}
-[backup.sh](https://github.com/ndom91/scripts/blob/master/backup/backup.sh)
+backup.sh <a href="https://github.com/ndom91/scripts/blob/master/backup/backup.sh)
 [mail_backup.sh](https://github.com/ndom91/scripts/blob/master/backup/mail_backup.sh)
 [backup_ndo2.sh](https://github.com/ndom91/scripts/blob/master/backup/backup_ndo2.sh)
 [mail_backup_ndo2.sh](https://github.com/ndom91/scripts/blob/master/backup/mail_backup_ndo2.sh)
