@@ -2,14 +2,14 @@
 pre {
   font-family: monospace;
   width: em(440);
-  margin: 4em auto;
-  padding: 0.5em;
+  margin: 2em auto;
+  padding: 0 0.5em;
   border-radius: .25em;
   counter-reset: line;
 }
 
 pre span {
-    line-height: 1.5rem;
+    line-height: 1.0rem;
 }
 
 pre span:before {
