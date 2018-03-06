@@ -6,12 +6,12 @@ The plex ones, however, are used only on my plex server, but they're relatively 
 
 ## PLEX
 <pre>
-<span>push_plex3.sh <a href="https://github.com/ndom91/scripts/blob/master/plex/push_plex3.sh">[dl]</a></span>
-<span>push_mail.sh <a href="https://github.com/ndom91/scripts/blob/master/plex/push_mail.sh">[dl]</a></span>
-<span>mov_adv.sh <a href="https://github.com/ndom91/scripts/blob/master/plex/mov_adv.sh">[dl]</a></span>
-<span>tv_adv.sh <a href="https://github.com/ndom91/scripts/blob/master/plex/tv_adv.sh">[dl]</a></span>
-<span>refreshplex.sh <a href="https://github.com/ndom91/scripts/blob/master/mounplexts/refreshplex.sh">[dl]</a></span>
-<span>push_output.txt <a href="https://github.com/ndom91/scripts/blob/master/plex/push_output.txt">[dl]</a></span>
+<span>push_plex3.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/plex/push_plex3.sh">[dl]</a></span>
+<span>push_mail.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/plex/push_mail.sh">[dl]</a></span>
+<span>mov_adv.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/plex/mov_adv.sh">[dl]</a></span>
+<span>tv_adv.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/plex/tv_adv.sh">[dl]</a></span>
+<span>refreshplex.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/mounplexts/refreshplex.sh">[dl]</a></span>
+<span>push_output.txt <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/plex/push_output.txt">[dl]</a></span>
 </pre>
 The push scripts work together to move items downloaded and renamed by programs such as [@Couchpotato](https://github.com/CouchPotato/CouchPotatoServer) or [@Sickrage](https://github.com/SickRage/SickRage) to my encrypted Gdrive via [@rclone](https://github.com/ncw/rclone). 
 **mov_adv.sh** and **tv_adv.sh** are similar, but do the renaming themselves. These can be used if your managing your plex
