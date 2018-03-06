@@ -1,5 +1,5 @@
 
-.content {
+pre {
   font-family: monospace;
   width: em(440);
   margin: 2em auto;
@@ -8,11 +8,11 @@
   counter-reset: line;
 }
 
-.content span {
+pre span {
     line-height: 1.0rem;
 }
 
-.content span:before {
+pre span:before {
     counter-increment: line;
     content: counter(line);
     display: inline-block;
