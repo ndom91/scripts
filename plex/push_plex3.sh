@@ -19,9 +19,9 @@ TV_DIR=/home/ndo/ftp/files/torrentcomplete/tv
 MOV_DIR=/home/ndo/ftp/files/torrentcomplete/movies
 MUS_DIR=/home/ndo/ftp/files/torrentcomplete/music
 
-TV_ARRAY=(/home/ndo/ftp/files/torrentcomplete/tv/*) 
-MOV_ARRAY=(/home/ndo/ftp/files/torrentcomplete/movies/*) 
-MUS_ARRAY=(/home/ndo/ftp/files/torrentcomplete/music/*) 
+TV_ARRAY=(/home/ndo/ftp/files/torrentcomplete/tv/*)
+MOV_ARRAY=(/home/ndo/ftp/files/torrentcomplete/movies/*)
+MUS_ARRAY=(/home/ndo/ftp/files/torrentcomplete/music/*)
 
 tv_counter=0
 mov_counter=0
@@ -61,7 +61,7 @@ else
 
 		# for each item in array grab the basename (TV Show)
 
-		for file in "${TV_ARRAY[$i]}"/*; do 
+		for file in "${TV_ARRAY[$i]}"/*; do
 			TV_BASE=$(basename "$file")
 			dir=$(basename "${TV_ARRAY[$i]}")
 
@@ -97,7 +97,7 @@ else
 		done
 	done
 
-		# tv_counter refreshes plex if anything was added - 
+		# tv_counter refreshes plex if anything was added -
 		# NOTE: timing still might be off, gdrive/plex doesnt recognize the content
 		#       immediately after its uploaded sometimes: ++sleep
 
@@ -223,5 +223,9 @@ DIFFTIME2=$(date '+%s%N')
 echo ""
 echo "rclone upload complete!"
 echo ""
-
-echo $(( ( DIFFTIME2 - DIFFTIME1 )/(1000000) )) "milliseconds"
+DIFFTIME_MILLI=$(( ( DIFFTIME2 - DIFFTIME1 )/(1000000) ))
+if (( DIFFTIME_MILLI > 10000 )); then
+    echo $(( ($DIFFTIME_MILLI / 1000) / 60 ))
+  else
+    echo $DIFFTIME_MILLI "milliseconds"
+fi
