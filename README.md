@@ -14,12 +14,12 @@ push_plex3.sh[dl](https://github.com/ndom91/scripts/blob/master/plex/push_plex3.
 [refreshplex.sh](https://github.com/ndom91/scripts/blob/master/mounplexts/refreshplex.sh)
 [push_output.txt](https://github.com/ndom91/scripts/blob/master/plex/push_output.txt)
 ~~~ 
-The push scripts work together to move items downloaded and renamed by programs such as [**@Couchpotato**](https://github.com/CouchPotato/CouchPotatoServer) or [**@Sickrage**](https://github.com/SickRage/SickRage) to my encrypted Gdrive via [**@rclone**](https://github.com/ncw/rclone). 
+The push scripts work together to move items downloaded and renamed by programs such as [**@Couchpotato**](https://github.com/CouchPotato/CouchPotatoServer) or [@Sickrage](https://github.com/SickRage/SickRage) to my encrypted Gdrive via [**@rclone**](https://github.com/ncw/rclone). 
 **mov_adv.sh** and **tv_adv.sh** are similar, but do the renaming themselves. These can be used if your managing your plex
 system on your own, downloading files and upload / adding without the aid of any sort of program.
 
 ## MOUNTS
-~~~ console
+~~~ bash
 [sshfs_ndo0.sh](https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo0.sh)
 [sshfs_ndo2.sh](https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo2.sh)
 [sshfs_ndo3_ndopi.sh](https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo3_ndopi.sh)
