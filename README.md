@@ -6,13 +6,14 @@ The plex ones, however, are used only on my plex server, but they're relatively 
 
 
 ## PLEX
-
-> push_plex3.sh <a href="https://github.com/ndom91/scripts/blob/master/plex/push_plex3.sh">[dl]</a><br>
-> push_mail.sh <a href="https://github.com/ndom91/scripts/blob/master/plex/push_mail.sh">[dl]</a><br>
-> mov_adv.sh <a href="https://github.com/ndom91/scripts/blob/master/plex/mov_adv.sh">[dl]</a><br>
-> tv_adv.sh <a href="https://github.com/ndom91/scripts/blob/master/plex/tv_adv.sh">[dl]</a><br>
-> refreshplex.sh <a href="https://github.com/ndom91/scripts/blob/master/mounplexts/refreshplex.sh">[dl]</a><br>
-> push_output.txt <a href="https://github.com/ndom91/scripts/blob/master/plex/push_output.txt">[dl]</a>
+<pre>
+<span>push_plex3.sh <a href="https://github.com/ndom91/scripts/blob/master/plex/push_plex3.sh">[dl]</a></span>
+<span>push_mail.sh <a href="https://github.com/ndom91/scripts/blob/master/plex/push_mail.sh">[dl]</a></span>
+<span>mov_adv.sh <a href="https://github.com/ndom91/scripts/blob/master/plex/mov_adv.sh">[dl]</a></span>
+<span>tv_adv.sh <a href="https://github.com/ndom91/scripts/blob/master/plex/tv_adv.sh">[dl]</a></span>
+<span>refreshplex.sh <a href="https://github.com/ndom91/scripts/blob/master/mounplexts/refreshplex.sh">[dl]</a></span>
+<span>push_output.txt <a href="https://github.com/ndom91/scripts/blob/master/plex/push_output.txt">[dl]</a></span>
+</pre>
 
 The push scripts work together to move items downloaded and renamed by programs such as [@Couchpotato](https://github.com/CouchPotato/CouchPotatoServer) or [@Sickrage](https://github.com/SickRage/SickRage) to my encrypted Gdrive via [@rclone](https://github.com/ncw/rclone). 
 **mov_adv.sh** and **tv_adv.sh** are similar, but do the renaming themselves. These can be used if your managing your plex
@@ -30,28 +31,35 @@ These are just my standard mount boot scripts I have in here so all my machines 
 
 ## BACKUP
 
-> backup.sh <a href="https://github.com/ndom91/scripts/blob/master/backup/backup.sh">[dl]</a><br>
-> mail_backup.sh <a href="https://github.com/ndom91/scripts/blob/master/backup/mail_backup.sh">[dl]</a><br>
-> backup_ndo2.sh <a href="https://github.com/ndom91/scripts/blob/master/backup/backup_ndo2.sh">[dl]</a><br>
-> mail_backup_ndo2.sh <a href="https://github.com/ndom91/scripts/blob/master/backup/mail_backup_ndo2.sh">[dl]</a><br>
-> backup_ndo2_daily.sh <a href="https://github.com/ndom91/scripts/blob/master/backup/backup_ndo2_daily.sh">[dl]</a><br>
-> mail_backup_ndo2_daily.sh <a href="https://github.com/ndom91/scripts/blob/master/backup/mail_backup_ndo2_daily.sh"> [dl]</a>
+<pre>
+<span>backup.sh <a href="https://github.com/ndom91/scripts/blob/master/backup/backup.sh">[dl]</a></span>
+<span>mail_backup.sh <a href="https://github.com/ndom91/scripts/blob/master/backup/mail_backup.sh">[dl]</a></span>
+<span>backup_ndo2.sh <a href="https://github.com/ndom91/scripts/blob/master/backup/backup_ndo2.sh">[dl]</a></span>
+<span>mail_backup_ndo2.sh <a href="https://github.com/ndom91/scripts/blob/master/backup/mail_backup_ndo2.sh">[dl]</a></span>
+<span>backup_ndo2_daily.sh <a href="https://github.com/ndom91/scripts/blob/master/backup/backup_ndo2_daily.sh">[dl]</a></span>
+<span>mail_backup_ndo2_daily.sh <a href="https://github.com/ndom91/scripts/blob/master/backup/mail_backup_ndo2_daily.sh"> [dl]</a></span>
+</pre>
+
 
 Same deal with the backup scripts - all my machines use a slight variation of this to tar and [@rclone](https://github.com/ncw/rclone) move my backups to my Gdrive.
 
 ## INIT
 
-> initsoftware.sh <a href="https://github.com/ndom91/scripts/blob/master/init/initsoftware.sh">[dl]</a><br>
-> software.txt <a href="https://github.com/ndom91/scripts/blob/master/init/software.txt">[dl]</a><br>
-> xfce4-keyboard-shortcuts.xml <a href="https://github.com/ndom91/scripts/blob/master/init/xfce4-keyboard-shortcuts.xml">[dl]</a><br>
+<pre>
+<span>initsoftware.sh <a href="https://github.com/ndom91/scripts/blob/master/init/initsoftware.sh">[dl]</a></span>
+<span>software.txt <a href="https://github.com/ndom91/scripts/blob/master/init/software.txt">[dl]</a></span>
+<span>xfce4-keyboard-shortcuts.xml <a href="https://github.com/ndom91/scripts/blob/master/init/xfce4-keyboard-shortcuts.xml">[dl]</a></span>
+</pre>
 
 These are just some more random init scripts. There should be some more coming here soon..
 initsoftware is for fresh OS installs. It will update, download and install my favorite applications based on the list [software.txt]. Also I uploaded my xfce keyboard shortcuts here so I can push it to the various workstations I regularly use.
 
 ## SYS
 
-> lynis_mail.sh <a href="https://github.com/ndom91/scripts/blob/master/init/initsoftware.sh">[dl]</a><br>
-> mailtemp.txt <a href="https://github.com/ndom91/scripts/blob/master/init/software.txt">[dl]</a>
+<pre>
+<span>lynis_mail.sh <a href="https://github.com/ndom91/scripts/blob/master/init/initsoftware.sh">[dl]</a></span>
+<span>mailtemp.txt <a href="https://github.com/ndom91/scripts/blob/master/init/software.txt">[dl]</a></span>
+</pre>
 
 Sys contains other system related scripts which include here, for example, a script to autorun the auditing tool **Lynis** and mail the output to myself. Great tool, easy script to automate the whole thing for me!
 
