@@ -1,3 +1,31 @@
+<style>
+  
+pre {
+  font-family: monospace;
+  width: em(440);
+  margin: 4em auto;
+  padding: 0.5em;
+  border-radius: .25em;
+  counter-reset: line;
+}
+
+pre span {
+    line-height: 1.5rem;
+}
+
+pre span:before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    border-right: 1px solid #ddd;
+    padding: 0 .5em;
+    margin-right: .5em;
+    color: #888;
+    -webkit-user-select: none;
+}
+
+</style>
+
 # README
 
 This is the repo for [**ndom91**](https://iamnico.xyz)**'s** common scripts. They're just some simply scripts to save me time and I hope the can maybe do so for others as well!
