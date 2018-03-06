@@ -35,6 +35,8 @@ a:hover {
 }
 a.btn:hover {
   border-bottom: 3px dotted #63c0f5;
+  border-left: : 3px dotted #63c0f5;
+  border-right: 3px dotted #63c0f5;
   border-top: 3px dotted #63c0f5;
   text-decoration: none;
   text-shadow:0 0 5px #63c0f5;
