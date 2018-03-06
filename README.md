@@ -6,7 +6,7 @@ The plex ones, however, are used only on my plex server, but they're relatively 
 
 
 ## PLEX
-~~~ console
+~~~ sh
 [push_plex3.sh](https://github.com/ndom91/scripts/blob/master/plex/push_plex3.sh)
 [push_mail.sh](https://github.com/ndom91/scripts/blob/master/plex/push_mail.sh)
 [mov_adv.sh](https://github.com/ndom91/scripts/blob/master/plex/mov_adv.sh)
@@ -19,7 +19,7 @@ The push scripts work together to move items downloaded and renamed by programs 
 system on your own, downloading files and upload / adding without the aid of any sort of program.
 
 ## MOUNTS
-~~~ bash
+~~~ shell
 [sshfs_ndo0.sh](https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo0.sh)
 [sshfs_ndo2.sh](https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo2.sh)
 [sshfs_ndo3_ndopi.sh](https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo3_ndopi.sh)
