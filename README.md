@@ -7,7 +7,7 @@ The plex ones, however, are used only on my plex server, but they're relatively 
 
 ## PLEX
 <pre>
-push_plex3.sh [(dl)](https://github.com/ndom91/scripts/blob/master/plex/push_plex3.sh) 
+<a href="https://github.com/ndom91/scripts/blob/master/plex/push_plex3.sh">push_plex3.sh</a>
 [push_mail.sh](https://github.com/ndom91/scripts/blob/master/plex/push_mail.sh)
 mov_adv.sh [dl](https://github.com/ndom91/scripts/blob/master/plex/mov_adv.sh)
 [tv_adv.sh](https://github.com/ndom91/scripts/blob/master/plex/tv_adv.sh)
