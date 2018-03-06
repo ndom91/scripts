@@ -19,38 +19,38 @@ system on your own, downloading files and upload / adding without the aid of any
 
 ## MOUNTS
 <pre>
-<span>sshfs_ndo0.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo0.sh">[dl]</a></span>
-<span>sshfs_ndo2.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo2.sh">[dl]</a></span>
-<span>sshfs_ndo3_ndopi.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo3_ndopi.sh">[dl]</a></span>
+<span>sshfs_ndo0.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo0.sh">[DL]</a></span>
+<span>sshfs_ndo2.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo2.sh">[DL]</a></span>
+<span>sshfs_ndo3_ndopi.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo3_ndopi.sh">[DL]</a></span>
 </pre>
 These are just my standard mount boot scripts I have in here so all my machines can use them easily. 
 
 ## BACKUP
 <pre>
-<span>backup.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/backup/backup.sh">[dl]</a></span>
-<span>mail_backup.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/backup/mail_backup.sh">[dl]</a></span>
-<span>backup_ndo2.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/backup/backup_ndo2.sh">[dl]</a></span>
-<span>mail_backup_ndo2.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/backup/mail_backup_ndo2.sh">[dl]</a></span>
-<span>backup_ndo2_daily.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/backup/backup_ndo2_daily.sh">[dl]</a></span>
-<span>mail_backup_ndo2_daily.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/backup/mail_backup_ndo2_daily.sh"> [dl]</a></span>
+<span>backup.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/backup/backup.sh">[DL]</a></span>
+<span>mail_backup.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/backup/mail_backup.sh">[DL]</a></span>
+<span>backup_ndo2.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/backup/backup_ndo2.sh">[DL]</a></span>
+<span>mail_backup_ndo2.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/backup/mail_backup_ndo2.sh">[DL]</a></span>
+<span>backup_ndo2_daily.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/backup/backup_ndo2_daily.sh">[DL]</a></span>
+<span>mail_backup_ndo2_daily.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/backup/mail_backup_ndo2_daily.sh"> [DL]</a></span>
 </pre>
 Same deal with the backup scripts - all my machines use a slight variation of this to tar and [@rclone](https://github.com/ncw/rclone) move my backups to my Gdrive.
 
 ## INIT
 <pre>
-<span>initsoftware.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/init/initsoftware.sh">[dl]</a></span>
-<span>software.txt <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/init/software.txt">[dl]</a></span>
-<span>xfce4-keyboard-shortcuts.xml <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/init/xfce4-keyboard-shortcuts.xml">[dl]</a></span>
+<span>initsoftware.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/init/initsoftware.sh">[DL]</a></span>
+<span>software.txt <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/init/software.txt">[DL]</a></span>
+<span>xfce4-keyboard-shortcuts.xml <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/init/xfce4-keyboard-shortcuts.xml">[DL]</a></span>
 </pre>
 These are just some more random init scripts. There should be some more coming here soon..
 initsoftware is for fresh OS installs. It will update, download and install my favorite applications based on the list [software.txt]. Also I uploaded my xfce keyboard shortcuts here so I can push it to the various workstations I regularly use.
 
 ## SYS
 <pre>
-<span>lynis_mail.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/init/initsoftware.sh">[dl]</a></span>
-<span>mailtemp.txt <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/init/software.txt">[dl]</a></span>
+<span>lynis_mail.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/init/initsoftware.sh">[DL]</a></span>
+<span>mailtemp.txt <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/init/software.txt">[DL]</a></span>
 </pre>
-SYS contains other system related scripts which include here, for example, a script to autorun the auditing tool **Lynis** and mail the output to myself. Great tool, easy script to automate the whole thing for me!
+SYS contains other system related scripts which include here, for example, a script to autorun the auditing tool [@Lynis](https://cisofy.com/lynis/) and mail the output to myself. Great tool, easy script to automate the whole thing for me!
 
 Feel free to use how you see fit..
 
