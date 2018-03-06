@@ -12,8 +12,6 @@
 # VARIABLES
 ###################
 
-MAILTO="yo@iamnico.xyz"
-
 TIME=$(date '+%d%m%Y')
 CURDATE1=$(date '+%d-%m-%Y %H:%M')
 DIFFTIME1=$(date '+%s%N')
@@ -34,7 +32,7 @@ mus_counter=0
 #######################################
 
 for pid in $(pidof -x push_plex.sh); do
-    if [ $pid != $$ ]; then
+    if [ "$pid" != $$ ]; then
         echo "[$(date)] : push_plex.sh : Process is already running with PID $pid"
         exit 1
     fi
@@ -84,7 +82,7 @@ else
 
 					# NOT in destination - move to GdriveEnc:plex_enc/tv/[basename]
 
-					/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_tv_move_$TIME.log --log-level INFO --drive-chunk-size 16M "${TV_ARRAY[$i]}" GdriveEnc:plex_enc/tv/"$dir"
+					/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_tv_move_"$TIME".log --log-level INFO --drive-chunk-size 16M "${TV_ARRAY[$i]}" GdriveEnc:plex_enc/tv/"$dir"
 					rmdir /home/ndo/ftp/files/torrentcomplete/tv/"$dir"
 					echo "'$TV_BASE' moved"
 					tv_counter=$((tv_counter+1))
@@ -143,7 +141,7 @@ else
 
 		  # if not already at dest then rclone move it to GdriveEnc:plex_enc/movies/[basename]
 
-		  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_movie_move_$TIME.log --log-level INFO --drive-chunk-size 16M "$MOV_DIR"/"$MOV_MATCH" GdriveEnc:plex_enc/movies/"$MOV_MATCH"
+		  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_movie_move_"$TIME".log --log-level INFO --drive-chunk-size 16M "$MOV_DIR"/"$MOV_MATCH" GdriveEnc:plex_enc/movies/"$MOV_MATCH"
 		  rmdir /home/ndo/ftp/files/torrentcomplete/movies/"$MOV_MATCH"
 		  echo "'$MOV_MATCH' moved to GdriveEnc:/plex_enc/movies"
 		  mov_counter=$((mov_counter+1))
@@ -195,7 +193,7 @@ else
 
 			  # if it doesnt already exists then rclone move it to GdriveEnc:plex_enc/music/[basename]
 
-			  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_music_move_$TIME.log --log-level INFO --drive-chunk-size 16M "$MUS_DIR"/"$MUS_MATCH" GdriveEnc:plex_enc/music/"$MUS_MATCH"
+			  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_music_move_"$TIME".log --log-level INFO --drive-chunk-size 16M "$MUS_DIR"/"$MUS_MATCH" GdriveEnc:plex_enc/music/"$MUS_MATCH"
 			  rmdir /home/ndo/ftp/files/torrentcomplete/music/"$MUS_MATCH"
 			  echo "'$MUS_MATCH' moved to GdriveEnc:plex_enc/music"
 			  mus_counter=$((mus_counter+1))
@@ -220,11 +218,10 @@ echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
 # DONE! print $CURDATE and diff the begin and end times
 
-CURDATE2=$(date '+%d-%m-%Y %H:%M')
 DIFFTIME2=$(date '+%s%N')
 
 echo ""
 echo "rclone upload complete!"
 echo ""
 
-echo $(( ( $DIFFTIME2 - $DIFFTIME1 )/(1000000) )) "milliseconds"
+echo $(( ( DIFFTIME2 - DIFFTIME1 )/(1000000) )) "milliseconds"
