@@ -6,15 +6,15 @@ The plex ones, however, are used only on my plex server, but they're relatively 
 
 
 ## PLEX
-~~~ console
+~~~ ruby
 push_plex3.sh[dl](https://github.com/ndom91/scripts/blob/master/plex/push_plex3.sh)
 [push_mail.sh](https://github.com/ndom91/scripts/blob/master/plex/push_mail.sh)
 [mov_adv.sh](https://github.com/ndom91/scripts/blob/master/plex/mov_adv.sh)
 [tv_adv.sh](https://github.com/ndom91/scripts/blob/master/plex/tv_adv.sh)
 [refreshplex.sh](https://github.com/ndom91/scripts/blob/master/mounplexts/refreshplex.sh)
 [push_output.txt](https://github.com/ndom91/scripts/blob/master/plex/push_output.txt)
-~~~ 
-The push scripts work together to move items downloaded and renamed by programs such as [**@Couchpotato**](https://github.com/CouchPotato/CouchPotatoServer) or [@Sickrage](https://github.com/SickRage/SickRage) to my encrypted Gdrive via [**@rclone**](https://github.com/ncw/rclone). 
+~~~
+The push scripts work together to move items downloaded and renamed by programs such as [@Couchpotato](https://github.com/CouchPotato/CouchPotatoServer) or [@Sickrage](https://github.com/SickRage/SickRage) to my encrypted Gdrive via [@rclone](https://github.com/ncw/rclone). 
 **mov_adv.sh** and **tv_adv.sh** are similar, but do the renaming themselves. These can be used if your managing your plex
 system on your own, downloading files and upload / adding without the aid of any sort of program.
 
@@ -35,7 +35,7 @@ These are just my standard mount boot scripts I have in here so all my machines 
 [backup_ndo2_daily.sh](https://github.com/ndom91/scripts/blob/master/backup/backup_ndo2_daily.sh)
 [mail_backup_ndo2_daily.sh](https://github.com/ndom91/scripts/blob/master/backup/mail_backup_ndo2_daily.sh)
 {% endhighlight %}
-Same deal with the backup scripts - all my machines use a slight variation of this to tar and [**@rclone**](https://github.com/ncw/rclone) move my backups to my Gdrive.
+Same deal with the backup scripts - all my machines use a slight variation of this to tar and [@rclone](https://github.com/ncw/rclone) move my backups to my Gdrive.
 
 ## INIT
 {% highlight bash linenos %}
