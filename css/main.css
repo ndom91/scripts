@@ -22,3 +22,7 @@ pre span:before {
     color: #888;
     -webkit-user-select: none;
 }
+
+a {
+   text-decoration: none;
+}
