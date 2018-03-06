@@ -1,4 +1,3 @@
-w
 # README
 
 This is the repo for [**ndom91**](https://iamnico.xyz)**'s** common scripts. They're just some simply scripts to save me time and I hope the can maybe do so for others as well!
