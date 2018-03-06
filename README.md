@@ -20,7 +20,7 @@ system on your own, downloading files and upload / adding without the aid of any
 
 ## MOUNTS
 {% highlight bash linenos %}
-sshfs_ndo0.sh
+![sshfs_ndo0.sh](https://github.com/ndom91/scripts/blob/master/plex/push_mail.sh)
 sshfs_ndo2.sh
 sshfs_ndo3_ndopi.sh
 {% endhighlight %}
