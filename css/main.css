@@ -26,3 +26,8 @@ pre span:before {
 a {
    text-decoration: none;
 }
+
+a:hover {
+  border-bottom: 3px dotted #29bf12;
+  text-decoration: none;
+}
