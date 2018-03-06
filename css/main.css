@@ -24,11 +24,12 @@ pre span:before {
 }
 
 a {
-   text-decoration: none;
+  color: #b5e853;
+  text-decoration: none;
 }
 
 a:hover {
-  border-bottom: 3px dotted #b5e853;
+  border-bottom: 3px dotted #63c0f5;
   text-decoration: none;
-  text-shadow:0 0 5px #b5e853;
+  text-shadow:0 0 5px #63c0f5;
 }
