@@ -20,11 +20,11 @@ system on your own, downloading files and upload / adding without the aid of any
 
 ## MOUNTS
 
-<pre>
+<div class="content">
 <span>sshfs_ndo0.sh <a href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo0.sh">[dl]</a></span>
 <span>sshfs_ndo2.sh <a href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo2.sh">[dl]</a></span>
 <span>sshfs_ndo3_ndopi.sh <a href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo3_ndopi.sh">[dl]</a></span>
-</pre>
+</div>
 
 These are just my standard mount boot scripts I have in here so all my machines can use them easily. 
 
