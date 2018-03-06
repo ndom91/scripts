@@ -47,8 +47,8 @@ initsoftware is for fresh OS installs. It will update, download and install my f
 
 ## SYS
 <pre>
-<span>lynis_mail.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/init/initsoftware.sh">[DL]</a></span>
-<span>mailtemp.txt <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/init/software.txt">[DL]</a></span>
+<span>lynis_mail.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/sys/lynis_mail.sh">[DL]</a></span>
+<span>mailtemp.txt <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/sys/mailtemp.txt">[DL]</a></span>
 </pre>
 The folder **sys** contains other system related scripts which include here, for example, a script to autorun the auditing tool [@Lynis](https://cisofy.com/lynis/) and mail the output to myself. Great tool, easy script to automate the whole thing for me!
 
