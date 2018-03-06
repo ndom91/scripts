@@ -1,19 +1,19 @@
 # README
 
-This is the repo for [**ndom91's**](https://iamnico.xyz) common scripts. They're just some simply scripts to save me time and I hope the can maybe do so for others as well!
+This is the repo for [**ndom91**](https://iamnico.xyz)**'s** common scripts. They're just some simply scripts to save me time and I hope the can maybe do so for others as well!
 These are primarily just for sharing among my machines because they're generally used by me on all of them.
 The plex ones, however, are used only on my plex server, but they're relatively complex compared to the rest so I figured I'd share them incase anyone else could use some rclone upload scripts for plex or kodi or something similar.
 
 
 ## PLEX
-~~~ ruby
+<big><pre>
 **void** push_plex3.sh[dl](https://github.com/ndom91/scripts/blob/master/plex/push_plex3.sh) **const**
 **void** [push_mail.sh](https://github.com/ndom91/scripts/blob/master/plex/push_mail.sh)
 [mov_adv.sh](https://github.com/ndom91/scripts/blob/master/plex/mov_adv.sh)
 [tv_adv.sh](https://github.com/ndom91/scripts/blob/master/plex/tv_adv.sh)
 [refreshplex.sh](https://github.com/ndom91/scripts/blob/master/mounplexts/refreshplex.sh)
 [push_output.txt](https://github.com/ndom91/scripts/blob/master/plex/push_output.txt) **const**
-~~~
+</pre></big>
 The push scripts work together to move items downloaded and renamed by programs such as [@Couchpotato](https://github.com/CouchPotato/CouchPotatoServer) or [@Sickrage](https://github.com/SickRage/SickRage) to my encrypted Gdrive via [@rclone](https://github.com/ncw/rclone). 
 **mov_adv.sh** and **tv_adv.sh** are similar, but do the renaming themselves. These can be used if your managing your plex
 system on your own, downloading files and upload / adding without the aid of any sort of program.
