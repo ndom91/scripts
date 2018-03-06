@@ -61,7 +61,7 @@ initsoftware is for fresh OS installs. It will update, download and install my f
 <span>mailtemp.txt <a href="https://github.com/ndom91/scripts/blob/master/init/software.txt">[dl]</a></span>
 </pre>
 
-Sys contains other system related scripts which include here, for example, a script to autorun the auditing tool **Lynis** and mail the output to myself. Great tool, easy script to automate the whole thing for me!
+SYS contains other system related scripts which include here, for example, a script to autorun the auditing tool **Lynis** and mail the output to myself. Great tool, easy script to automate the whole thing for me!
 
 Feel free to use how you see fit..
 
