@@ -2,8 +2,8 @@
 pre {
   font-family: monospace;
   width: em(440);
-  margin: 5em auto;
-  padding: 0 0.5em;
+  margin: 4em auto;
+  padding: 1em 1.5em;
   border-radius: .25em;
   counter-reset: line;
 }
