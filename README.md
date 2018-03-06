@@ -6,14 +6,14 @@ The plex ones, however, are used only on my plex server, but they're relatively 
 
 
 ## PLEX
-{% highlight bash linenos %}
-(https://github.com/ndom91/scripts/blob/master/plex/push_plex3.sh "push_plex3.sh")
+```console
+[push_plex3.sh](https://github.com/ndom91/scripts/blob/master/plex/push_plex3.sh)
 [push_mail.sh](https://github.com/ndom91/scripts/blob/master/plex/push_mail.sh)
 [mov_adv.sh](https://github.com/ndom91/scripts/blob/master/plex/mov_adv.sh)
 [tv_adv.sh](https://github.com/ndom91/scripts/blob/master/plex/tv_adv.sh)
 [refreshplex.sh](https://github.com/ndom91/scripts/blob/master/mounplexts/refreshplex.sh)
 [push_output.txt](https://github.com/ndom91/scripts/blob/master/plex/push_output.txt)
-{% endhighlight %}
+```
 The push scripts work together to move items downloaded and renamed by programs such as **@Couchpotato** or **@Sickbeard** to my encrypted Gdrive via **@rclone**.
 **mov_adv.sh** and **tv_adv.sh** are similar, but do the renaming themselves. These can be used if your managing your plex
 system on your own, downloading files and upload / adding without the aid of any sort of program.
