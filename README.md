@@ -6,14 +6,14 @@ The plex ones, however, are used only on my plex server, but they're relatively 
 
 ## PLEX
 <pre>
-<span>push_plex3.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/plex/push_plex3.sh">[DL]</a></span>
+<span><a target="_blank" href="https://github.com/ndom91/scripts/blob/master/plex/push_plex3.sh">push_plex3.sh </a></span>
 <span>push_mail.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/plex/push_mail.sh">[DL]</a></span>
 <span>mov_adv.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/plex/mov_adv.sh">[DL]</a></span>
 <span>tv_adv.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/plex/tv_adv.sh">[DL]</a></span>
 <span>refreshplex.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/mounplexts/refreshplex.sh">[DL]</a></span>
 <span>push_output.txt <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/plex/push_output.txt">[DL]</a></span>
 </pre>
-The push scripts work together to move items downloaded and renamed by programs such as [@Couchpotato](https://github.com/CouchPotato/CouchPotatoServer) or [@Sickrage](https://github.com/SickRage/SickRage) to my encrypted Gdrive via [@rclone](https://github.com/ncw/rclone). 
+The push scripts work together to move items downloaded and renamed by programs such as [@Couchpotato](https://github.com/CouchPotato/CouchPotatoServer) or [@Sickrage](https://github.com/SickRage/SickRage) to my encrypted Gdrive via [@rclone](https://github.com/ncw/rclone).
 **mov_adv.sh** and **tv_adv.sh** are similar, but do the renaming themselves. These can be used if your managing your plex
 system on your own, downloading files and upload / adding without the aid of any sort of program.
 
@@ -23,7 +23,7 @@ system on your own, downloading files and upload / adding without the aid of any
 <span>sshfs_ndo2.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo2.sh">[DL]</a></span>
 <span>sshfs_ndo3_ndopi.sh <a target="_blank" href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo3_ndopi.sh">[DL]</a></span>
 </pre>
-These are just my standard mount boot scripts I have in here so all my machines can use them easily. 
+These are just my standard mount boot scripts I have in here so all my machines can use them easily.
 
 ## BACKUP
 <pre>
