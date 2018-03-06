@@ -21,8 +21,8 @@ system on your own, downloading files and upload / adding without the aid of any
 ## MOUNTS
 
 <pre>
-<span>sshfs_ndo0.sh <a href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo0.sh">[dl]</a><br></span>
-<span>sshfs_ndo2.sh <a href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo2.sh">[dl]</a><br></span>
+<span>sshfs_ndo0.sh <a href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo0.sh">[dl]</a></span>
+<span>sshfs_ndo2.sh <a href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo2.sh">[dl]</a></span>
 <span>sshfs_ndo3_ndopi.sh <a href="https://github.com/ndom91/scripts/blob/master/mounts/sshfs_ndo3_ndopi.sh">[dl]</a></span>
 </pre>
 
