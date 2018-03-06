@@ -1,6 +1,4 @@
 theme: jekyll-theme-hacker
-title: ndo script repo [github]
-description: ndo scripts
 defaults:
   -
     scope:
