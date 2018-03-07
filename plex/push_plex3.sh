@@ -223,9 +223,11 @@ DIFFTIME2=$(date '+%s%N')
 echo ""
 echo "rclone upload complete!"
 echo ""
+echo $DIFFTIME2
+echo ""
 DIFFTIME_MILLI=$(( ( DIFFTIME2 - DIFFTIME1 )/(1000000) ))
 if (( DIFFTIME_MILLI > 10000 )); then
-    echo $(( ($DIFFTIME_MILLI / 1000) / 60 ))
+    echo $(( ($DIFFTIME_MILLI / 1000) / 60 )) "minutes"
   else
     echo $DIFFTIME_MILLI "milliseconds"
 fi
