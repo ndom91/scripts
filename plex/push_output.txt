@@ -1,12 +1,11 @@
 Beginning content upload to Plex.
 
-07-03-2018 18:41
+13-03-2018 13:41
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 'Adventure Time' is empty. moving on..
-'Atlanta' is empty. moving on..
-'Last Week Tonight with John Oliver' is empty. moving on..
+Warning: 'Atlanta' found in /mnt/gdrive.., not moving!
 
 Nothing moved, no need to refresh! None!
 
@@ -16,10 +15,14 @@ Movies empty, nothing to upload.. None!
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Music empty, nothing to upload.. None!
+'Ben Howard' already at destination
+
+Nothing moved, no need to refresh! None!
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 rclone upload complete!
 
-48 milliseconds
+1520944861951791551
+
+636 milliseconds

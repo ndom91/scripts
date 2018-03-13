@@ -1,0 +1,588 @@
+
+[ Lynis 2.6.2 ]
+
+################################################################################
+  Lynis comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+  welcome to redistribute it under the terms of the GNU General Public License.
+  See the LICENSE file for details about using this software.
+
+  2007-2018, CISOfy - https://cisofy.com/lynis/
+  Enterprise support available (compliance, plugins, interface and tools)
+################################################################################
+
+
+[+] Initializing program
+------------------------------------
+- Detecting OS...  [ DONE ]
+- Checking profiles... [ DONE ]
+
+  ---------------------------------------------------
+  Program version:           2.6.2
+  Operating system:          Linux
+  Operating system name:     Ubuntu Linux
+  Operating system version:  16.04
+  Kernel version:            4.4.0
+  Hardware platform:         x86_64
+  Hostname:                  ndo2
+  ---------------------------------------------------
+  Profiles:                  /opt/lynis/default.prf
+  Log file:                  /var/log/lynis.log
+  Report file:               /var/log/lynis-report.dat
+  Report version:            1.0
+  Plugin directory:          ./plugins
+  ---------------------------------------------------
+  Auditor:                   [Not Specified]
+  Language:                  en
+  Test category:             all
+  Test group:                all
+  ---------------------------------------------------
+- Program update status...  [ UPDATE AVAILABLE ]
+
+      ===============================================================================
+        Lynis update available
+      ===============================================================================
+
+        Current version : 262   Latest version : 263
+
+        Please update to the latest version.
+        New releases include additional features, bug fixes, tests, and baselines.
+
+        Download the latest version:
+
+        Packages (DEB/RPM) -  https://packages.cisofy.com
+        Website (TAR)      -  https://cisofy.com/downloads/
+        GitHub (source)    -  https://github.com/CISOfy/lynis
+
+      ===============================================================================
+
+
+[+] System Tools
+------------------------------------
+- Scanning available tools...
+- Checking system binaries...
+
+[+] Plugins (phase 1)
+------------------------------------
+Note: plugins have more extensive tests and may take several minutes to complete
+ 
+- Plugins enabled [ NONE ]
+
+[+] Boot and services
+------------------------------------
+- Service Manager [ systemd ]
+- Checking UEFI boot [ DISABLED ]
+- Checking presence GRUB [ OK ]
+- Checking presence GRUB2 [ FOUND ]
+- Checking for password protection [ WARNING ]
+- Check running services (systemctl) [ DONE ]
+Result: found 40 running services
+- Check enabled services at boot (systemctl) [ DONE ]
+Result: found 43 enabled services
+- Check startup files (permissions) [ OK ]
+
+[+] Kernel
+------------------------------------
+- Checking default run level [ RUNLEVEL 5 ]
+- Checking CPU support (NX/PAE)
+CPU support: PAE and/or NoeXecute supported [ FOUND ]
+- Checking kernel version and release [ DONE ]
+- Checking kernel type [ DONE ]
+- Checking loaded kernel modules [ DONE ]
+Found 96 active modules
+- Checking Linux kernel configuration file [ FOUND ]
+- Checking default I/O kernel scheduler [ FOUND ]
+- Checking for available kernel update [ OK ]
+- Checking core dumps configuration [ DISABLED ]
+- Checking setuid core dumps configuration [ PROTECTED ]
+- Check if reboot is needed [ NO ]
+
+[+] Memory and Processes
+------------------------------------
+- Checking /proc/meminfo [ FOUND ]
+- Searching for dead/zombie processes [ OK ]
+- Searching for IO waiting processes [ OK ]
+
+[+] Users, Groups and Authentication
+------------------------------------
+- Administrator accounts [ OK ]
+- Unique UIDs [ OK ]
+- Consistency of group files (grpck) [ OK ]
+- Unique group IDs [ OK ]
+- Unique group names [ OK ]
+- Password file consistency [ OK ]
+- Query system users (non daemons) [ DONE ]
+- NIS+ authentication support [ NOT ENABLED ]
+- NIS authentication support [ NOT ENABLED ]
+- sudoers file [ FOUND ]
+- Check sudoers file permissions [ OK ]
+- PAM password strength tools [ SUGGESTION ]
+- PAM configuration files (pam.conf) [ FOUND ]
+- PAM configuration files (pam.d) [ FOUND ]
+- PAM modules [ FOUND ]
+- LDAP module in PAM [ NOT FOUND ]
+- Accounts without expire date [ OK ]
+- Accounts without password [ OK ]
+- Checking user password aging (minimum) [ DISABLED ]
+- User password aging (maximum) [ DISABLED ]
+- Checking expired passwords [ OK ]
+- Checking Linux single user mode authentication [ OK ]
+- Determining default umask
+- umask (/etc/profile) [ NOT FOUND ]
+- umask (/etc/login.defs) [ SUGGESTION ]
+- umask (/etc/init.d/rc) [ SUGGESTION ]
+- LDAP authentication support [ NOT ENABLED ]
+- Logging failed login attempts [ ENABLED ]
+
+[+] Shells
+------------------------------------
+- Checking shells from /etc/shells
+Result: found 6 shells (valid shells: 6).
+- Session timeout settings/tools [ NONE ]
+- Checking default umask values
+- Checking default umask in /etc/bash.bashrc [ NONE ]
+- Checking default umask in /etc/profile [ NONE ]
+
+[+] File systems
+------------------------------------
+- Checking mount points
+- Checking /home mount point [ SUGGESTION ]
+- Checking /tmp mount point [ SUGGESTION ]
+- Checking /var mount point [ SUGGESTION ]
+- Query swap partitions (fstab) [ NONE ]
+- Testing swap partitions [ OK ]
+- Testing /proc mount (hidepid) [ SUGGESTION ]
+- Checking for old files in /tmp [ OK ]
+- Checking /tmp sticky bit [ OK ]
+- Checking /var/tmp sticky bit [ OK ]
+- ACL support root file system [ ENABLED ]
+- Mount options of / [ NON DEFAULT ]
+- Checking Locate database [ FOUND ]
+- Disable kernel support of some filesystems
+- Discovered kernel modules: cramfs freevxfs hfs hfsplus jffs2 udf 
+
+[+] USB Devices
+------------------------------------
+- Checking usb-storage driver (modprobe config) [ NOT DISABLED ]
+- Checking USB devices authorization [ ENABLED ]
+- Checking USBGuard [ NOT FOUND ]
+
+[+] Storage
+------------------------------------
+- Checking firewire ohci driver (modprobe config) [ DISABLED ]
+
+[+] NFS
+------------------------------------
+- Check running NFS daemon [ NOT FOUND ]
+
+[+] Name services
+------------------------------------
+- Searching DNS domain name [ UNKNOWN ]
+- Checking /etc/hosts
+- Checking /etc/hosts (duplicates) [ OK ]
+- Checking /etc/hosts (hostname) [ OK ]
+- Checking /etc/hosts (localhost) [ OK ]
+- Checking /etc/hosts (localhost to IP) [ OK ]
+
+[+] Ports and packages
+------------------------------------
+- Searching package managers
+- Searching dpkg package manager [ FOUND ]
+- Querying package manager
+- Query unpurged packages [ FOUND ]
+- Checking security repository in sources.list file [ OK ]
+- Checking APT package database [ OK ]
+- Checking vulnerable packages [ OK ]
+- Checking upgradeable packages [ SKIPPED ]
+- Checking package audit tool [ INSTALLED ]
+Found: apt-check
+
+[+] Networking
+------------------------------------
+- Checking IPv6 configuration [ DISABLED ]
+- Checking configured nameservers
+- Testing nameservers
+Nameserver: 8.8.8.8 [ OK ]
+Nameserver: 8.8.4.4 [ OK ]
+- Minimal of 2 responsive nameservers [ OK ]
+- Checking default gateway [ DONE ]
+- Getting listening ports (TCP/UDP) [ DONE ]
+* Found 49 ports
+- Checking promiscuous interfaces [ OK ]
+- Checking waiting connections [ OK ]
+- Checking status DHCP client [ NOT ACTIVE ]
+- Checking for ARP monitoring software [ NOT FOUND ]
+
+[+] Printers and Spools
+------------------------------------
+- Checking cups daemon [ NOT FOUND ]
+- Checking lp daemon [ NOT RUNNING ]
+
+[+] Software: e-mail and messaging
+------------------------------------
+
+[+] Software: firewalls
+------------------------------------
+- Checking iptables kernel module [ FOUND ]
+- Checking iptables policies of chains [ FOUND ]
+- Checking for empty ruleset [ OK ]
+- Checking for unused rules [ FOUND ]
+- Checking host based firewall [ ACTIVE ]
+
+[+] Software: webserver
+------------------------------------
+- Checking Apache (binary /usr/sbin/apache2) [ FOUND ]
+Info: Found 36 virtual hosts
+* Loadable modules [ FOUND (107) ]
+- Found 107 loadable modules
+mod_evasive: anti-DoS/brute force [ NOT FOUND ]
+mod_reqtimeout/mod_qos [ FOUND ]
+ModSecurity: web application firewall [ FOUND ]
+- Checking nginx [ NOT FOUND ]
+
+[+] SSH Support
+------------------------------------
+- Checking running SSH daemon [ FOUND ]
+- Searching SSH configuration [ FOUND ]
+- SSH option: AllowTcpForwarding [ SUGGESTION ]
+- SSH option: ClientAliveCountMax [ SUGGESTION ]
+- SSH option: ClientAliveInterval [ OK ]
+- SSH option: Compression [ SUGGESTION ]
+- SSH option: FingerprintHash [ OK ]
+- SSH option: GatewayPorts [ OK ]
+- SSH option: IgnoreRhosts [ OK ]
+- SSH option: LoginGraceTime [ OK ]
+- SSH option: LogLevel [ SUGGESTION ]
+- SSH option: MaxAuthTries [ SUGGESTION ]
+- SSH option: MaxSessions [ SUGGESTION ]
+- SSH option: PermitRootLogin [ OK ]
+- SSH option: PermitUserEnvironment [ OK ]
+- SSH option: PermitTunnel [ OK ]
+- SSH option: Port [ OK ]
+- SSH option: PrintLastLog [ OK ]
+- SSH option: Protocol [ OK ]
+- SSH option: StrictModes [ OK ]
+- SSH option: TCPKeepAlive [ SUGGESTION ]
+- SSH option: UseDNS [ OK ]
+- SSH option: UsePrivilegeSeparation [ SUGGESTION ]
+- SSH option: VerifyReverseMapping [ NOT FOUND ]
+- SSH option: X11Forwarding [ OK ]
+- SSH option: AllowAgentForwarding [ SUGGESTION ]
+- SSH option: AllowUsers [ NOT FOUND ]
+- SSH option: AllowGroups [ NOT FOUND ]
+
+[+] SNMP Support
+------------------------------------
+- Checking running SNMP daemon [ NOT FOUND ]
+
+[+] Databases
+------------------------------------
+- MySQL process status [ FOUND ]
+- Checking empty MySQL root password [ WARNING ]
+
+[+] LDAP Services
+------------------------------------
+- Checking OpenLDAP instance [ NOT FOUND ]
+
+[+] PHP
+------------------------------------
+- Checking PHP [ FOUND ]
+- Checking PHP disabled functions [ FOUND ]
+- Checking expose_php option [ ON ]
+- Checking enable_dl option [ OFF ]
+- Checking allow_url_fopen option [ ON ]
+- Checking allow_url_include option [ OFF ]
+- Checking PHP suhosin extension status [ WARNING ]
+- Suhosin simulation mode status [ WARNING ]
+
+[+] Squid Support
+------------------------------------
+- Checking running Squid daemon [ NOT FOUND ]
+
+[+] Logging and files
+------------------------------------
+- Checking for a running log daemon [ OK ]
+- Checking Syslog-NG status [ NOT FOUND ]
+- Checking systemd journal status [ FOUND ]
+- Checking Metalog status [ NOT FOUND ]
+- Checking RSyslog status [ FOUND ]
+- Checking RFC 3195 daemon status [ NOT FOUND ]
+- Checking minilogd instances [ NOT FOUND ]
+- Checking logrotate presence [ OK ]
+- Checking log directories (static list) [ DONE ]
+- Checking open log files [ DONE ]
+- Checking deleted files in use [ FILES FOUND ]
+
+[+] Insecure services
+------------------------------------
+- Checking inetd status [ NOT ACTIVE ]
+
+[+] Banners and identification
+------------------------------------
+- /etc/issue [ FOUND ]
+- /etc/issue contents [ WEAK ]
+- /etc/issue.net [ FOUND ]
+- /etc/issue.net contents [ WEAK ]
+
+[+] Scheduled tasks
+------------------------------------
+- Checking crontab/cronjob [ DONE ]
+- Checking atd status [ RUNNING ]
+- Checking at users [ DONE ]
+- Checking at jobs [ NONE ]
+
+[+] Accounting
+------------------------------------
+- Checking accounting information [ NOT FOUND ]
+- Checking sysstat accounting data [ NOT FOUND ]
+- Checking auditd [ NOT FOUND ]
+
+[+] Time and Synchronization
+------------------------------------
+
+[+] Cryptography
+------------------------------------
+- Checking for expired SSL certificates [0/57] [ NONE ]
+
+[+] Virtualization
+------------------------------------
+
+[+] Containers
+------------------------------------
+
+[+] Security frameworks
+------------------------------------
+- Checking presence AppArmor [ FOUND ]
+- Checking AppArmor status [ ENABLED ]
+- Checking presence SELinux [ FOUND ]
+- Checking SELinux status [ DISABLED ]
+- Checking presence grsecurity [ NOT FOUND ]
+- Checking for implemented MAC framework [ OK ]
+
+[+] Software: file integrity
+------------------------------------
+- Checking file integrity tools
+- Checking presence integrity tool [ NOT FOUND ]
+
+[+] Software: System tooling
+------------------------------------
+- Checking automation tooling
+- Automation tooling [ NOT FOUND ]
+- Checking presence of Fail2ban [ FOUND ]
+- Checking Fail2ban jails [ ENABLED ]
+- Checking for IDS/IPS tooling [ FOUND ]
+
+[+] Software: Malware
+------------------------------------
+- Checking Rootkit Hunter [ FOUND ]
+
+[+] File Permissions
+------------------------------------
+- Starting file permissions check
+/root/.ssh [ OK ]
+
+[+] Home directories
+------------------------------------
+- Checking shell history files [ OK ]
+
+[+] Kernel Hardening
+------------------------------------
+- Comparing sysctl key pairs with scan profile
+
+[+] Hardening
+------------------------------------
+- Installed compiler(s) [ FOUND ]
+- Installed malware scanner [ FOUND ]
+
+[+] Custom Tests
+------------------------------------
+- Running custom tests...  [ NONE ]
+
+[+] Plugins (phase 2)
+------------------------------------
+
+================================================================================
+
+  -[ Lynis 2.6.2 Results ]-
+
+  Warnings (2):
+  ----------------------------
+  ! No MySQL root password set [DBS-1816] 
+      https://cisofy.com/controls/DBS-1816/
+
+  ! PHP option expose_php is possibly turned on, which can reveal useful information for attackers. [PHP-2372] 
+      https://cisofy.com/controls/PHP-2372/
+
+  Suggestions (40):
+  ----------------------------
+  * Version of Lynis outdated, consider upgrading to the latest version [LYNIS] 
+      https://cisofy.com/controls/LYNIS/
+
+  * Set a password on GRUB bootloader to prevent altering boot configuration (e.g. boot in single user mode without password) [BOOT-5122] 
+      https://cisofy.com/controls/BOOT-5122/
+
+  * Install a PAM module for password strength testing like pam_cracklib or pam_passwdqc [AUTH-9262] 
+      https://cisofy.com/controls/AUTH-9262/
+
+  * Configure minimum password age in /etc/login.defs [AUTH-9286] 
+      https://cisofy.com/controls/AUTH-9286/
+
+  * Configure maximum password age in /etc/login.defs [AUTH-9286] 
+      https://cisofy.com/controls/AUTH-9286/
+
+  * Default umask in /etc/login.defs could be more strict like 027 [AUTH-9328] 
+      https://cisofy.com/controls/AUTH-9328/
+
+  * Default umask in /etc/init.d/rc could be more strict like 027 [AUTH-9328] 
+      https://cisofy.com/controls/AUTH-9328/
+
+  * To decrease the impact of a full /home file system, place /home on a separated partition [FILE-6310] 
+      https://cisofy.com/controls/FILE-6310/
+
+  * To decrease the impact of a full /tmp file system, place /tmp on a separated partition [FILE-6310] 
+      https://cisofy.com/controls/FILE-6310/
+
+  * To decrease the impact of a full /var file system, place /var on a separated partition [FILE-6310] 
+      https://cisofy.com/controls/FILE-6310/
+
+  * Disable drivers like USB storage when not used, to prevent unauthorized storage or data theft [STRG-1840] 
+      https://cisofy.com/controls/STRG-1840/
+
+  * Check DNS configuration for the dns domain name [NAME-4028] 
+      https://cisofy.com/controls/NAME-4028/
+
+  * Purge old/removed packages (3 found) with aptitude purge or dpkg --purge command. This will cleanup old configuration files, cron jobs and startup scripts. [PKGS-7346] 
+      https://cisofy.com/controls/PKGS-7346/
+
+  * Install debsums utility for the verification of packages with known good database. [PKGS-7370] 
+      https://cisofy.com/controls/PKGS-7370/
+
+  * Install package apt-show-versions for patch management purposes [PKGS-7394] 
+      https://cisofy.com/controls/PKGS-7394/
+
+  * Consider running ARP monitoring software (arpwatch,arpon) [NETW-3032] 
+      https://cisofy.com/controls/NETW-3032/
+
+  * Check iptables rules to see which rules are currently not used [FIRE-4513] 
+      https://cisofy.com/controls/FIRE-4513/
+
+  * Install Apache mod_evasive to guard webserver against DoS/brute force attempts [HTTP-6640] 
+      https://cisofy.com/controls/HTTP-6640/
+
+  * Consider hardening SSH configuration [SSH-7408] 
+    - Details  : AllowTcpForwarding (YES --> NO)
+      https://cisofy.com/controls/SSH-7408/
+
+  * Consider hardening SSH configuration [SSH-7408] 
+    - Details  : ClientAliveCountMax (720 --> 2)
+      https://cisofy.com/controls/SSH-7408/
+
+  * Consider hardening SSH configuration [SSH-7408] 
+    - Details  : Compression (YES --> (DELAYED|NO))
+      https://cisofy.com/controls/SSH-7408/
+
+  * Consider hardening SSH configuration [SSH-7408] 
+    - Details  : LogLevel (DEBUG --> VERBOSE)
+      https://cisofy.com/controls/SSH-7408/
+
+  * Consider hardening SSH configuration [SSH-7408] 
+    - Details  : MaxAuthTries (6 --> 2)
+      https://cisofy.com/controls/SSH-7408/
+
+  * Consider hardening SSH configuration [SSH-7408] 
+    - Details  : MaxSessions (10 --> 2)
+      https://cisofy.com/controls/SSH-7408/
+
+  * Consider hardening SSH configuration [SSH-7408] 
+    - Details  : TCPKeepAlive (YES --> NO)
+      https://cisofy.com/controls/SSH-7408/
+
+  * Consider hardening SSH configuration [SSH-7408] 
+    - Details  : UsePrivilegeSeparation (YES --> SANDBOX)
+      https://cisofy.com/controls/SSH-7408/
+
+  * Consider hardening SSH configuration [SSH-7408] 
+    - Details  : AllowAgentForwarding (YES --> NO)
+      https://cisofy.com/controls/SSH-7408/
+
+  * Change the expose_php line to: expose_php = Off [PHP-2372] 
+      https://cisofy.com/controls/PHP-2372/
+
+  * Change the allow_url_fopen line to: allow_url_fopen = Off, to disable downloads via PHP [PHP-2376] 
+      https://cisofy.com/controls/PHP-2376/
+
+  * Harden PHP by enabling suhosin extension [PHP-2379] 
+      https://cisofy.com/controls/PHP-2379/
+
+  * Harden PHP by deactivating suhosin simulation mode [PHP-2379] 
+      https://cisofy.com/controls/PHP-2379/
+
+  * Check what deleted files are still in use and why. [LOGG-2190] 
+      https://cisofy.com/controls/LOGG-2190/
+
+  * Add a legal banner to /etc/issue, to warn unauthorized users [BANN-7126] 
+      https://cisofy.com/controls/BANN-7126/
+
+  * Add legal banner to /etc/issue.net, to warn unauthorized users [BANN-7130] 
+      https://cisofy.com/controls/BANN-7130/
+
+  * Enable process accounting [ACCT-9622] 
+      https://cisofy.com/controls/ACCT-9622/
+
+  * Enable sysstat to collect accounting (no results) [ACCT-9626] 
+      https://cisofy.com/controls/ACCT-9626/
+
+  * Enable auditd to collect audit information [ACCT-9628] 
+      https://cisofy.com/controls/ACCT-9628/
+
+  * Install a file integrity tool to monitor changes to critical and sensitive files [FINT-4350] 
+      https://cisofy.com/controls/FINT-4350/
+
+  * Determine if automation tools are present for system management [TOOL-5002] 
+      https://cisofy.com/controls/TOOL-5002/
+
+  * Harden compilers like restricting access to root user only [HRDN-7222] 
+      https://cisofy.com/controls/HRDN-7222/
+
+  Follow-up:
+  ----------------------------
+  - Show details of a test (lynis show details TEST-ID)
+  - Check the logfile for all details (less /var/log/lynis.log)
+  - Read security controls texts (https://cisofy.com)
+  - Use --upload to upload data to central system (Lynis Enterprise users)
+
+================================================================================
+
+  Lynis security scan details:
+
+  Hardening index : 66 [#############       ]
+  Tests performed : 224
+  Plugins enabled : 0
+
+  Components:
+  - Firewall               [V]
+  - Malware scanner        [V]
+
+  Lynis Modules:
+  - Compliance Status      [?]
+  - Security Audit         [V]
+  - Vulnerability Scan     [V]
+
+  Files:
+  - Test and debug information      : /var/log/lynis.log
+  - Report data                     : /var/log/lynis-report.dat
+
+================================================================================
+  Notice: Lynis update available
+  Current version : 262    Latest version : 263
+================================================================================
+
+  Lynis 2.6.2
+
+  Auditing, system hardening, and compliance for UNIX-based systems
+  (Linux, macOS, BSD, and others)
+
+  2007-2018, CISOfy - https://cisofy.com/lynis/
+  Enterprise support available (compliance, plugins, interface and tools)
+
+================================================================================
+  [TIP]: Enhance Lynis audits by adding your settings to custom.prf (see /opt/lynis/default.prf for all settings)

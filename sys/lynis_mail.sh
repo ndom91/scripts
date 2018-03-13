@@ -12,9 +12,9 @@ SCRIPT_PATH=/home/ndo/Documents/scripts/sys
 #MAILCONTENT=$(cat $SCRIPT_PATH/mailtemp_$FILEDATE.txt)
 
 cd $LYNIS_PATH
-#./lynis audit system --cronjob >> $SCRIPT_PATH/scan_$FILEDATE.txt
+./lynis audit system --cronjob >> $SCRIPT_PATH/scan_$FILEDATE.txt
 
-MAILCONTENT=$(cat $LYNIS_PATH/scan_$FILEDATE.txt)
+MAILCONTENT=$(cat $SCRIPT_PATH/scan_$FILEDATE.txt)
 
 echo "From: ndo2 <ndo2@iamnico.xyz>
 To: yo@iamnico.xyz

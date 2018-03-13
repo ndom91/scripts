@@ -35,7 +35,7 @@ $DESDIR/$FILENAME \
 /etc/ssl \
 /usr/share/logwatch \
 /etc/vsftpd* \
-/opt/nextclouddata \
+/opt \
 /etc/ssmtp \ >> /dev/null 2>&1
 
 ####################################
