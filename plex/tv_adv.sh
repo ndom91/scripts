@@ -12,6 +12,8 @@ Folders=(/home/ndo/Downloads/TV/*/)
 countDir=${#Folders[@]}
 export LD_LIBRARY_PATH=/usr/lib/plexmediaserver
 
+source plexcreds.config
+
 #     /VARIABLES      �#
 ########################
 
@@ -161,6 +163,6 @@ else
 		echo "Skipping deleting local dirs."
 		echo ""
 	fi
-	curl http://ndo2.iamnico.xyz:32400/library/sections/6/refresh?X-Plex-Token=UpkkEa7jE1dmneA4orEm
+	curl http://ndo2.iamnico.xyz:32400/library/sections/6/refresh?X-Plex-Token=$tokenndo
 	echo "Copy to encrypted Gdrive finished!"
 fi
