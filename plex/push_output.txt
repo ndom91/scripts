@@ -1,13 +1,10 @@
 Beginning content upload to Plex.
 
-13-03-2018 13:41
+03-04-2018 16:41
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-'Adventure Time' is empty. moving on..
-Warning: 'Atlanta' found in /mnt/gdrive.., not moving!
-
-Nothing moved, no need to refresh! None!
+TV folder empty, nothing to upload.. None!
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -23,6 +20,6 @@ Nothing moved, no need to refresh! None!
 
 rclone upload complete!
 
-1520944861951791551
+1522766461565639134
 
-636 milliseconds
+41 milliseconds

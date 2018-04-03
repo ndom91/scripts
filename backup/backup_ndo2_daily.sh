@@ -52,6 +52,8 @@ echo "Move complete. Cleaning up"
 
 echo "Clean up complete, sending mail"
 
+sleep 90
+
 /home/ndo/Documents/scripts/backup/mail_backup_ndo2_daily.sh
 
 echo "Mail complete. Script complete. Have a nice day!"
