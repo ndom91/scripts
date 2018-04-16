@@ -1,7 +1,7 @@
 
 Beginning content upload to Plex.
 
-16-04-2018 08:49
+16-04-2018 09:49
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -21,4 +21,4 @@ Nothing moved, no need to refresh! None!
 
 rclone upload complete!
 
-Time taken:  45  milliseconds
+Time taken:  38  milliseconds
