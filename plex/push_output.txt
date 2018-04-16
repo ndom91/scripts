@@ -1,25 +1,24 @@
+
 Beginning content upload to Plex.
 
-03-04-2018 16:41
+16-04-2018 08:49
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 TV folder empty, nothing to upload.. None!
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Movies empty, nothing to upload.. None!
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 'Ben Howard' already at destination
 
 Nothing moved, no need to refresh! None!
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 rclone upload complete!
 
-1522766461565639134
-
-41 milliseconds
+Time taken:  45  milliseconds

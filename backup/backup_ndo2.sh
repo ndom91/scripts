@@ -56,7 +56,7 @@ echo "Move complete, cleaning up"
 
 echo "Clean up complete, sending mail"
 
-/home/ndo/Documents/mail_backup.sh
+/home/ndo/Documents/scripts/backup/mail_backup_ndo2.sh
 
 echo "Mail complete. Script complete. Have a nice day!"
 
