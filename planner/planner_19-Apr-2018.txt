@@ -1,0 +1,31 @@
+To: yo@iamnico.xyz
+From: ndo2@iamnico.xyz
+Subject: daily planner
+Content-Type: text/html
+MIME-Version: 1.0
+
+
+<span style='color:#555'>┌─────<span style='color:#555'>┬─────<span style='color:#555'>┬──────────────────────────────────<span style='color:#555'>┬─────────────────────<span style='color:#555'>┬──────────────────────<span style='color:#555'>┬─────<span style='color:#555'>┬─────┐
+<span style='color:#555'>│ Sun <span style='color:#555'>│ Mon <span style='color:#555'>│ Tue                              <span style='color:#555'>│ Wed                 <span style='color:#555'>│ TODAY                <span style='color:#555'>│ Fri <span style='color:#555'>│ Sat <span style='color:#555'>│
+<span style='color:#555'>├─────<span style='color:#555'>┼─────<span style='color:#555'>┼──────────────────────────────────<span style='color:#555'>┼─────────────────────<span style='color:#555'>┼──────────────────────<span style='color:#555'>┼─────<span style='color:#555'>┼─────┤
+<span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│ Linux:                           <span style='color:#555'>│ Inbox:              <span style='color:#555'>│ Inbox:               <span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│
+<span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│ 1 Sharkservers [ndo2] status     <span style='color:#555'>│    Grc shields up   <span style='color:#555'>│    vadev 5.2.0.0     <span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│
+<span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│ x fix rtm-cli error [Object.val… <span style='color:#555'>│ x Buy vanilla syru… <span style='color:#555'>│ Personal:            <span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│
+<span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│ Work:                            <span style='color:#555'>│ Linux:              <span style='color:#555'>│    Bring US Passpor… <span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│
+<span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│ x DATEV für oberegocy            <span style='color:#555'>│ x geany minimap pl… <span style='color:#555'>│    Bring american P… <span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│
+<span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│ x check dbaklashev               <span style='color:#555'>│ Personal:           <span style='color:#555'>│ Work:                <span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│
+<span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│ x Cisco RJ45 Rollover Cable x6 … <span style='color:#555'>│    Security.tls.ve… <span style='color:#555'>│    andi file rights… <span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│
+<span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│                                  <span style='color:#555'>│ Work:               <span style='color:#555'>│    gbormet email do… <span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│
+<span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│                                  <span style='color:#555'>│ x Ntitadmins ether… <span style='color:#555'>│    write up billing… <span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│
+<span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│                                  <span style='color:#555'>│                     <span style='color:#555'>│                      <span style='color:#555'>│     <span style='color:#555'>│     <span style='color:#555'>│
+<span style='color:#555'>└─────<span style='color:#555'>┴─────<span style='color:#555'>┴──────────────────────────────────<span style='color:#555'>┴─────────────────────<span style='color:#555'>┴──────────────────────<span style='color:#555'>┴─────<span style='color:#555'>┴─────┘
+<span style='color:#555'>┌────────────────────────┐
+<span style='color:#555'>│ No Due Date            <span style='color:#555'>│
+<span style='color:#555'>├────────────────────────┤
+<span style='color:#555'>│ Linux:                 <span style='color:#555'>│
+<span style='color:#555'>│ 3 git noob tutorial    <span style='color:#555'>│
+<span style='color:#555'>│ Personal:              <span style='color:#555'>│
+<span style='color:#555'>│ 3 github noob tutorial <span style='color:#555'>│
+<span style='color:#555'>│                        <span style='color:#555'>│
+<span style='color:#555'>└────────────────────────┘
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
