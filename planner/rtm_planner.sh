@@ -20,18 +20,18 @@ CURDATE=`date "+%d-%b-%Y"`
 
 echo "To: yo@iamnico.xyz
 From: ndo2@iamnico.xyz
-Subject: daily planner
+Subject: on the daily ($CURDATE)
 Content-Type: text/html
 MIME-Version: 1.0
 
 " > planner_$CURDATE.html
 
-/usr/local/bin/rtm planner due:today OR due:tomorrow | aha --black >> planner_$CURDATE.html
+/usr/local/bin/rtm planner due:today OR due:tomorrow | aha --pink >> planner_$CURDATE.html
 
-#sed -i 's/\t/,/g' planner_$CURDATE.csv
+sed -Ei 's/<pre>/<pre style="color:#fff"><br><span style="font-size:18px;display:block;text-align:center;margin:0 auto;font-weight:bold;">dont forget ninja!<\/span><div style="text-align:center;margin:0 auto;">/g' planner_$CURDATE.html
+sed -Ei 's/style="color:black;"/style=""/g' planner_$CURDATE.html
+sed -Ei 's/pink/#326273/g' planner_$CURDATE.html
+sed -Ei 's/<\/span><\/pre>/<\/div><\/span><\/pre>/g' planner_$CURDATE.html
 
-#csv2html planner_$CURDATE.csv > planner_$CURDATE.html
 
-#a2h planner_$CURDATE.txt > mail_planner_$CURDATE.txt
-
-sendmail -t < planner_$CURDATE.html
+/usr/sbin/sendmail -t < planner_$CURDATE.html
