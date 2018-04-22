@@ -1,5 +1,0 @@
-From: ndo2 <ndo2@iamnico.xyz>
-To: yo@iamnico.xyz
-Subject: Lynis Scan
-
-
