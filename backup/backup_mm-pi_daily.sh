@@ -48,8 +48,14 @@ echo "Clean up complete, sending mail"
 
 #sleep 90
 
-/home/pi/Documents/scripts/backup/mail_backup_mm-pi_daily.sh
+FILESIZE=$(ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone ls gdrive:/ndoX_backup/open-pi/backup-configs-mmpi-$TIME.tar.gz | awk '{print $1}'")
 
-echo "Mail complete. Script complete. Have a nice day!"
+echo ""
+echo $FILESIZE
+echo ""
+
+#/home/pi/Documents/scripts/backup/mail_backup_mm-pi_daily.sh
+
+echo "Script complete. Have a nice day!"
 
 
