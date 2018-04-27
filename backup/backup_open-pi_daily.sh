@@ -44,12 +44,16 @@ echo "Move complete. Cleaning up"
 
 /usr/bin/rclone delete --config /home/pi/.rclone.conf --min-age 14d gdrive:ndoX_backup/open-pi
 
-echo "Clean up complete, sending mail"
+#echo "Clean up complete, sending mail"
 
-sleep 90
+#sleep 90
 
-/home/pi/Documents/scripts/backup/mail_backup_open-pi_daily.sh
+#/home/pi/Documents/scripts/backup/mail_backup_open-pi_daily.sh
+echo ""
+FILESIZE=$(/usr/bin/rclone ls gdrive:/ndoX_backup/open-pi/backup-configs-openpi-$TIME.tar.gz | awk '{print $1}')
+echo $FILESIZE
+echo ""
 
-echo "Mail complete. Script complete. Have a nice day!"
+echo "Script complete. Have a nice day!"
 
 
