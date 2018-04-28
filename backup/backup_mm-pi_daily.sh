@@ -48,10 +48,12 @@ echo "Clean up complete, sending mail"
 
 #sleep 90
 
-FILESIZE=$(ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone ls gdrive:/ndoX_backup/open-pi/backup-configs-mmpi-$TIME.tar.gz | awk '{print $1}'")
+FILESIZE=$(ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone ls gdrive:/ndoX_backup/mmpi/backup-configs-mmpi-$TIME.tar.gz | awk '{print $1}'")
+
+$FILESIZE = $(($FILESIZE / 1024000))
 
 echo ""
-echo $FILESIZE
+echo $FILESIZE "mb"
 echo ""
 
 #/home/pi/Documents/scripts/backup/mail_backup_mm-pi_daily.sh
