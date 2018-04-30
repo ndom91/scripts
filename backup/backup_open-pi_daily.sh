@@ -51,8 +51,10 @@ echo "Move complete. Cleaning up"
 #/home/pi/Documents/scripts/backup/mail_backup_open-pi_daily.sh
 echo ""
 FILESIZE=$(/usr/bin/rclone ls gdrive:/ndoX_backup/open-pi/backup-configs-openpi-$TIME.tar.gz | awk '{print $1}')
-$FILESIZE = $(($FILESIZE / 1024000))
-echo $FILESIZE "mb"
+
+FILESIZE2 = $(( $FILESIZE / 1048576 ))
+
+echo $FILESIZE2 "mb"
 echo ""
 
 echo "Script complete. Have a nice day!"
