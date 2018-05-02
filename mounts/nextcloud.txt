@@ -1,0 +1,15 @@
+Nextcloud WebDAV Mount
+
+1) Make App-PW
+
+2)
+
+sudo mount -t davfs https://mycloud.no-ip.org/remote.php/webdav /mnt                                                                                                                                              0.49 L  ✓ 
+
+Please enter the username to authenticate with server
+https://mycloud.no-ip.org/remote.php/webdav or hit enter for none.
+  Username: admin
+
+Please enter the password to authenticate user admin with server
+https://mycloud.no-ip.org/remote.php/webdav or hit enter for none.
+  Password:
