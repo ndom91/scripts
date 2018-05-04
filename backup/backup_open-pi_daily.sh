@@ -52,7 +52,7 @@ echo "Move complete. Cleaning up"
 echo ""
 FILESIZE=$(/usr/bin/rclone ls gdrive:/ndoX_backup/open-pi/backup-configs-openpi-$TIME.tar.gz | awk '{print $1}')
 
-FILESIZE2 = $(( $FILESIZE / 1048576 ))
+FILESIZE2=$(($FILESIZE/1048576))
 
 echo $FILESIZE2 "mb"
 echo ""
