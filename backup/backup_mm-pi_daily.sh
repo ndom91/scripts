@@ -50,7 +50,7 @@ echo "Clean up complete, sending mail"
 
 FILESIZE=$(ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone ls gdrive:/ndoX_backup/mmpi/backup-configs-mmpi-$TIME.tar.gz | awk '{print $1}'")
 
-FILESIZE2=$(($FILESIZE/1048576))
+FILESIZE2=$(( bc -l <<< 'scale=2; $FILESIZE / 1048576' ))
 
 echo ""
 echo $FILESIZE2 "mb"
