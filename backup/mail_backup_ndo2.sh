@@ -11,9 +11,10 @@
 ###################
 # VARIABLES
 ###################
-
+TIME=$(date +%b-%d-%y)
 CURDATE=`date "+%d-%b-%Y"`
-FILESIZE=$(ls -lh /mnt/plexdrive/ndoX_backup/weekly/backup-ndo2-$TIME.tar.gz | awk '{print $5}')#
+
+FILESIZE=$(ls -lh /mnt/plexdrive/ndoX_backup/weekly/backup-ndo2-$TIME.tar.gz | awk '{print $5}')
 
 ########################
 # ACTION

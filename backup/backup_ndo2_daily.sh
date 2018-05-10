@@ -19,9 +19,9 @@ DESDIR=/home/ndo/backups
 
 echo "Starting backup..."
 
-##########################################################
-# !!watch excludes - must be customized for each system!!
-##########################################################
+####################################
+# BACKUP !!watch backup dirs!!
+####################################
 
 tar \
 -cvpzf \
@@ -38,13 +38,19 @@ $DESDIR/$FILENAME \
 /opt \
 /etc/ssmtp \ >> /dev/null 2>&1
 
+FILESIZE=$(ls -lh $DESDIR/$FILENAME | awk '{print $5}')
+
 ####################################
-# CLEAN UP
+# MOVE TO GDRIVE
 ####################################
 
 echo "Backup complete. Now moving to Gdrive:/ndoX_backup.."
 
 /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /home/ndo/rclonelogs/backup-$TIME.log --log-level DEBUG $DESDIR/$FILENAME Gdrive:ndoX_backup/daily >> /dev/null
+
+####################################
+# CLEAN UP
+####################################
 
 echo "Move complete. Cleaning up"
 
@@ -52,9 +58,11 @@ echo "Move complete. Cleaning up"
 
 echo "Clean up complete, sending mail"
 
-sleep 90
-
-/home/ndo/Documents/scripts/backup/mail_backup_ndo2_daily.sh
+#sleep 90
+echo ""
+echo $FILESIZE " mb"
+echo ""
+#/home/ndo/Documents/scripts/backup/mail_backup_ndo2_daily.sh
 
 echo "Mail complete. Script complete. Have a nice day!"
 
