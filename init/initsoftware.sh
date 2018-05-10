@@ -29,5 +29,8 @@ echo ""
 echo "Now downloading the software"
 sudo apt-get install -y $SOFTWARE
 echo ""
+echo "Adding adapta ppa"
+sudo add-apt-repository ppa:tista/adapta
+sudo apt-get install -y adapta-gtk-theme
 echo "Software installed. Have fun with your new system!"
 

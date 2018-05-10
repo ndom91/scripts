@@ -37,8 +37,8 @@ tar --exclude=/swapfile \
 --exclude=/opt \
 --exclude=/run \
 --exclude=/media \
---exclude=/home/ndo/ftp
---exclude=/home/ndo/Downloads \
+--exclude=/home/ndo/ftp \
+--exclude=/home/ndo/Down* \
 --exclude=/home/ndo/Documents/ndo0_home \
 --exclude=/home/ndo/Documents/ndo2_home \
 -cvpzf \
@@ -50,7 +50,7 @@ $DESDIR/$FILENAME $SRCDIR
 
 echo "Backup complete. Now moving to ndo-pi.."
 
-mv $DESDIR/$FILENAME /mnt/NDO_Backup/ndo3/$FILENAME
+mv $DESDIR/$FILENAME /opt/ndopi_home/mnt/NDO_Backup/ndo3_backup/$FILENAME
 
 echo "Move complete, sending mail"
 
