@@ -44,7 +44,7 @@ echo "Move complete. Cleaning up"
 
 /usr/bin/rclone delete --config /home/pi/.rclone.conf --min-age 14d gdrive:ndoX_backup/open-pi
 
-#echo "Clean up complete, sending mail"
+#echo "Clean up complete"
 
 #sleep 90
 
@@ -52,7 +52,7 @@ echo "Move complete. Cleaning up"
 echo ""
 FILESIZE=$(/usr/bin/rclone ls gdrive:/ndoX_backup/open-pi/backup-configs-openpi-$TIME.tar.gz | awk '{print $1}')
 
-FILESIZE2=$( bc -l <<< "scale=2; $FILESIZE / 1048576" )
+FILESIZE2=$(/usr/bin/bc -l <<< "scale=2; $FILESIZE / 1048576")
 
 echo $FILESIZE2 "mb"
 echo ""
