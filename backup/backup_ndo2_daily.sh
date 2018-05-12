@@ -60,7 +60,7 @@ echo "Clean up complete, sending mail"
 
 #sleep 90
 echo ""
-echo $FILESIZE " mb"
+echo $FILESIZE
 echo ""
 #/home/ndo/Documents/scripts/backup/mail_backup_ndo2_daily.sh
 
