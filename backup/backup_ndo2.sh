@@ -46,6 +46,8 @@ $DESDIR/$FILENAME $SRCDIR >> /dev/null 2>&1
 # CLEAN UP
 ####################################
 
+FILESIZE=$(ls -lh $DESDIR/$FILENAME | awk '{print $5}')
+
 echo "Backup complete. Now moving to Gdrive:/ndoX_backup.."
 
 /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /home/ndo/rclonelogs/backup-$TIME.log --log-level DEBUG $DESDIR/$FILENAME Gdrive:ndoX_backup/weekly >> /dev/null
@@ -56,7 +58,10 @@ echo "Move complete, cleaning up"
 
 echo "Clean up complete, sending mail"
 
-/home/ndo/Documents/scripts/backup/mail_backup_ndo2.sh
+#/home/ndo/Documents/scripts/backup/mail_backup_ndo2.sh
+echo ""
+echo $FILESIZE
+echo ""
 
 echo "Mail complete. Script complete. Have a nice day!"
 
