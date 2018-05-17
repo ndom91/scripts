@@ -1,7 +1,7 @@
 
 Beginning content upload to Plex.
 
-10-05-2018 03:49
+17-05-2018 08:49
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -9,7 +9,10 @@ TV folder empty, nothing to upload.. None!
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Movies empty, nothing to upload.. None!
+'Red Sparrow (2018)' already at destination. Not moving.
+
+Nothing moved, no need to refresh! None!
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -21,4 +24,4 @@ Nothing moved, no need to refresh! None!
 
 rclone upload complete!
 
-Time taken:  98  milliseconds
+Time taken:  334  milliseconds
