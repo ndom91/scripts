@@ -44,6 +44,8 @@ FILESIZE=$(ls -lh $DESDIR/$FILENAME | awk '{print $5}')
 # MOVE TO GDRIVE
 ####################################
 
+echo ""
+
 echo "Backup complete. Now moving to Gdrive:/ndoX_backup.."
 
 /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /home/ndo/rclonelogs/backup-$TIME.log --log-level DEBUG $DESDIR/$FILENAME Gdrive:ndoX_backup/daily >> /dev/null
@@ -52,18 +54,22 @@ echo "Backup complete. Now moving to Gdrive:/ndoX_backup.."
 # CLEAN UP
 ####################################
 
+echo ""
+
 echo "Move complete. Cleaning up"
 
 /usr/bin/rclone delete --config /home/ndo/.config/rclone/rclone.conf --min-age 4d Gdrive:ndoX_backup/daily/
 
-echo "Clean up complete, sending mail"
-
-#sleep 90
 echo ""
+
+echo "Clean up complete"
+
+echo ""
+
 echo $FILESIZE
-echo ""
-#/home/ndo/Documents/scripts/backup/mail_backup_ndo2_daily.sh
 
-echo "Mail complete. Script complete. Have a nice day!"
+echo ""
+
+echo "Script complete. Have a nice day!"
 
 

@@ -32,24 +32,31 @@ $DESDIR/$FILENAME \
 # CLEAN UP
 ####################################
 
+echo ""
+
 echo "Backup complete. Now moving to open-pi:/mnt/NDO_Backup/pi_backups/mm-pi AND gdrive:/ndoX_backup/mm-pi/"
 
 scp -i /home/pi/.ssh/id_pihole $DESDIR/$FILENAME pi@192.168.178.52:/mnt/NDO_Backup/pi_backups/mm-pi
 
 ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone copy --config /home/pi/.rclone.conf --log-file /home/pi/rclonelogs/backup-mmpi-$TIME.log /mnt/NDO_Backup/pi_backups/mm-pi/$FILENAME gdrive:ndoX_backup/mm-pi >> /dev/null"
 
+echo ""
+
 echo "Move complete. Cleaning up"
+
+echo ""
 
 rm -f $DESDIR/$FILENAME
 
 ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone delete --config /home/pi/.rclone.conf --min-age 14d gdrive:ndoX_backup/mm-pi"
 
-echo "Clean up complete, sending mail"
+echo ""
 
-#sleep 90
+echo "Clean up complete"
 
-FILESIZE=$(/usr/bin/ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone ls gdrive:/ndoX_backup/mmpi/backup-configs-mmpi-$TIME.tar.gz | awk '{print $1}'")
+echo ""
 
+FILESIZE=$(/usr/bin/ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone ls gdrive:/ndoX_backup/mm-pi/backup-configs-mmpi-$TIME.tar.gz | awk '{print \$1}'")
 FILESIZE2=$(/usr/bin/bc -l <<< "scale=2; $FILESIZE / 1048576")
 
 echo ""
