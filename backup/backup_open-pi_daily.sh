@@ -48,7 +48,7 @@ echo "Move complete. Cleaning up"
 
 echo ""
 
-/usr/bin/rclone delete --config /home/pi/.rclone.conf --min-age 14d gdrive:ndoX_backup/open-pi
+/usr/bin/rclone delete --config /home/pi/.rclone.conf --min-age 7d gdrive:ndoX_backup/open-pi
 
 echo ""
 

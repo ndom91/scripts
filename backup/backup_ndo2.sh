@@ -54,7 +54,7 @@ echo "Backup complete. Now moving to Gdrive:/ndoX_backup.."
 
 echo "Move complete, cleaning up"
 
-/usr/bin/rclone delete --config /home/ndo/.config/rclone/rclone.conf --min-age 5w Gdrive:ndoX_backup/weekly/
+/usr/bin/rclone delete --config /home/ndo/.config/rclone/rclone.conf --min-age 3w Gdrive:ndoX_backup/weekly/
 
 echo "Clean up complete, sending mail"
 

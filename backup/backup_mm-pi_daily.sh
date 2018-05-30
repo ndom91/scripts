@@ -48,7 +48,7 @@ echo ""
 
 rm -f $DESDIR/$FILENAME
 
-ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone delete --config /home/pi/.rclone.conf --min-age 14d gdrive:ndoX_backup/mm-pi"
+ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone delete --config /home/pi/.rclone.conf --min-age 7d gdrive:ndoX_backup/mm-pi"
 
 echo ""
 

@@ -58,7 +58,7 @@ echo ""
 
 echo "Move complete. Cleaning up"
 
-/usr/bin/rclone delete --config /home/ndo/.config/rclone/rclone.conf --min-age 4d Gdrive:ndoX_backup/daily/
+/usr/bin/rclone delete --config /home/ndo/.config/rclone/rclone.conf --min-age 3d Gdrive:ndoX_backup/daily/
 
 echo ""
 
