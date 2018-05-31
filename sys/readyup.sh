@@ -217,6 +217,18 @@ fi
 apt install -f -y && let progress++
 
 
+# Chrome
+echo "[*] [ $progress/$total ] Installing RememberTheMilk"
+rtm=rememberthemilk.deb
+if [ ! -f $apps/$rtm ]; then
+        wget -q -O $apps/$rtm 'https://www.rememberthemilk.com/download/linux/debian/pool/main/r/rememberthemilk/rememberthemilk_1.1.9_amd64.deb -O rememberthemilk.deb'
+        dpkg -i $apps/$rtm && let progress++
+        rm $apps/$rtm
+else
+        dpkg -i $apps/$rtm && let progress++
+fi
+
+
 # PlayOnLinux
 #~ echo "[*] [ $progress/$total ] Installing PlayOnLinux"
 #~ pol=PlayOnLinux.deb
