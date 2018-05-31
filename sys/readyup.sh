@@ -399,6 +399,16 @@ else
 	dpkg -i $apps/$stacer && let progress++
 fi
 
+## hyper
+echo "[*] [ $progress/$total ] Installing Stacer"
+hyper=hyper.deb
+if [ ! -f $apps/$hyper ]; then
+	wget -q -O $apps/$hyper 'https://releases.hyper.is/download/deb'
+	dpkg -i $apps/$hyper && let progress++
+else
+	dpkg -i $apps/$hyper && let progress++
+fi
+
 
 # aircrack
 #~ echo "[*] [ $progress/$total ] Installing aircrack-ng"
