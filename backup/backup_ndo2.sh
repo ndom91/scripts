@@ -4,7 +4,7 @@
 #
 # Author: ndom91
 #
-# Desc: tars system and uploads to rclone gdrive
+# Desc: tars system and uploads to rclone mega
 #
 ###################################################
 
@@ -48,13 +48,13 @@ $DESDIR/$FILENAME $SRCDIR >> /dev/null 2>&1
 
 FILESIZE=$(ls -lh $DESDIR/$FILENAME | awk '{print $5}')
 
-echo "Backup complete. Now moving to Gdrive:/ndoX_backup.."
+echo "Backup complete. Now moving to mega:/ndoX_backup.."
 
-/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /home/ndo/rclonelogs/backup-$TIME.log --log-level DEBUG $DESDIR/$FILENAME Gdrive:ndoX_backup/weekly >> /dev/null
+/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /home/ndo/rclonelogs/backup-$TIME.log --log-level DEBUG $DESDIR/$FILENAME mega:ndoX_backup/weekly >> /dev/null
 
 echo "Move complete, cleaning up"
 
-/usr/bin/rclone delete --config /home/ndo/.config/rclone/rclone.conf --min-age 3w Gdrive:ndoX_backup/weekly/
+/usr/bin/rclone delete --config /home/ndo/.config/rclone/rclone.conf --min-age 4w mega:ndoX_backup/weekly/
 
 echo "Clean up complete, sending mail"
 

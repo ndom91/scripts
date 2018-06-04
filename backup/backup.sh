@@ -4,7 +4,7 @@
 #
 # Author: ndom91
 #
-# Desc: tars system and uploads to rclone gdrive
+# Desc: tars system and uploads to rclone mega
 #
 ###################################################
 
