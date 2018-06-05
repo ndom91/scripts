@@ -50,6 +50,8 @@ echo ""
 
 /usr/bin/rclone delete --config /home/pi/.rclone.conf --min-age 7d mega:ndoX_backup/open-pi
 
+find /mnt/NDO_Backup/pi_backups/open-pi -type f -mtime +10 -delete
+
 echo ""
 
 echo "Clean up complete"

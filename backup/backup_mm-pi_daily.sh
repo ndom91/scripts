@@ -49,6 +49,7 @@ echo ""
 rm -f $DESDIR/$FILENAME
 
 ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone delete --config /home/pi/.rclone.conf --min-age 7d mega:ndoX_backup/mm-pi"
+ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "find /mnt/NDO_Backup/pi_backups/mm-pi -type f -mtime +10 -delete"
 
 echo ""
 
