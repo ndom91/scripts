@@ -40,7 +40,7 @@ echo "Backup complete. Now moving to /mnt/NDO_Backup/pi_backups/open-pi AND mega
 
 sudo cp $DESDIR/$FILENAME /mnt/NDO_Backup/pi_backups/open-pi
 
-/usr/bin/rclone move --config /home/pi/.rclone.conf --log-file /home/pi/rclonelogs/backup-$TIME.log $DESDIR/$FILENAME mega:ndoX_backup/open-pi >> /dev/null
+/usr/bin/rclone move --config /home/pi/.config/rclone/rclone.conf --log-file /home/pi/rclonelogs/backup-$TIME.log $DESDIR/$FILENAME mega:ndoX_backup/open-pi >> /dev/null
 
 echo ""
 
@@ -48,7 +48,7 @@ echo "Move complete. Cleaning up"
 
 echo ""
 
-/usr/bin/rclone delete --config /home/pi/.rclone.conf --min-age 7d mega:ndoX_backup/open-pi
+/usr/bin/rclone delete --config /home/pi/.config/rclone/rclone.conf --min-age 7d mega:ndoX_backup/open-pi
 
 find /mnt/NDO_Backup/pi_backups/open-pi -type f -mtime +10 -delete
 

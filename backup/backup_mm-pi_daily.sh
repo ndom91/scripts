@@ -38,7 +38,7 @@ echo "Backup complete. Now moving to open-pi:/mnt/NDO_Backup/pi_backups/mm-pi AN
 
 scp -i /home/pi/.ssh/id_pihole $DESDIR/$FILENAME pi@192.168.178.52:/mnt/NDO_Backup/pi_backups/mm-pi
 
-ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone copy --config /home/pi/.rclone.conf --log-file /home/pi/rclonelogs/backup-mmpi-$TIME.log /mnt/NDO_Backup/pi_backups/mm-pi/$FILENAME mega:ndoX_backup/mm-pi >> /dev/null"
+ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone copy --config /home/pi/.config/rclone/rclone.conf --log-file /home/pi/rclonelogs/backup-mmpi-$TIME.log /mnt/NDO_Backup/pi_backups/mm-pi/$FILENAME mega:ndoX_backup/mm-pi >> /dev/null"
 
 echo ""
 
@@ -48,7 +48,7 @@ echo ""
 
 rm -f $DESDIR/$FILENAME
 
-ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone delete --config /home/pi/.rclone.conf --min-age 7d mega:ndoX_backup/mm-pi"
+ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone delete --config /home/pi/.config/rclone/rclone.conf --min-age 7d mega:ndoX_backup/mm-pi"
 ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "find /mnt/NDO_Backup/pi_backups/mm-pi -type f -mtime +10 -delete"
 
 echo ""
