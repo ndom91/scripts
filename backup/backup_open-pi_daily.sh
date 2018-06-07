@@ -26,8 +26,8 @@ echo "Starting backup..."
 tar \
 -cvpzf \
 $DESDIR/$FILENAME \
-/var/lib/openhab2/backups \
-/var/lib/openhab2/jsondb \
+/var/lib/openhab2 \
+/usr/share/openhab2 \
 /etc/openhab2 \ >> /dev/null 2>&1
 
 ####################################
