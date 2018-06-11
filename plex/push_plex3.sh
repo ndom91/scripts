@@ -4,7 +4,7 @@
 #
 # Author: ndom91
 #
-# Desc: moving postprocessed media to rclone/gdrive for plex
+# Desc: moving postprocessed media to rclone/mega for plex
 #
 ###############################################################
 
@@ -83,9 +83,9 @@ else
 					echo "Warning: '$dir' found in /mnt/gdrive.., not moving!"
 				else
 
-					# NOT in destination - move to GdriveEnc:plex_enc/tv/[basename]
+					# NOT in destination - move to mega:plex_enc/tv/[basename]
 
-					/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_tv_move_"$TIME".log --log-level INFO --drive-chunk-size 16M "${TV_ARRAY[$i]}" GdriveEnc:plex_enc/tv/"$dir"
+					/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_tv_move_"$TIME".log --log-level INFO --drive-chunk-size 16M "${TV_ARRAY[$i]}" mega:plex_enc/tv/"$dir"
 					sleep 30
 					rmdir /home/ndo/ftp/files/torrentcomplete/tv/"$dir"
 					echo "'$TV_BASE' moved"
@@ -143,12 +143,12 @@ else
 		  echo "'$MOV_MATCH' already at destination. Not moving."
 		else
 
-		  # if not already at dest then rclone move it to GdriveEnc:plex_enc/movies/[basename]
+		  # if not already at dest then rclone move it to mega:plex_enc/movies/[basename]
 
-		  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_movie_move_"$TIME".log --log-level INFO --drive-chunk-size 16M "$MOV_DIR"/"$MOV_MATCH" GdriveEnc:plex_enc/movies/"$MOV_MATCH"
+		  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_movie_move_"$TIME".log --log-level INFO --drive-chunk-size 16M "$MOV_DIR"/"$MOV_MATCH" mega:plex_enc/movies/"$MOV_MATCH"
 		  sleep 30
 		  rmdir /home/ndo/ftp/files/torrentcomplete/movies/"$MOV_MATCH"
-		  echo "'$MOV_MATCH' moved to GdriveEnc:/plex_enc/movies"
+		  echo "'$MOV_MATCH' moved to mega:/plex_enc/movies"
 		  mov_counter=$((mov_counter+1))
 		fi
 	done
@@ -196,12 +196,12 @@ else
 			  echo "'$MUS_MATCH' already at destination"
 			else
 
-			  # if it doesnt already exists then rclone move it to GdriveEnc:plex_enc/music/[basename]
+			  # if it doesnt already exists then rclone move it to mega:plex_enc/music/[basename]
 
-			  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_music_move_"$TIME".log --log-level INFO --drive-chunk-size 16M "$MUS_DIR"/"$MUS_MATCH" GdriveEnc:plex_enc/music/"$MUS_MATCH"
+			  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_music_move_"$TIME".log --log-level INFO --drive-chunk-size 16M "$MUS_DIR"/"$MUS_MATCH" mega:plex_enc/music/"$MUS_MATCH"
 			  sleep 30
 			  rmdir /home/ndo/ftp/files/torrentcomplete/music/"$MUS_MATCH"
-			  echo "'$MUS_MATCH' moved to GdriveEnc:plex_enc/music"
+			  echo "'$MUS_MATCH' moved to mega:plex_enc/music"
 			  mus_counter=$((mus_counter+1))
 			fi
 	  done
