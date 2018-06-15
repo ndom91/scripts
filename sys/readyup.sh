@@ -1,6 +1,58 @@
 #!/bin/bash
 
-# Set up my ubuntu
+
+#################################################
+#						#
+#						#
+#      Initial setup of Ubuntu Machine       	#
+#						#
+#						#
+#################################################
+#
+#   Author: Nico Domino
+#   https://github.com/ndom91
+#
+#   yo [at] iamnico [dot] xyz
+#
+# 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#	        To add new software:
+#
+#   Templates:
+#    1) if packages are in default repos:
+#
+#       # $Title
+#	echo "[*] [ $progress/$total ] Installing $title"
+#	apt install -y $title && let progress++
+#
+#    2) if packages need to be downloaded as .deb
+#
+#       # $Title
+#	echo "[*] [ $progress/$total ] Installing $title"
+#	hyper=hyper.deb
+#	if [ ! -f $apps/$hyper ]; then
+#	        wget -q -O $apps/$hyper '$URL'
+#	        dpkg -i $apps/$hyper && let progress++
+#	else
+#	        dpkg -i $apps/$hyper && let progress++
+#	fi
+#
+#    3) if packages need cloned from git and unpacked
+#
+#	# $Title
+#	echo "[*] [ $progress/$total ] Installing arc-icon-theme"
+#	if [ ! -d "$apps/arc-icon-theme" ]; then mkdir "$apps/arc-icon-theme"; fi
+#	if [ ! -d $apps/arc-icon-theme/Arc ]; then
+#	    git clone https://github.com/horst3180/arc-icon-theme.git "$apps/arc-icon-theme"
+#	    cp -r $apps/arc-icon-theme/Arc /usr/share/icons && let progress++
+#	else
+#	    cp -r $apps/arc-icon-theme/Arc /usr/share/icons && let progress++
+#	fi
+#
+#
+#
+#	** INCREMENT TOTAL COUNTER VARIABLE BELOW **
+#
 
 DIFFTIME1=$(date '+%s%N')
 
@@ -27,16 +79,15 @@ echo "[*] Pulling ndom91/scripts.git"
 
 git clone https://github.com/ndom91/scripts ~/Documents/scripts
 
-# Macbuntu for 16.10 install
- echo "[*] [ $progress/$total ] Installing cerebro"
- cerebro=cerebro.deb
- if [ ! -f $apps/mac-fonts.zip ]; then
-     wget -q -O $apps/$cerebro https://github.com/KELiON/cerebro/releases/download/v0.3.2/cerebro_0.3.2_amd64.deb
-     dpkg -i $apps/$cerebro && let progress++
-     #rm $apps/$cerebro
- else
-     dpkg -i $apps/$cerebro && let progress++
- fi
+#echo "[*] [ $progress/$total ] Installing cerebro"
+#cerebro=cerebro.deb
+#if [ ! -f $apps/mac-fonts.zip ]; then
+#    wget -q -O $apps/$cerebro https://github.com/KELiON/cerebro/releases/download/v0.3.2/cerebro_0.3.2_amd64.deb
+#    dpkg -i $apps/$cerebro && let progress++
+    #rm $apps/$cerebro
+#else
+#    dpkg -i $apps/$cerebro && let progress++
+#fi
 
 
 echo "[*] [ $progress/$total ] Installing Macbuntu"
@@ -139,36 +190,14 @@ apt install -y libreoffice-style-sifr && let progress++ && echo "[*] [ $progress
 # Fix Nautilus recent files bug
 #echo 'Environment=DISPLAY=:0' >> /usr/lib/systemd/user/gvfs-daemon.service
 
-
-# OpenVPN
-#~ echo "[*] [ $progress/$total ] Installing OpenVPN"
-#~ apt install -y openvpn && let progress++
-
-
-# Virt-Viewer
-#~ echo "[*] [ $progress/$total ] Installing virt-viewer"
-#~ apt install -y virt-viewer && let progress++
-
-
 # x11vnc
 echo "[*] [ $progress/$total ] Installing x11vnc"
 apt install -y x11vnc && let progress++
 
 
-# x2go
-#~ echo "[*] [ $progress/$total ] Installing x2go"
-#~ apt install -y software-properties-common
-#~ apt install -y x2goclient && let progress++
-
-
 # tmux
-#~ echo "[*] [ $progress/$total ] Installing tmux"
-#~ apt install -y tmux && let progress++
-
-
-# CIFS
-#~ echo "[*] [ $progress/$total ] Installing samba tools"
-#~ apt install -y cifs-utils && let progress++
+echo "[*] [ $progress/$total ] Installing tmux"
+apt install -y tmux && let progress++
 
 
 # remmina
@@ -217,7 +246,7 @@ fi
 apt install -f -y && let progress++
 
 
-# Chrome
+# RememberTheMilk
 echo "[*] [ $progress/$total ] Installing RememberTheMilk"
 rtm=rememberthemilk.deb
 if [ ! -f $apps/$rtm ]; then
@@ -229,55 +258,6 @@ else
 fi
 
 
-# PlayOnLinux
-#~ echo "[*] [ $progress/$total ] Installing PlayOnLinux"
-#~ pol=PlayOnLinux.deb
-#~ if [ ! -f $apps/$pol ]; then
-	#~ wget -q -O $apps/$pol 'https://www.playonlinux.com/script_files/PlayOnLinux/4.2.12/PlayOnLinux_4.2.12.deb'
-	#~ dpkg -i $apps/$pol && let progress++
-	#~ #rm $apps/$pol
-#~ else
-	#~ dpkg -i $apps/$pol && let progress++
-#~ fi
-#~ if [ -d usr ]; then
-	#~ rsync -rti usr /
-#~ fi
-#~ apt install -f -y && let progress++
-#~ dpkg --add-architecture i386
-#~ apt update
-#~ apt install -y wine && let progress++
-#~ apt install -y winbind && let progress++
-#~ apt install -f -y && let progress++
-
-
-# Pycharm
-#~ echo "[*] [ $progress/$total ] Installing Pycharm"
-#~ pycharm=pycharm.tgz
-#~ if [ ! -d '/opt/pycharm' ]; then mkdir /opt/pycharm; fi
-#~ if [ ! -f $apps/$pycharm ]; then
-	#~ wget -q -O $apps/$pycharm 'https://download.jetbrains.com/python/pycharm-community-2017.2.tar.gz'
-	#~ tar zxf $apps/$pycharm -C /opt/pycharm && let progress++
-	#~ #rm $apps/$pycharm
-#~ else
-	#~ tar zxf $apps/$pycharm -C /opt && let progress++
-#~ fi
-
-#~ cat > /usr/share/applications/pycharm.desktop << EOF
-#~ [Desktop Entry]
-#~ Encoding=UTF-8
-#~ Name=Pycharm IDE
-#~ Comment=The Smarter Way to Code
-#~ Exec=/bin/sh "/opt/pycharm/pycharm-community-2017.2/bin/pycharm.sh"
-#~ Icon=/opt/pycharm/pycharm-community-2017.2/bin/pycharm.png
-#~ Categories=Application;Development;Python;IDE
-#~ Version=1.0
-#~ Type=Application
-#~ Terminal=0
-#~ EOF
-
-apt install -y python3-pip && let progress++
-
-
 # Visual Studio Code
 echo "[*] [ $progress/$total ] Visual Studio Code"
 curl -s https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -287,6 +267,8 @@ apt-get update
 #apt-get install -y code && let progress++
 apt-get install -y code-insiders && let progress++
 
+
+# Atom
 echo "[*] [ $progress/$total ] Installing atom"
 theme=atom-amd64.deb
 if [ ! -f $apps/$theme ]; then
@@ -295,6 +277,7 @@ if [ ! -f $apps/$theme ]; then
 else
 	dpkg -i $apps/$theme && let progress++
 fi
+
 
 # GitKraken
 echo "[*] [ $progress/$total ] Installing GitKraken"
@@ -322,11 +305,6 @@ apt install -y exfat-utils && let progress++
 # nmap
 echo "[*] [ $progress/$total ] Installing nmap"
 apt install -y nmap && let progress++
-
-
-# wireshark
-#~ echo "[*] [ $progress/$total ] Installing wireshark"
-#~ apt install -y wireshark && let progress++
 
 
 # VLC
@@ -365,6 +343,7 @@ apt install -y virtualbox && let progress++
 #	VBoxManage extpack install --replace $apps/$file
 #fi
 
+
 # Skype
 echo "[*] [ $progress/$total ] Installing Skype"
 dpkg -s apt-transport-https > /dev/null || bash -c "sudo apt-get update; sudo apt-get install apt-transport-https -y"
@@ -379,25 +358,10 @@ echo "[*] [ $progress/$total ] Installing iotop"
 apt install -y iotop && let progress++
 
 
-# iftop
-echo "[*] [ $progress/$total ] Installing iftop"
-apt install -y iftop && let progress++
-
-
 # glances
 echo "[*] [ $progress/$total ] Installing glances"
 apt install -y glances && let progress++
 
-
-## Stacer
-echo "[*] [ $progress/$total ] Installing Stacer"
-stacer=stacer.deb
-if [ ! -f $apps/$stacer ]; then
-	wget -q -O $apps/$stacer 'https://github.com/oguzhaninan/Stacer/releases/download/v1.0.9/stacer_1.0.9_amd64.deb'
-	dpkg -i $apps/$stacer && let progress++
-else
-	dpkg -i $apps/$stacer && let progress++
-fi
 
 ## hyper
 echo "[*] [ $progress/$total ] Installing Stacer"
@@ -408,11 +372,6 @@ if [ ! -f $apps/$hyper ]; then
 else
 	dpkg -i $apps/$hyper && let progress++
 fi
-
-
-# aircrack
-#~ echo "[*] [ $progress/$total ] Installing aircrack-ng"
-#~ apt install -y aircrack-ng && let progress++
 
 
 # flux
@@ -427,7 +386,8 @@ echo "[*] [ $progress/$total ] Installing audacity"
 apt install -y audacity && let progress++
 
 echo ""
-# time difference
+
+# Duration calculation
 
 DIFFTIME2=$(date '+%s%N')
 DIFFTIME_MILLI=$(( ( DIFFTIME2 - DIFFTIME1 )/(1000000) ))
