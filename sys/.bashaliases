@@ -37,7 +37,7 @@ alias iftop='sudo iftop -i wlan0'
 alias topfolders='sudo du -hs * | sort -rh | head -5'
 alias topfiles='sudo find -type f -exec du -Sh {} + | sort -rh | head -n 5'
 
-alias emptytrash='rm -rf ~/.local/share/Trash/*'
+alias emptytrash='sudo rm -rf ~/.local/share/Trash/*'
 
 alias torrentstatus='echo "../torrentz/Movies" && ll /home/ndo/ftp/files/torrentz/Movies && echo "../torrentz/TV" && ll /home/ndo/ftp/files/torrentz/TV && echo "../torrentz/Music" && ll /home/ndo/ftp/files/torrentz/Music && echo "../torre$
 
