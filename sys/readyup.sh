@@ -65,7 +65,7 @@ if [ ! -d "$apps" ]; then
 fi
 
 progress=1
-total=48
+total=49
 
 echo "[*] Updating repository"
 apt update
