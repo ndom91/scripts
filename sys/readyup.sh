@@ -313,8 +313,8 @@ apt install -y vlc && let progress++
 
 
 # Virtualbox
-echo "[*] [ $progress/$total ] Installing Virtualbox"
-apt install -y virtualbox && let progress++
+#echo "[*] [ $progress/$total ] Installing Virtualbox"
+#apt install -y virtualbox && let progress++
 # TODO: VirtualBox 5.1.26 does not install on Ubuntu 16.04
 # Unable to install dependencies even with yakkety contrib branch
 #    dpkg: dependency problems prevent configuration of virtualbox-5.1:
@@ -359,31 +359,31 @@ apt install -y iotop && let progress++
 
 
 # glances
-echo "[*] [ $progress/$total ] Installing glances"
-apt install -y glances && let progress++
+#echo "[*] [ $progress/$total ] Installing glances"
+#apt install -y glances && let progress++
 
 
 ## hyper
-echo "[*] [ $progress/$total ] Installing Stacer"
-hyper=hyper.deb
-if [ ! -f $apps/$hyper ]; then
-	wget -q -O $apps/$hyper 'https://releases.hyper.is/download/deb'
-	dpkg -i $apps/$hyper && let progress++
-else
-	dpkg -i $apps/$hyper && let progress++
-fi
+#echo "[*] [ $progress/$total ] Installing Stacer"
+#hyper=hyper.deb
+#if [ ! -f $apps/$hyper ]; then
+#	wget -q -O $apps/$hyper 'https://releases.hyper.is/download/deb'
+#	dpkg -i $apps/$hyper && let progress++
+#else
+#	dpkg -i $apps/$hyper && let progress++
+#fi
 
 
 # flux
-echo "[*] [ $progress/$total ] Installing fluxgui"
-add-apt-repository -y ppa:nathan-renniewaldock/flux
-apt update
-apt install -y fluxgui && let progress++
+#echo "[*] [ $progress/$total ] Installing fluxgui"
+#add-apt-repository -y ppa:nathan-renniewaldock/flux
+#apt update
+#apt install -y fluxgui && let progress++
 
 
 # audacity
-echo "[*] [ $progress/$total ] Installing audacity"
-apt install -y audacity && let progress++
+#echo "[*] [ $progress/$total ] Installing audacity"
+#apt install -y audacity && let progress++
 
 echo ""
 
