@@ -1,0 +1,15 @@
+papirus-icon-theme
+transmission
+firefox
+filezilla
+gimp
+htop
+mc
+xfce4-goodies
+geany
+vlc
+git
+iftop
+openssh-server
+tree
+
