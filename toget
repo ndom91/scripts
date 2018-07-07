@@ -13,3 +13,7 @@
 -- https://github.com/dvorka/hstr/
 -- sudo add-apt-repository ppa:ultradvorka/ppa && sudo apt-get update && sudo apt-get install hh && hh --show-configuration >> ~/.bashrc
 
+- lnav
+-- logfile viewer +highlighting
+-- https://github.com/tstack/lnav
+-- https://github.com/tstack/lnav/releases/download/v0.8.3/lnav_0.8.3_amd64.deb
