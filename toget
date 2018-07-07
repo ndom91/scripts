@@ -1,5 +1,12 @@
 - better 'find'
-https://github.com/sharkdp/fd
-https://github.com/sharkdp/fd/releases/download/v7.0.0/fd-musl_7.0.0_amd64.deb
+-- https://github.com/sharkdp/fd
+-- https://github.com/sharkdp/fd/releases/download/v7.0.0/fd-musl_7.0.0_amd64.deb
 
--
+- marker
+-- search for common commands
+-- https://github.com/pindexis/marker
+-- Change shortcut from ctrl+space in Bash4.x+
+--- https://github.com/pindexis/marker/issues/28
+
+
+
