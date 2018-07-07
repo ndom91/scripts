@@ -17,3 +17,10 @@
 -- logfile viewer +highlighting
 -- https://github.com/tstack/lnav
 -- https://github.com/tstack/lnav/releases/download/v0.8.3/lnav_0.8.3_amd64.deb
+
+- ls++
+-- ls on steroids
+-- https://github.com/trapd00r/ls--
+-- follow instructions, copy ls++ bin to /usr/bin, set alias for it 'lss'
+
+
