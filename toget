@@ -8,5 +8,8 @@
 -- Change shortcut from ctrl+space in Bash4.x+
 --- https://github.com/pindexis/marker/issues/28
 
-
+- hh
+-- history upgrade
+-- https://github.com/dvorka/hstr/
+-- sudo add-apt-repository ppa:ultradvorka/ppa && sudo apt-get update && sudo apt-get install hh && hh --show-configuration >> ~/.bashrc
 
