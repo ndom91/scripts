@@ -12,4 +12,8 @@ git
 iftop
 openssh-server
 tree
-
+thunderbird
+chromium
+remmina
+tmux
+tilix

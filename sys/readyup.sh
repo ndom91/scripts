@@ -199,11 +199,13 @@ apt install -y x11vnc && let progress++
 echo "[*] [ $progress/$total ] Installing tmux"
 apt install -y tmux && let progress++
 
+# tilix
+echo "[*] [ $progress/$total ] Installing tmux"
+apt install -y tilix && let progress++
 
 # remmina
 echo "[*] [ $progress/$total ] Installing remmina"
 apt install -y remmina && let progress++
-
 
 # filezilla
 echo "[*] [ $progress/$total ] Installing filezilla"
