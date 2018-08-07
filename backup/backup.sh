@@ -24,9 +24,11 @@ echo "Starting backup..."
 ##########################################################
 
 tar --exclude=/swapfile \
+--exclude-backups \
+--exclude-caches-all \
 --exclude=cache \
 --exclude=.cache \
---exclude=cache \
+--exclude=Cache \
 --exclude=/home/ndo/backups \
 --exclude=/proc \
 --exclude=/snap \
@@ -39,6 +41,10 @@ tar --exclude=/swapfile \
 --exclude=/media \
 --exclude=/home/ndo/ftp \
 --exclude=/home/ndo/Down* \
+--exclude=/home/ndo/.thumbnails \
+--exclude=*tmp* \
+--exclude=*temp* \
+--exclude=*Temp* \
 --exclude=/home/ndo/Documents/ndo0_home \
 --exclude=/home/ndo/Documents/ndo2_home \
 -cvpzf \
@@ -49,6 +55,8 @@ $DESDIR/$FILENAME $SRCDIR
 ####################################
 
 echo "Backup complete. Now moving to ndo-pi.."
+
+/usr/bin/rclone copy $DESDIR/$FILENAME mega:/ndoX_backup/ndo3/$FILENAME
 
 mv $DESDIR/$FILENAME /opt/ndopi_home/mnt/NDO_Backup/ndo3_backup/$FILENAME
 

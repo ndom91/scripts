@@ -23,7 +23,10 @@ echo "Starting backup..."
 # !!watch excludes - must be customized for each system!!
 ##########################################################
 
-tar --exclude=/swapfile \
+tar \
+-cvpzf \
+$DESDIR/$FILENAME $SRCDIR \
+--exclude=/swapfile \
 --exclude=cache \
 --exclude=.cache \
 --exclude=cache \
@@ -38,9 +41,8 @@ tar --exclude=/swapfile \
 --exclude=/run \
 --exclude=/media \
 --exclude=/home/ndo/Downloads \
---exclude=/home/ndo/ftp/files \
--cvpzf \
-$DESDIR/$FILENAME $SRCDIR >> /dev/null 2>&1
+--exclude=/home/ndo/ftp/files \ >> /dev/null 2>&1
+
 
 ####################################
 # CLEAN UP
