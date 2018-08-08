@@ -120,7 +120,7 @@ echo "[*] [ $progress/$total ] Installing conky"
 
 apt install -y conky && let progress++
 
-cp ~/Document/scripts/sys/.conky ~/
+cp -r ~/Document/scripts/sys/.conky ~/
 
 cat >~/runconky.sh << EOL
 #!/bin/bash
