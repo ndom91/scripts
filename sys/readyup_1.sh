@@ -125,7 +125,7 @@ cp ~/Document/scripts/sys/.conky ~/
 cat >~/runconky.sh << EOL
 #!/bin/bash
 
-conky -c /home/$USER/.conky/seamod/conkyrc.lua...
+conky -c /home/$USER/.conky/seamod2/conkyrc.lua...
 EOL
 
 chmod +x ~/runconky.sh
