@@ -9,6 +9,11 @@
 #						#
 #################################################
 #
+#  !!! DONT FORGET TO BACKUP SYSTEMD SERVICE FILES
+#  !!! DONT FORGET TO BACKUP XFCE PANEL SETTINGS
+#  !!! DONT FORGET TO BACKUP /ETC/FSTAB
+#  !!! DONT FORGET TO TAKE A SECOND LOOK IN /ETC AND /OPT
+#
 #   Author: Nico Domino
 #   https://github.com/ndom91
 #
