@@ -73,66 +73,36 @@ progress=1
 total=53
 
 echo "[*] Updating repository"
-apt update
+apt update && apt upgrade -y
 echo "[*] Installing missing dependencies"
 apt install -f -y
 
 apt install -y git && let progress++
 
-echo "[*] Pulling ndom91/scripts.git"
+echo "[*] Pulling ndom91/scripts.git to ~/Documents/scripts"
 
-git clone https://github.com/ndom91/scripts ~/Documents/scripts
+if [ ! -d "~/Documents/scripts" ]; then
+	git clone https://github.com/ndom91/scripts ~/Documents/scripts
+fi
 
-#echo "[*] [ $progress/$total ] Installing cerebro"
-#cerebro=cerebro.deb
-#if [ ! -f $apps/mac-fonts.zip ]; then
-#    wget -q -O $apps/$cerebro https://github.com/KELiON/cerebro/releases/download/v0.3.2/cerebro_0.3.2_amd64.deb
-#    dpkg -i $apps/$cerebro && let progress++
-    #rm $apps/$cerebro
-#else
-#    dpkg -i $apps/$cerebro && let progress++
-#fi
-
-
-echo "[*] [ $progress/$total ] Installing Macbuntu"
-apt install -y software-properties-common && let progress++ && echo "[*] [ $progress/$total ] Installed software-properties-common"
-add-apt-repository -y ppa:noobslab/macbuntu
+echo "[*] [ $progress/$total ] Installed software-properties-common"
+apt install -y software-properties-common && let progress++
 apt update
-
 apt install -y gnome-tweak-tool && let progress++ && echo "[*] [ $progress/$total ] Installed gnome-tweak-tool"
 apt install -y xfce4 xfce4-goodies xfce4-whiskermenu-plugin && let progress++ && echo "[*] [ $progress/$total ] Installed xfce4"
 
-
-#apt install -y plank && let progress++ && echo "[*] [ $progress/$total ] Installed plank"
-#echo "[*] [ $progress/$total ] Installing Plank themes"
-#theme=plank-themes.zip
-#if [ ! -f $apps/$theme ]; then
-#	wget -q -O $apps/$theme "https://github.com/KenHarkey/plank-themes/archive/master.zip"
-#	unzip $apps/$theme -d $apps
-#	cp -r $apps/plank-themes-master/anti-shade /usr/share/plank/themes
-#	cp -r $apps/plank-themes-master/paperterial /usr/share/plank/themes
-#	cp -r $apps/plank-themes-master/shade /usr/share/plank/themes
-#else
-#	unzip $apps/$theme -d $apps
-#	cp -r $apps/plank-themes-master/anti-shade /usr/share/plank/themes
-#	cp -r $apps/plank-themes-master/paperterial /usr/share/plank/themes
-#	cp -r $apps/plank-themes-master/shade /usr/share/plank/themes
-#fi
-
 # conky
 
+#apt install -y conky && let progress++
+
 echo "[*] [ $progress/$total ] Installing conky"
-
-apt install -y conky && let progress++
-
-echo "[*] [ $progress/$total ] Installing OSX Arc Collection"
-theme=osx-arc-collection.deb
-if [ ! -f $apps/$theme ]; then
-        wget -q -O $apps/$theme 'https://www.xfce-look.org/p/1167049/startdownload?file_id=1523902544&file_name=X-Arc-Collection-v1.4.9.zip&file_type=
-https://ubuntu.pkgs.org/18.04/ubuntu-universe-amd64/conky-all_1.10.8-1_amd64.deb.html
-        dpkg -i $apps/$theme && let progress++
+conky=conky.deb
+if [ ! -f $apps/$conky ]; then
+        wget -q -O $apps/$conky 'http://archive.ubuntu.com/ubuntu/pool/universe/c/conky/conky-all_1.10.8-1_amd64.deb'
+        dpkg -i $apps/$conky && let progress++
+        apt-get install -f
 else
-        dpkg -i $apps/$theme && let progress++
+        dpkg -i $apps/$conky && let progress++
 fi
 
 
@@ -141,7 +111,7 @@ cp -r ~/Document/scripts/sys/.conky ~/
 cat >~/runconky.sh << EOL
 #!/bin/bash
 
-conky -c /home/$USER/.conky/seamod2/conkyrc.lua
+conky -c /home/ndo/.conky/seamod2/conkyrc.lua
 EOL
 
 chmod +x ~/runconky.sh
@@ -243,18 +213,6 @@ apt install -y geany && let progress++
 echo "[*] [ $progress/$total ] Installing thunderbird"
 apt install -y thunderbird && let progress++
 
-# exquilla
-echo "[*] [ $progress/$total ] Installing exquilla"
-exquilla=exquilla-currentrelease.xpi
-if [ ! -f $apps/$exquilla ]; then
-	wget -q -O $apps/$exquilla 'http://mesquilla.net/exquilla-currentrelease.xpi'
-	#dpkg -i $apps/$exquilla && let progress++
-	#rm $apps/$exquilla
-else
-	dpkg -i $apps/$exquilla && let progress++
-fi
-apt install -f -y && let progress++
-
 # iftop
 echo "[*] [ $progress/$total ] Installing iftop"
 apt install -y iftop && let progress++
@@ -266,6 +224,41 @@ apt install -y openssh-server && let progress++
 # tree
 echo "[*] [ $progress/$total ] Installing tree"
 apt install -y tree && let progress++
+
+# iotop
+echo "[*] [ $progress/$total ] Installing iotop"
+apt install -y iotop && let progress++
+
+# npm
+echo "[*] [ $progress/$total ] Installing npm"
+apt install -y npm && let progress++
+
+# exfat
+echo "[*] [ $progress/$total ] Installing exfat-utils"
+apt install -y exfat-utils && let progress++
+
+# nmap
+echo "[*] [ $progress/$total ] Installing nmap"
+apt install -y nmap && let progress++
+
+# VLC
+echo "[*] [ $progress/$total ] Installing VLC"
+apt install -y vlc && let progress++
+
+# build-essential
+echo "[*] [ $progress/$total ] Installing build-essential"
+apt install -y build-essential && let progress++
+
+# exquilla
+echo "[*] [ $progress/$total ] Installing exquilla"
+exquilla=exquilla-currentrelease.xpi
+if [ ! -f ~/Downloads/$exquilla ]; then
+	wget -q -O ~/Downloads/$exquilla 'http://mesquilla.net/exquilla-currentrelease.xpi'
+	#dpkg -i ~/Downloads/$exquilla && let progress++
+	#rm ~/Downloads/$exquilla
+else
+	dpkg -i ~/Downloads/$exquilla && let progress++
+fi
 
 # Chrome
 echo "[*] [ $progress/$total ] Installing Chrome"
@@ -309,17 +302,16 @@ apt-get update
 #apt-get install -y code && let progress++
 apt-get install -y code-insiders && let progress++
 
-
 # Atom
 echo "[*] [ $progress/$total ] Installing atom"
 theme=atom-amd64.deb
 if [ ! -f $apps/$theme ]; then
 	wget -q -O $apps/$theme 'https://github.com/atom/atom/releases/download/v1.27.1/atom-amd64.deb'
 	dpkg -i $apps/$theme && let progress++
+	apt-get install -f
 else
 	dpkg -i $apps/$theme && let progress++
 fi
-
 
 # GitKraken
 echo "[*] [ $progress/$total ] Installing GitKraken"
@@ -333,26 +325,39 @@ else
 fi
 apt-get install -f -y && let progress++
 
+# Skype
+echo "[*] [ $progress/$total ] Installing Skype"
+dpkg -s apt-transport-https > /dev/null || bash -c "sudo apt-get update; sudo apt-get install apt-transport-https -y"
+curl -s https://repo.skype.com/data/SKYPE-GPG-KEY | apt-key add -
+echo "deb [arch=amd64] https://repo.skype.com/deb stable main" > /etc/apt/sources.list.d/skype-stable.list
+apt update
+apt install -y skypeforlinux && let progress++
 
-# npm
-echo "[*] [ $progress/$total ] Installing npm"
-apt install -y npm && let progress++
+#echo "[*] [ $progress/$total ] Installing cerebro"
+#cerebro=cerebro.deb
+#if [ ! -f $apps/mac-fonts.zip ]; then
+#    wget -q -O $apps/$cerebro https://github.com/KELiON/cerebro/releases/download/v0.3.2/cerebro_0.3.2_amd64.deb
+#    dpkg -i $apps/$cerebro && let progress++
+    #rm $apps/$cerebro
+#else
+#    dpkg -i $apps/$cerebro && let progress++
+#fi
 
-
-# exfat
-echo "[*] [ $progress/$total ] Installing exfat-utils"
-apt install -y exfat-utils && let progress++
-
-
-# nmap
-echo "[*] [ $progress/$total ] Installing nmap"
-apt install -y nmap && let progress++
-
-
-# VLC
-echo "[*] [ $progress/$total ] Installing VLC"
-apt install -y vlc && let progress++
-
+#apt install -y plank && let progress++ && echo "[*] [ $progress/$total ] Installed plank"
+#echo "[*] [ $progress/$total ] Installing Plank themes"
+#theme=plank-themes.zip
+#if [ ! -f $apps/$theme ]; then
+#	wget -q -O $apps/$theme "https://github.com/KenHarkey/plank-themes/archive/master.zip"
+#	unzip $apps/$theme -d $apps
+#	cp -r $apps/plank-themes-master/anti-shade /usr/share/plank/themes
+#	cp -r $apps/plank-themes-master/paperterial /usr/share/plank/themes
+#	cp -r $apps/plank-themes-master/shade /usr/share/plank/themes
+#else
+#	unzip $apps/$theme -d $apps
+#	cp -r $apps/plank-themes-master/anti-shade /usr/share/plank/themes
+#	cp -r $apps/plank-themes-master/paperterial /usr/share/plank/themes
+#	cp -r $apps/plank-themes-master/shade /usr/share/plank/themes
+#fi
 
 # Virtualbox
 #echo "[*] [ $progress/$total ] Installing Virtualbox"
@@ -385,21 +390,6 @@ apt install -y vlc && let progress++
 #	VBoxManage extpack install --replace $apps/$file
 #fi
 
-
-# Skype
-echo "[*] [ $progress/$total ] Installing Skype"
-dpkg -s apt-transport-https > /dev/null || bash -c "sudo apt-get update; sudo apt-get install apt-transport-https -y"
-curl -s https://repo.skype.com/data/SKYPE-GPG-KEY | apt-key add -
-echo "deb [arch=amd64] https://repo.skype.com/deb stable main" > /etc/apt/sources.list.d/skype-stable.list
-apt update
-apt install -y skypeforlinux && let progress++
-
-
-# iotop
-echo "[*] [ $progress/$total ] Installing iotop"
-apt install -y iotop && let progress++
-
-
 # glances
 #echo "[*] [ $progress/$total ] Installing glances"
 #apt install -y glances && let progress++
@@ -415,13 +405,11 @@ apt install -y iotop && let progress++
 #	dpkg -i $apps/$hyper && let progress++
 #fi
 
-
 # flux
 #echo "[*] [ $progress/$total ] Installing fluxgui"
 #add-apt-repository -y ppa:nathan-renniewaldock/flux
 #apt update
 #apt install -y fluxgui && let progress++
-
 
 # audacity
 #echo "[*] [ $progress/$total ] Installing audacity"
@@ -445,3 +433,4 @@ echo "* Add conky to autostart"
 echo "* Add RTM to autostart"
 echo "* Add mounts to autostart"
 echo "* Setup cron"
+
