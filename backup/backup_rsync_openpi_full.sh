@@ -93,13 +93,13 @@ BACKUPDIR=$DIR/$TODAYDIR
 
 echo -e "${purple}${bold}Syncing Disks before rsync backup${NC}${normal}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
 
-# First sync disks
-sync; sync
-
 echo -e "${green}${bold}Starting open-pi backup process!${NC}${normal}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
 
 # Shut down some services before starting backup process
 stopServices
+
+# First sync disks
+sync; sync
 
 echo "____ BACKUP STARTED ON $(date +%Y/%m/%d_%H:%M:%S)" | tee -a $DIR/$(date +%Y%m%d)_backup.log
 echo ""
