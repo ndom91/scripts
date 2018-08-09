@@ -140,6 +140,7 @@ alias gitpushparticle='sudo git push particle master'
 
 alias r='rtm -c'
 alias j='sudo bash ~/Documents/scripts/sys/jira.sh'
+alias woman='eg'
 
 alias sysinfo='inxi -Fxz'
 

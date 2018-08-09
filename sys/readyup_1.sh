@@ -9,6 +9,11 @@
 #						#
 #################################################
 #
+#  !!! DONT FORGET TO BACKUP SYSTEMD SERVICE FILES
+#  !!! DONT FORGET TO BACKUP XFCE PANEL SETTINGS
+#  !!! DONT FORGET TO BACKUP /ETC/FSTAB
+#  !!! DONT FORGET TO TAKE A SECOND LOOK IN /ETC AND /OPT
+#
 #   Author: Nico Domino
 #   https://github.com/ndom91
 #
@@ -65,7 +70,7 @@ if [ ! -d "$apps" ]; then
 fi
 
 progress=1
-total=49
+total=53
 
 echo "[*] Updating repository"
 apt update
@@ -73,7 +78,6 @@ echo "[*] Installing missing dependencies"
 apt install -f -y
 
 apt install -y git && let progress++
-
 
 echo "[*] Pulling ndom91/scripts.git"
 
@@ -99,44 +103,54 @@ apt install -y gnome-tweak-tool && let progress++ && echo "[*] [ $progress/$tota
 apt install -y xfce4 xfce4-goodies xfce4-whiskermenu-plugin && let progress++ && echo "[*] [ $progress/$total ] Installed xfce4"
 
 
-apt install -y plank && let progress++ && echo "[*] [ $progress/$total ] Installed plank"
-echo "[*] [ $progress/$total ] Installing Plank themes"
-theme=plank-themes.zip
-if [ ! -f $apps/$theme ]; then
-	wget -q -O $apps/$theme "https://github.com/KenHarkey/plank-themes/archive/master.zip"
-	unzip $apps/$theme -d $apps
-	cp -r $apps/plank-themes-master/anti-shade /usr/share/plank/themes
-	cp -r $apps/plank-themes-master/paperterial /usr/share/plank/themes
-	cp -r $apps/plank-themes-master/shade /usr/share/plank/themes
-else
-	unzip $apps/$theme -d $apps
-	cp -r $apps/plank-themes-master/anti-shade /usr/share/plank/themes
-	cp -r $apps/plank-themes-master/paperterial /usr/share/plank/themes
-	cp -r $apps/plank-themes-master/shade /usr/share/plank/themes
-fi
+#apt install -y plank && let progress++ && echo "[*] [ $progress/$total ] Installed plank"
+#echo "[*] [ $progress/$total ] Installing Plank themes"
+#theme=plank-themes.zip
+#if [ ! -f $apps/$theme ]; then
+#	wget -q -O $apps/$theme "https://github.com/KenHarkey/plank-themes/archive/master.zip"
+#	unzip $apps/$theme -d $apps
+#	cp -r $apps/plank-themes-master/anti-shade /usr/share/plank/themes
+#	cp -r $apps/plank-themes-master/paperterial /usr/share/plank/themes
+#	cp -r $apps/plank-themes-master/shade /usr/share/plank/themes
+#else
+#	unzip $apps/$theme -d $apps
+#	cp -r $apps/plank-themes-master/anti-shade /usr/share/plank/themes
+#	cp -r $apps/plank-themes-master/paperterial /usr/share/plank/themes
+#	cp -r $apps/plank-themes-master/shade /usr/share/plank/themes
+#fi
+
+# conky
+
+echo "[*] [ $progress/$total ] Installing conky"
 
 apt install -y conky && let progress++
-
-cp ~/Document/scripts/sys/.conky ~/
-
-cat >~/runconky.sh << EOL
-#!/bin/bash
-
-conky -c /home/$USER/.conky/seamod/conkyrc.lua...
-EOL
-
-chmod +x ~/runconky.sh
-
-echo "[*] [ $progress/$total ] Installed conky"
-
-apt install -y macbuntu-os-plank-theme-lts-v7 && let progress++ && echo "[*] [ $progress/$total ] Installed macbuntu-os-plank-themes"
-apt install -y macbuntu-os-icons-lts-v7 && let progress++ && echo "[*] [ $progress/$total ] Installed macbuntu-os-icons-lts"
-apt install -y macbuntu-os-ithemes-lts-v7 && let progress++ && echo "[*] [ $progress/$total ] Installed macbuntu-os-ithemes"
 
 echo "[*] [ $progress/$total ] Installing OSX Arc Collection"
 theme=osx-arc-collection.deb
 if [ ! -f $apps/$theme ]; then
-	wget -q -O $apps/$theme 'https://github.com/LinxGem33/X-Arc-Darker/releases/download/v1.4.7/osx-arc-collection_1.4.7_amd64.deb'
+        wget -q -O $apps/$theme 'https://www.xfce-look.org/p/1167049/startdownload?file_id=1523902544&file_name=X-Arc-Collection-v1.4.9.zip&file_type=
+https://ubuntu.pkgs.org/18.04/ubuntu-universe-amd64/conky-all_1.10.8-1_amd64.deb.html
+        dpkg -i $apps/$theme && let progress++
+else
+        dpkg -i $apps/$theme && let progress++
+fi
+
+
+cp -r ~/Document/scripts/sys/.conky ~/
+
+cat >~/runconky.sh << EOL
+#!/bin/bash
+
+conky -c /home/$USER/.conky/seamod2/conkyrc.lua
+EOL
+
+chmod +x ~/runconky.sh
+
+# OSX Appearance Theme
+echo "[*] [ $progress/$total ] Installing OSX Arc Collection"
+theme=osx-arc-collection.deb
+if [ ! -f $apps/$theme ]; then
+	wget -q -O $apps/$theme 'https://www.xfce-look.org/p/1167049/startdownload?file_id=1523902544&file_name=X-Arc-Collection-v1.4.9.zip&file_type=application/zip&file_size=17342550&url=https%3A%2F%2Fdl.opendesktop.org%2Fapi%2Ffiles%2Fdownloadfile%2Fid%2F1523902544%2Fs%2Ff7fca0c656026d38d4b369cd92849162%2Ft%2F1533729635%2Fu%2F%2FX-Arc-Collection-v1.4.9.zip'
 	dpkg -i $apps/$theme && let progress++
 else
 	dpkg -i $apps/$theme && let progress++
@@ -151,7 +165,6 @@ add-apt-repository -y ppa:oranchelo/oranchelo-icon-theme
 apt-get update
 apt-get install -y oranchelo-icon-theme && let progress++
 
-
 # arc-icon-theme
 echo "[*] [ $progress/$total ] Installing arc-icon-theme"
 if [ ! -d "$apps/arc-icon-theme" ]; then mkdir "$apps/arc-icon-theme"; fi
@@ -162,16 +175,13 @@ else
     cp -r $apps/arc-icon-theme/Arc /usr/share/icons && let progress++
 fi
 
-
 # capitaine-cursors
 echo "[*] [ $progress/$total ] Installing capitaine-cursors"
 add-apt-repository -y ppa:dyatlov-igor/la-capitaine
 apt update
 apt install -y la-capitaine-cursor-theme
 
-
 apt install -y libreoffice-style-sifr && let progress++ && echo "[*] [ $progress/$total ] Installed libreoffice styles"
-
 
 # Disable Mouse Acceleration for X server
 #echo "[*] [ $progress/$total ] Disable X mouse acceleration"
@@ -186,7 +196,6 @@ apt install -y libreoffice-style-sifr && let progress++ && echo "[*] [ $progress
 #EOF
 #let progress++
 
-
 # Fix Nautilus recent files bug
 #echo 'Environment=DISPLAY=:0' >> /usr/lib/systemd/user/gvfs-daemon.service
 
@@ -194,14 +203,17 @@ apt install -y libreoffice-style-sifr && let progress++ && echo "[*] [ $progress
 echo "[*] [ $progress/$total ] Installing x11vnc"
 apt install -y x11vnc && let progress++
 
-
 # tmux
 echo "[*] [ $progress/$total ] Installing tmux"
 apt install -y tmux && let progress++
 
 # tilix
-echo "[*] [ $progress/$total ] Installing tmux"
+echo "[*] [ $progress/$total ] Installing tilix"
 apt install -y tilix && let progress++
+
+# thefuck
+echo "[*] [ $progress/$total ] Installing thefuck"
+apt install -y thefuck && let progress++
 
 # remmina
 echo "[*] [ $progress/$total ] Installing remmina"
@@ -219,9 +231,29 @@ apt install -y gimp && let progress++
 echo "[*] [ $progress/$total ] Installing mc"
 apt install -y mc && let progress++
 
+# youtube-dl
+echo "[*] [ $progress/$total ] Installing youtube-dl"
+apt install -y youtube-dl && let progress++
+
 # geany
 echo "[*] [ $progress/$total ] Installing geany"
 apt install -y geany && let progress++
+
+# thunderbird
+echo "[*] [ $progress/$total ] Installing thunderbird"
+apt install -y thunderbird && let progress++
+
+# exquilla
+echo "[*] [ $progress/$total ] Installing exquilla"
+exquilla=exquilla-currentrelease.xpi
+if [ ! -f $apps/$exquilla ]; then
+	wget -q -O $apps/$exquilla 'http://mesquilla.net/exquilla-currentrelease.xpi'
+	#dpkg -i $apps/$exquilla && let progress++
+	#rm $apps/$exquilla
+else
+	dpkg -i $apps/$exquilla && let progress++
+fi
+apt install -f -y && let progress++
 
 # iftop
 echo "[*] [ $progress/$total ] Installing iftop"
@@ -245,20 +277,28 @@ if [ ! -f $apps/$chrome ]; then
 else
 	dpkg -i $apps/$chrome && let progress++
 fi
-apt install -f -y && let progress++
-
 
 # RememberTheMilk
 echo "[*] [ $progress/$total ] Installing RememberTheMilk"
 rtm=rememberthemilk.deb
 if [ ! -f $apps/$rtm ]; then
-        wget -q -O $apps/$rtm 'https://www.rememberthemilk.com/download/linux/debian/pool/main/r/rememberthemilk/rememberthemilk_1.1.9_amd64.deb -O rememberthemilk.deb'
+        wget -q -O $apps/$rtm 'https://www.rememberthemilk.com/download/linux/debian/pool/main/r/rememberthemilk/rememberthemilk_1.1.9_amd64.deb'
         dpkg -i $apps/$rtm && let progress++
         rm $apps/$rtm
 else
         dpkg -i $apps/$rtm && let progress++
 fi
 
+# Teamviewer
+echo "[*] [ $progress/$total ] Installing teamviewer"
+teamviewer=teamviewer_amd64.deb
+if [ ! -f $apps/$teamviewer ]; then
+        wget -q -O $apps/$teamviewer 'https://download.teamviewer.com/download/linux/teamviewer_amd64.deb'
+        dpkg -i $apps/$teamviewer && let progress++
+        rm $apps/$teamviewer
+else
+        dpkg -i $apps/$teamviewer && let progress++
+fi
 
 # Visual Studio Code
 echo "[*] [ $progress/$total ] Visual Studio Code"
@@ -397,3 +437,11 @@ DIFFTIME_MILLI=$(( ( DIFFTIME2 - DIFFTIME1 )/(1000000) ))
 echo "[*] Time taken: " $(( ($DIFFTIME_MILLI / 1000) / 60 )) " minutes"
 
 echo "[*] Done"
+
+echo ""
+echo "Remember to:"
+echo ""
+echo "* Add conky to autostart"
+echo "* Add RTM to autostart"
+echo "* Add mounts to autostart"
+echo "* Setup cron"

@@ -19,8 +19,8 @@ conky.config = {
 	no_buffers = true,
 	text_buffer_size = 2048,
 
-	gap_x = -1880,
-	gap_y = 120,
+	gap_x = -1850,
+	gap_y = 50,
 	minimum_width = 300, minimum_height = 900,
 	maximum_width = 350,
 
@@ -33,8 +33,7 @@ conky.config = {
 
 	border_inner_margin = 0,
 	border_outer_margin = 0,
-	alignment = 'tr',
-	ximerama_head = 2,
+	alignment = 'tl',
 
 	draw_shades = false,
 	draw_outline = false,
@@ -58,7 +57,7 @@ conky.config = {
 -- Green
 	color5 = '#77B753',
 -- Loading lua script for drawning rings
-	lua_load = '~/.conky/seamod/seamod_rings.lua',
+	lua_load = '~/.conky/seamod2/seamod_rings.lua',
 	lua_draw_hook_pre = 'main',
 
 };
@@ -98,22 +97,22 @@ ${offset 90}${font Ubuntu:size=11:style=bold}${color5}DISKS
 ${offset 120}${diskiograph 40,220 666666 666666 -0.5}${voffset -30}
 ${voffset 20}
 ${offset 15}${font Ubuntu:size=10:style=bold}${color1}Free: $color3${font Ubuntu:size=10:style=normal}${fs_free /}${alignr}${font Ubuntu:size=10:style=bold}${color1}Used: $color3${font Ubuntu:size=10:style=normal}${fs_used /}
-${offset 15}${font Ubuntu:size=10:style=bold}${color1}Free: $color3${font Ubuntu:size=10:style=normal}${fs_free /dev/sda1}${alignr}${font Ubuntu:size=10:style=bold}${color1}Used: $color3${font Ubuntu:size=10:style=normal}${fs_used /dev/sda1}
-${offset 15}${font Ubuntu:size=10:style=bold}${color1}Free: $color3${font Ubuntu:size=10:style=normal}${fs_free /dev/sdb6}${alignr}${font Ubuntu:size=10:style=bold}${color1}Used: $color3${font Ubuntu:size=10:style=normal}${fs_used /dev/sdb6}
+# ${offset 15}${font Ubuntu:size=10:style=bold}${color1}Free: $color3${font Ubuntu:size=10:style=normal}${fs_free /home}${alignr}${font Ubuntu:size=10:style=bold}${color1}Used: $color3${font Ubuntu:size=10:style=normal}${fs_used /home}
+# ${offset 15}${font Ubuntu:size=10:style=bold}${color1}Free: $color3${font Ubuntu:size=10:style=normal}${fs_free /media/ndo/B6C242CDC2429213/}${alignr}${font Ubuntu:size=10:style=bold}${color1}Used: $color3${font Ubuntu:size=10:style=normal}${fs_used /media/ndo/B6C242CDC2429213/}
 
 # Network data (my desktop have only LAN). ETHERNET ring is mostly useless but looks pretty, main info is in the graphs
 ${voffset 45}
-${offset 200}${font Ubuntu:size=10:style=bold}${color1}Lan IP: ${alignr}$color3${addr enp7s0} 
+${offset 200}${font Ubuntu:size=10:style=bold}${color1}Lan IP: ${alignr}$color3${addr enp2s0} 
 ${offset 200}${font Ubuntu:size=10:style=bold}${color1}Ext IP: ${alignr}$color3${execi 600 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1} 
 ${offset 190}${font Ubuntu:size=10:style=bold}${alignr}$color3${execi 600 wget -q -O /dev/stdout https://www.dnsleaktest.com/ | grep from | grep -o '<p>.*<img' | grep -o '>.*<' | grep -oEi '[a-zA-Z0-9 ,]+'}
 
 ${voffset -60}
 ${offset 90}${font Ubuntu:size=11:style=bold}${color5}ETHERNET
 ${voffset 40}             
-${offset 15}${color1}${font ubuntu:size=10:style=bold}Up: ${alignr}${font Ubuntu:size=10:style=normal}$color2${upspeed enp7s0} / ${totalup enp7s0}
-${offset 15}${upspeedgraph enp7s0 40,320 4B1B0C FF5C2B 1280KiB -l}
-${offset 15}${color1}${font Ubuntu:size=10:style=bold}Down: ${alignr}${font Ubuntu:size=10:style=normal}$color2${downspeed enp7s0} / ${totaldown enp7s0}
-${offset 15}${downspeedgraph enp7s0 40,320 324D23 77B753 1280KiB -l}
+${offset 15}${color1}${font ubuntu:size=10:style=bold}Up: ${alignr}${font Ubuntu:size=10:style=normal}$color2${upspeed enp2s0} / ${totalup enp2s0}
+${offset 15}${upspeedgraph enp2s0 40,320 4B1B0C FF5C2B 1280KiB -l}
+${offset 15}${color1}${font Ubuntu:size=10:style=bold}Down: ${alignr}${font Ubuntu:size=10:style=normal}$color2${downspeed enp2s0} / ${totaldown enp2s0}
+${offset 15}${downspeedgraph enp2s0 40,320 324D23 77B753 1280KiB -l}
 
 ${color4}${hr 2}
 

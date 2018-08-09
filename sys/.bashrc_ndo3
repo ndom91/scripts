@@ -3,7 +3,10 @@
 # for examples
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -54,9 +57,8 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    
-    PS1="\[\e[30;1m\]\[\016\]$\[\017\](\[\e[34;1m\]\u@\h\[\e[30;1m\])-(\[\e[37;1m\]\w\[\e[30;1m\])-(\[\e[34;1m\]\@ \d\[\e[30;1m\])->\[\e[30;1m\]\n\[\016\]$\[\017\](\[\e[37;1m\]jobs:\j\[\e[30;1m\])-(\[\e[32;1m\]\$(/bin/ls -1 | /usr/bin/wc -l | /bin/sed 's: ::g') files, \$(/bin/ls -lah | /bin/grep -m 1 total | /bin/sed 's/total //')b\[\e[30;1m\])-> \[\e[0m\]"
-    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+PS1="\n\[\e[30;1m\]\[\016\]$\[\017\](\[\e[34;1m\]\u@\h\[\e[30;1m\])-(\[\e[37;1m\]\w\[\e[30;1m\])-(\[\e[34;1m\]\@ \$(/usr/bin/free -h | /usr/bin/awk '{print \$4}' | /usr/bin/head -2| /usr/bin/tail -1))->\[\e[30;1m\]\n\[\016\]$\[\017\](\[\e[37;1m\]jobs:\j\[\e[30;1m\])-(\[\e[32;1m\]\$(/bin/ls -1 | /usr/bin/wc -l | /bin/sed 's: ::g') files, \$(/bin/ls -lah | /bin/grep -m 1 total | /bin/sed 's/total //')b\[\e[30;1m\])-> \[\e[0m\]"
+#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -87,50 +89,64 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -ahl --color=auto'
+alias ll='ls -halF --color=auto'
+alias lls='ls -hSalF --color=auto'
+alias lss='ls++ --potsf'
+alias li='ls -laXh --group-directories-first --color=auto'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias woman='eg'
+# if user is not root, pass all commands via sudo #
+if [ $UID -ne 0 ]; then
+    alias reboot='sudo reboot --reboot'
+    alias update='sudo apt-get upgrade'
+    alias shutdown='sudo shutdown -h now'
+fi
 
+## get rid of command not found ##
 alias cd..='cd ..'
+ 
+## a quick way to get out of current directory ##
 alias ..='cd ..'
 alias ...='cd ../../../'
 alias ....='cd ../../../../'
 alias .....='cd ../../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
 
-alias history='history 25'
-
-# alias ping='ping -c 5'
-
-
-if [ $UID -ne 0 ]; then
-	alias reboot='sudo reboot'
-	alias update='sudo apt-get update'
-fi
-
-alias emptytrash='sudo rm -rf ~/.local/share/Trash/*'
+alias ping='ping -c 5'
 
 alias apt-get='sudo apt-get'
 alias apt-gety='sudo apt-get --yes'
+
+alias apachereload='sudo /usr/sbin/apachectl -k graceful'
+alias apachetest='sudo /usr/sbin/apachectl -t && /usr/sbin/apachectl -t -D DUMP_VHOSTS'
  
+alias meminfo='free -m -l -t -h'
 alias df='df -H --output'
-alias free='free -htmlw'
+
+alias iftop='sudo iftop -i wlx7c8bca15a29a'
 
 alias topfolders='sudo du -hs * | sort -rh | head -5'
-alias topfiles='sudo find / -type f -printf "%s %p\n" | sort -rn | head -n 5'
+alias topfiles='sudo find -type f -exec du -Sh {} + | sort -rh | head -n 5'
+
+alias wg0up='sudo ip link set up dev wg0'
+alias wg0down='sudo ip link set down dev wg0'
+
+alias emptytrash='rm -rf ~/.local/share/Trash/*'
 
 alias gitadd='sudo git add *'
 alias gitcommit='sudo git commit -a'
 alias gitpushscripts='sudo git push https://github.com/ndom91/scripts.git master'
 
-alias vpn='/opt/cisco/anyconnect/bin/vpn'
-alias vpnui='/opt/cisco/anyconnect/bin/vpnui'
-
 alias r='rtm -c -x false'
 alias j='sudo bash ~/Documents/scripts/sys/jira.sh'
-alias n='nano -l'
-alias g='googler -n 5 -c us -l en'
+alias define='googler -n 2 -l en --np define:'
+alias engadget='curl getnews.tech/engadget?n=5'
+
+alias pip3='python3 -m pip'
+
+eval $(thefuck --alias)
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -156,29 +172,34 @@ if ! shopt -oq posix; then
   fi
 fi
 
-PATH=$PATH:/usr/local/bin
-
-PATH=$PATH:/home/ndo/.local/bin
-
-
-export NVM_DIR="/home/ndo/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
+export PATH=/home/ndo/.nvm/versions/node/v9.8.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export MARKER_KEY_GET='\C-b'
+[[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
+
 
 # add this configuration to ~/.bashrc
-#export HH_CONFIG=hicolor         # get more colors
-#shopt -s histappend              # append new history items to .bash_history
-#export HISTCONTROL=ignorespace   # leading space hides commands from history
-#export HISTFILESIZE=10000        # increase history file size (default is 500)
-#export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
-#export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"   # mem/file sync
+export HH_CONFIG=hicolor         # get more colors
+shopt -s histappend              # append new history items to .bash_history
+export HISTCONTROL=ignorespace   # leading space hides commands from history
+export HISTFILESIZE=10000        # increase history file size (default is 500)
+export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
+export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"   # mem/file sync
 # if this is interactive shell, then bind hh to Ctrl-r (for Vi mode check doc)
-#if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hh -- \C-j"'; fi
+if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hh -- \C-j"'; fi
 # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
-#if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hh -k \C-j"'; fi
+if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hh -k \C-j"'; fi
+
+
+PATH="/home/ndo/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/ndo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/ndo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/ndo/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/ndo/perl5"; export PERL_MM_OPT;
