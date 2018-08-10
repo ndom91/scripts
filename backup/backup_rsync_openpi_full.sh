@@ -55,7 +55,7 @@ function postProcessSuccess {
     sudo apt-get upgrade -y
     sudo apt-get autoclean
 
-    echo -e "${yellow}Update Raspberry Pi Firmware${NC}${normal}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
+    echo -e "${yellow}Update open-pi Firmware${NC}${normal}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
     sudo rpi-update
     sudo ldconfig
 }
@@ -72,9 +72,12 @@ NC='\e[0m' #No Color
 bold=`tput bold`
 normal=`tput sgr0`
 
-echo -e "${purple}${bold}____ open-pi full backup procedure - $(date +%d.%m.%Y)${NC}${normal}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
-
-echo -e "" | tee -a $DIR/$(date +%Y%m%d)_backup.log
+echo -e "${purple}${bold}########################################################" | tee -a $DIR/$(date +%Y%m%d)_backup.log
+echo -e "${purple}${bold}#" | tee -a $DIR/$(date +%Y%m%d)_backup.log
+echo -e "${purple}${bold}#     open-pi full backup procedure${NC}${normal}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
+echo -e "${purple}${bold}#      $(hostname) - $(date +%Y/%m/%d)${NC}${normal}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
+echo -e "${purple}${bold}#" | tee -a $DIR/$(date +%Y%m%d)_backup.log
+echo -e "${purple}${bold}########################################################" | tee -a $DIR/$(date +%Y%m%d)_backup.log
 
 # Check if mount point is mounted, if not quit!
 if ! mountpoint -q "$MOUNTPOINT" ; then
@@ -93,6 +96,7 @@ TODAYDIR="backup_$(hostname)_$(date +%Y%m%d_%H%M%S)"
 mkdir $DIR/$TODAYDIR
 BACKUPDIR=$DIR/$TODAYDIR
 
+echo "" | tee -a $DIR/$(date +%Y%m%d)_backup.log
 echo -e "${purple}${bold}Syncing Disks before rsync backup${NC}${normal}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
 
 echo -e "${green}${bold}Starting open-pi backup process!${NC}${normal}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
@@ -103,28 +107,28 @@ stopServices
 # First sync disks
 sync; sync
 
+echo "" | tee -a $DIR/$(date +%Y%m%d)_backup.log
 echo "____ BACKUP STARTED ON $(date +%Y/%m/%d_%H:%M:%S)" | tee -a $DIR/$(date +%Y%m%d)_backup.log
-echo ""
+echo "" | tee -a $DIR/$(date +%Y%m%d)_backup.log
 
 DIFFTIME1=$(date '+%s%N')
 
 # backup rsync call
 /usr/bin/rsync -aHv --delete --exclude-from=$SCRIPTDIR/$EXCLUDESFILE / $BACKUPDIR/ > $DIR/$(date +%Y%m%d)_rsync.log
 
-DIFFTIME2=$(date '+%s%N')
-DIFFTIME_MILLI=$(( ( DIFFTIME2 - DIFFTIME1 )/(1000000) ))
-
-echo "Time taken: " $(( ($DIFFTIME_MILLI / 1000) / 60 )) " minutes" | tee -a $DIR/$(date +%Y%m%d)_backup.log
+echo "____ RSYNC COMPLETED ON $(date +%Y/%m/%d_%H:%M:%S)" | tee -a $DIR/$(date +%Y%m%d)_backup.log
 
 # Start services again that where shutdown before backup process
 startServices
 
 if [ -d $BACKUPDIR/etc ]; then
     # the directory exists
-	echo -e "${green}${bold}open-pi backup process completed! DIR: $BACKUPDIR${NC}${normal}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
+	echo -e "${green}${bold}open-pi backup process completed!${NC}${normal}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
+	echo -e "${green}${bold}DIR: $BACKUPDIR${NC}${normal}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
+	echo "" | tee -a $DIR/$(date +%Y%m%d)_backup.log
 	echo -e "${yellow}Removing backups older than $RETENTIONPERIOD days${NC}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
 	sudo find $DIR -maxdepth 1 -type d -mtime +$RETENTIONPERIOD # -exec rm -r {} \;
-	echo -e "${cyan}Any backups older than $RETENTIONPERIOD have been deleted${NC}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
+	echo -e "${cyan}Any backups older than $RETENTIONPERIOD days have been deleted${NC}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
 	
 	if [ $POSTPROCESS = 1 ] ;
 	  then
@@ -140,6 +144,13 @@ else
      sudo find $DIR -maxdepth 1 -type d -exec ls -lh {} \;
      exit 1
 fi
+
+
+DIFFTIME2=$(date '+%s%N')
+DIFFTIME_MILLI=$(( ( DIFFTIME2 - DIFFTIME1 )/(1000000) ))
+
+echo "" | tee -a $DIR/$(date +%Y%m%d)_backup.log
+echo "Total Time taken: " $(( ($DIFFTIME_MILLI / 1000) / 60 )) " minutes" | tee -a $DIR/$(date +%Y%m%d)_backup.log
 
 # to restore
 #
