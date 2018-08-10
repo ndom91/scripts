@@ -20,7 +20,7 @@
 SUBDIR=pi_backups/open-pi-rsync
 MOUNTPOINT=/mnt/NDO_Backup
 DIR=$MOUNTPOINT/$SUBDIR
-SCRIPTDIR=/home/ndo/Documents/scripts/backup
+SCRIPTDIR=/home/pi/Documents/scripts/backup
 EXCLUDESFILE=rsync-openpi-full-exclude.txt
 TIME=$(date +%b-%d-%y)
 RETENTIONPERIOD=14 # days to keep old backups
@@ -32,7 +32,6 @@ function stopServices {
     sudo systemctl stop smbd
     sudo systemctl stop cron
     sudo systemctl stop ssh
-    
 }
 
 function startServices {
@@ -58,7 +57,7 @@ function postProcessSuccess {
 
     echo -e "${yellow}Update Raspberry Pi Firmware${NC}${normal}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
     sudo rpi-update
-	sudo ldconfig
+    sudo ldconfig
 }
 
 # =====================================================================
@@ -73,6 +72,9 @@ NC='\e[0m' #No Color
 bold=`tput bold`
 normal=`tput sgr0`
 
+echo -e "${purple}${bold}____ open-pi full backup procedure - $(date +%d.%m.%Y)${NC}${normal}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
+
+echo -e "" | tee -a $DIR/$(date +%Y%m%d)_backup.log
 
 # Check if mount point is mounted, if not quit!
 if ! mountpoint -q "$MOUNTPOINT" ; then
@@ -121,7 +123,7 @@ if [ -d $BACKUPDIR/etc ]; then
     # the directory exists
 	echo -e "${green}${bold}open-pi backup process completed! DIR: $BACKUPDIR${NC}${normal}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
 	echo -e "${yellow}Removing backups older than $RETENTIONPERIOD days${NC}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
-	sudo find $DIR -maxdepth 1 -type d -mtime +$RETENTIONPERIOD -exec rm -r {} \;
+	sudo find $DIR -maxdepth 1 -type d -mtime +$RETENTIONPERIOD # -exec rm -r {} \;
 	echo -e "${cyan}Any backups older than $RETENTIONPERIOD have been deleted${NC}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
 	
 	if [ $POSTPROCESS = 1 ] ;
