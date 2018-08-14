@@ -57,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-PS1="\[\e[30;1m\]\[\016\]$\[\017\](\[\e[34;1m\]\u@\h\[\e[30;1m\])-(\[\e[37;1m\]\w\[\e[30;1m\])->\[\e[30;1m\]\n\[\016\]$\[\017\](\[\e[37;1m\]\A\[\e[30;1m\])-(\[\e[32;1m\]\$(/bin/ls -1 | /usr/bin/wc -l | /bin/sed 's: ::g') files, \$(/bin/ls -lah | /bin/grep -m 1 total | /bin/sed 's/total //')b\[\e[30;1m\])-> \[\e[0m\]"
+PS1="\[\e[90;1m\]\[\016\]$\[\017\](\[\e[34;1m\]\u@\h\[\e[90;1m\])-(\[\e[34;1m\]\w\[\e[90;1m\])\[\e[90;1m\]\n\[\016\]$\[\017\](\[\e[92;1m\]\A\[\e[90;1m\])-(\[\e[32;1m\]\$(/bin/ls -lah | /bin/grep -m 1 total | /bin/sed 's/total //')b\[\e[90;1m\])\[\e[94;1m\]\$ \[\e[0m\]"
 
 #PS1="\[\e[30;1m\]\[\016\]$\[\017\](\[\e[34;1m\]\u@\h\[\e[30;1m\])-(\[\e[37;1m\]\w\[\e[30;1m\])-(\[\e[34;1m\]\@ \$(/usr/bin/free -h | /usr/bin/awk '{print \$4}' | /usr/bin/head -2| /usr/bin/tail -1))->\[\e[30;1m\]\n\[\016\]$\[\017\](\[\e[37;1m\]jobs:\j\[\e[30;1m\])-(\[\e[32;1m\]\$(/bin/ls -1 | /usr/bin/wc -l | /bin/sed 's: ::g') files, \$(/bin/ls -lah | /bin/grep -m 1 total | /bin/sed 's/total //')b\[\e[30;1m\])-> \[\e[0m\]"
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
@@ -162,6 +162,11 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+if [ -f ~/.googler_aliases ]; then
+    . ~/.googler_aliases
+fi
+
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
