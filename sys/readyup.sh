@@ -253,6 +253,10 @@ apt install -y lnav && let progress++
 echo "[*] [ $progress/$total ] Installing multitail"
 apt install -y multitail && let progress++
 
+# dtrx
+echo "[*] [ $progress/$total ] Installing dtrx"
+apt install -y dtrx && let progress++
+
 # build-essential
 echo "[*] [ $progress/$total ] Installing build-essential"
 apt install -y build-essential && let progress++
