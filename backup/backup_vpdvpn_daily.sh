@@ -55,7 +55,7 @@ echo "Clean up complete"
 
 echo ""
 
-FILESIZE=$(/usr/bin/rclone ls mega:/ndoX_backup/vpdvpn/backup-configs-vpdvpn-$TIME.tar.gz | awk '{print $1}')
+FILESIZE=$(/usr/bin/rclone --config /home/pi/.config/rclone/rclone.conf ls mega:/ndoX_backup/vpdvpn/backup-configs-vpdvpn-$TIME.tar.gz | awk '{print $1}')
 FILESIZE2=$(/usr/bin/bc -l <<< "scale=2; $FILESIZE / 1048576")
 
 echo $FILESIZE2 "mb"
