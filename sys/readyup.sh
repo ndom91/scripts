@@ -345,6 +345,19 @@ echo "deb [arch=amd64] https://repo.skype.com/deb stable main" > /etc/apt/source
 apt update
 apt install -y skypeforlinux && let progress++
 
+echo "[*] [ $progress/$total ] Installing nanorc"
+cd ~/
+git clone https://github.com/nanorc/nanorc.git
+cd nanorc/
+make install
+chmod 775 ~/.nanorc
+echo "include ~/.nano/syntax/html.nanorc" >> ~/.nanorc
+echo "include ~/.nano/syntax/css.nanorc" >> ~/.nanorc
+echo "include ~/.nano/syntax/php.nanorc" >> ~/.nanorc
+echo "include ~/.nano/syntax/ALL.nanorc" >> ~/.nanorc
+
+
+
 #echo "[*] [ $progress/$total ] Installing cerebro"
 #cerebro=cerebro.deb
 #if [ ! -f $apps/mac-fonts.zip ]; then
