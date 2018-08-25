@@ -51,7 +51,7 @@ tar --exclude=/swapfile \
 --exclude=/home/ndo/Documents/ndo0_home \
 --exclude=/home/ndo/Documents/ndo2_home \
 -cvpzf \
-$DESDIR/$FILENAME $SRCDIR
+$DESDIR/$FILENAME $SRCDIR >> /dev/null 2>&1
 
 ####################################
 # CLEAN UP
