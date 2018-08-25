@@ -58,3 +58,4 @@ The folder **sys** contains other system related scripts which include here, for
 Feel free to use then how you see fit..
 
 - [ndom91](mailto:yo@iamnico.xyz)
+- Licensed under [MIT](https://github.com/ndom91/scripts/blob/master/LICENSE)
