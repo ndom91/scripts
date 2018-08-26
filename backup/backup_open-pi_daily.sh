@@ -20,12 +20,13 @@ DESDIR=/home/pi/Backups
 echo "Starting backup..."
 
 ##########################################################
-# !!watch excludes - must be customized for each system!!
+# TAR BALL ALL THE DIRS!
 ##########################################################
 
 tar \
 -cvpzf \
 $DESDIR/$FILENAME \
+/etc/pihole \
 /var/lib/openhab2 \
 /usr/share/openhab2 \
 /etc/openhab2 \ >> /dev/null 2>&1
