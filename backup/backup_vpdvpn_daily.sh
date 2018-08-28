@@ -13,7 +13,7 @@
 ###################
 
 TIME=$(date +%b-%d-%y)
-FILENAME="backup-configs-vpdvpd-$TIME.tar.gz"
+FILENAME="backup-configs-vpdvpn-$TIME.tar.gz"
 SRCDIR="/"
 DESDIR=/home/pi/Backups
 
