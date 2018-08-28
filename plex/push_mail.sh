@@ -6,8 +6,12 @@
 
 CURDATE=$(date '+%d-%m-%Y %H:%M')
 PLEXPATH=/home/ndo/Documents/scripts/plex
+
 /home/ndo/Documents/scripts/plex/push_plex3.sh > $PLEXPATH/push_output.txt
+
 output=$(cat $PLEXPATH/push_output.txt)
+
+# Were all three media types empty? Was nothing moved?
 countmoved=$(grep -c " None!" $PLEXPATH/push_output.txt)
 
 ###################
@@ -22,7 +26,7 @@ if (( $countmoved == 3 )); then
 else
 	(echo "From: ndo2 <ndo2@iamnico.xyz>";
         echo "To: yo@iamnico.xyz";
-        echo "Subject: Plex upload complete - $CURDATE";
+        echo "Subject: [Plex] - Upload Complete ($CURDATE)";
 
         echo "$output";) | /usr/sbin/sendmail -oi yo@iamnico.xyz;
 fi
