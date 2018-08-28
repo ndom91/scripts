@@ -55,7 +55,7 @@ echo "    mega:/ndoX_backup/open-pi/"
 /usr/bin/rclone move --config /home/pi/.config/rclone/rclone.conf --log-file /home/pi/rclonelogs/backup-$TIME.log $DESDIR/$FILENAME mega:ndoX_backup/vpdvpn >> /dev/null
 
 echo ""
-echo "$ rclone move "$DESDIR/$FILENAME" mega:/ndoX_backup/vpdvpn"
+echo "$ rclone move "$DESDIR"/"$FILENAME" mega:/ndoX_backup/vpdvpn"
 echo ""
 echo "[*] Move complete!"
 echo "[*] Cleaning up!"

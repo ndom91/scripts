@@ -61,7 +61,7 @@ echo "[*] Cleaning up!"
 
 echo ""
 
-echo "$ rm "$DESDIR/$FILENAME
+echo "$ rm "$DESDIR"/"$FILENAME
 
 rm -f $DESDIR/$FILENAME
 
