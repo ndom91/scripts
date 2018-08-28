@@ -64,7 +64,7 @@ echo "[*] Cleaning up!"
 
 echo ""
 
-echo "$ rm "$DESDIR/$FILENAME
+echo "$ rm "$DESDIR"/"$FILENAME
 
 /usr/bin/rclone delete --config /home/pi/.config/rclone/rclone.conf --min-age 7d mega:ndoX_backup/open-pi
 
