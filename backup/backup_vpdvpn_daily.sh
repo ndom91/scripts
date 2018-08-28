@@ -17,6 +17,17 @@ FILENAME="backup-configs-vpdvpd-$TIME.tar.gz"
 SRCDIR="/"
 DESDIR=/home/pi/Backups
 
+echo "########################################"
+echo "#"
+echo "#        Backup vpd-vpn Daily"
+echo "#"
+echo "#     "$(date)
+echo "#"
+echo "#          Author: ndom91"
+echo "#"
+echo "########################################"
+echo ""
+
 echo "Starting backup..."
 
 ##########################################################
@@ -37,13 +48,17 @@ $DESDIR/$FILENAME \
 
 echo ""
 
-echo "Backup complete. Now moving to /mnt/NDO_Backup/pi_backups/open-pi AND mega:/ndoX_backup/open-pi/"
+echo "[*] Backup complete!"
+echo "[*] Now moving to /mnt/NDO_Backup/pi_backups/open-pi"
+echo "    mega:/ndoX_backup/open-pi/"
 
 /usr/bin/rclone move --config /home/pi/.config/rclone/rclone.conf --log-file /home/pi/rclonelogs/backup-$TIME.log $DESDIR/$FILENAME mega:ndoX_backup/vpdvpn >> /dev/null
 
 echo ""
-
-echo "Move complete. Cleaning up"
+echo "$ rclone move "$DESDIR/$FILENAME" mega:/ndoX_backup/vpdvpn"
+echo ""
+echo "[*] Move complete!"
+echo "[*] Cleaning up!"
 
 echo ""
 
@@ -51,16 +66,20 @@ echo ""
 
 echo ""
 
-echo "Clean up complete"
+echo "[*] Clean up complete!"
 
 echo ""
 
 FILESIZE=$(/usr/bin/rclone --config /home/pi/.config/rclone/rclone.conf ls mega:/ndoX_backup/vpdvpn/backup-configs-vpdvpn-$TIME.tar.gz | awk '{print $1}')
 FILESIZE2=$(/usr/bin/bc -l <<< "scale=2; $FILESIZE / 1048576")
 
-echo $FILESIZE2 "mb"
+echo "[*] Backup complete!"
 echo ""
-
-echo "Script complete. Have a nice day!"
-
+echo "########################################"
+echo "#"
+echo "#        Size: "$FILESIZE2 "mb"
+echo "#"
+echo "#        "$(date)
+echo "#"
+echo "########################################"
 

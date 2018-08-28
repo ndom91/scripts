@@ -17,7 +17,18 @@ FILENAME="backup-configs-ndo2-$TIME.tar.gz"
 SRCDIR="/"
 DESDIR=/home/ndo/backups
 
-echo "Starting backup..."
+echo "########################################"
+echo "#"
+echo "#        Backup ndo2 Daily"
+echo "#"
+echo "#     "$(date)
+echo "#"
+echo "#          Author: ndom91"
+echo "#"
+echo "########################################"
+echo ""
+
+echo "[*] Starting backup..."
 
 ####################################
 # BACKUP !!watch backup dirs!!
@@ -46,7 +57,8 @@ FILESIZE=$(ls -lh $DESDIR/$FILENAME | awk '{print $5}')
 
 echo ""
 
-echo "Backup complete. Now moving to mega:/ndoX_backup.."
+echo "[*] Backup complete!"
+echo "[*] Now moving to mega:/ndoX_backup/daily"
 
 /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --log-file /home/ndo/rclonelogs/backup-$TIME.log --log-level DEBUG $DESDIR/$FILENAME mega:ndoX_backup/daily >> /dev/null
 
@@ -56,20 +68,25 @@ echo "Backup complete. Now moving to mega:/ndoX_backup.."
 
 echo ""
 
-echo "Move complete. Cleaning up"
+echo "[*] Move complete!"
+echo "[*] Cleaning up"
 
 /usr/bin/rclone delete --config /home/ndo/.config/rclone/rclone.conf --min-age 6d mega:ndoX_backup/daily/
 
 echo ""
 
-echo "Clean up complete"
+echo "[*] Clean up complete"
 
 echo ""
 
-echo $FILESIZE
-
+echo "[*] Backup complete!"
 echo ""
-
-echo "Script complete. Have a nice day!"
+echo "########################################"
+echo "#"
+echo "#        Size: "$FILESIZE "mb"
+echo "#"
+echo "#        "$(date)
+echo "#"
+echo "########################################"
 
 

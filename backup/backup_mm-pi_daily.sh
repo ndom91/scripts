@@ -17,7 +17,18 @@ FILENAME="backup-configs-mmpi-$TIME.tar.gz"
 SRCDIR="/"
 DESDIR=/home/pi/Backup
 
-echo "Starting backup..."
+echo "########################################"
+echo "#"
+echo "#        Backup mm-pi Daily"
+echo "#"
+echo "#     "$(date)
+echo "#"
+echo "#          Author: ndom91"
+echo "#"
+echo "########################################"
+echo ""
+
+echo "[*] Starting backup!"
 
 ##########################################################
 # !!watch excludes - must be customized for each system!!
@@ -34,7 +45,9 @@ $DESDIR/$FILENAME \
 
 echo ""
 
-echo "Backup complete. Now moving to open-pi:/mnt/NDO_Backup/pi_backups/mm-pi AND mega:/ndoX_backup/mm-pi/"
+echo "[*] Backup complete!"
+echo "[*] Moving to open-pi:/mnt/NDO_Backup/pi_backups/mm-pi"
+echo "    and mega:/ndoX_backup/mm-pi/"
 
 scp -i /home/pi/.ssh/id_pihole $DESDIR/$FILENAME pi@192.168.178.52:/mnt/NDO_Backup/pi_backups/mm-pi
 
@@ -42,9 +55,13 @@ ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone copy --config 
 
 echo ""
 
-echo "Move complete. Cleaning up"
+echo "[*] Move complete!"
+echo ""
+echo "[*] Cleaning up!"
 
 echo ""
+
+echo "$ rm "$DESDIR/$FILENAME
 
 rm -f $DESDIR/$FILENAME
 
@@ -53,17 +70,20 @@ ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "find /mnt/NDO_Backup/pi_backup
 
 echo ""
 
-echo "Clean up complete"
+echo "[*] Clean up complete"
 
 FILESIZE=$(/usr/bin/ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone ls mega:/ndoX_backup/mm-pi/backup-configs-mmpi-$TIME.tar.gz | awk '{print \$1}'")
 FILESIZE2=$(/usr/bin/bc -l <<< "scale=2; $FILESIZE / 1048576")
 
+echo "[*] Backup complete!"
 echo ""
-echo $FILESIZE2 "mb"
-echo ""
+echo "########################################"
+echo "#"
+echo "#        Size: "$FILESIZE2 "mb"
+echo "#"
+echo "#        "$(date)
+echo "#"
+echo "########################################"
 
-#/home/pi/Documents/scripts/backup/mail_backup_mm-pi_daily.sh
-
-echo "Script complete. Have a nice day!"
 
 
