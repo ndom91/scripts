@@ -43,11 +43,11 @@ done
 
 echo "########################################"
 echo "#"
-echo "#        Backup ndo3"
+echo "#               Backup ndo3"
 echo "#"
-echo "#     "$(date)
+echo "#            "$(date)
 echo "#"
-echo "#          Author: ndom91"
+echo "#                Author: ndom91"
 echo "#"
 echo "########################################"
 echo ""
@@ -223,7 +223,6 @@ else
 	fi
 fi
 
-echo ""
 #echo "########################################"
 
 # DONE! print $CURDATE and diff the begin and end times
@@ -231,18 +230,16 @@ echo ""
 DIFFTIME2=$(date '+%s%N')
 
 echo ""
-echo ""
-echo ""
 echo "########################################"
 echo "#"
-echo "#      rclone upload complete!"
+echo "#             rclone upload complete!"
 echo "#"
 DIFFTIME_MILLI=$(( ( DIFFTIME2 - DIFFTIME1 )/(1000000) ))
 
 if (( DIFFTIME_MILLI > 10000 )); then
-    echo "# Time taken: " $(( ($DIFFTIME_MILLI / 1000) / 60 )) " minutes"
+    echo "#               Time taken: " $(( ($DIFFTIME_MILLI / 1000) / 60 )) " minutes"
   else
-    echo "# Time taken: " $DIFFTIME_MILLI " milliseconds"
+    echo "#               Time taken: " $DIFFTIME_MILLI " milliseconds"
 fi
 echo "#"
 echo "########################################"
