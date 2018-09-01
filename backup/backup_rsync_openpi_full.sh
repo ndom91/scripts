@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 #
 # Rsync backup file system script
 #
@@ -52,12 +52,13 @@ function postProcessSuccess {
 	# Update Packages and Kernel
 	echo -e "${yellow}Update Packages and Kernel${NC}${normal}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
     sudo apt-get update
-    sudo apt-get upgrade -y
+#    sudo apt-get upgrade -y
     sudo apt-get autoclean
+    sudo apt-get autoremove
 
-    echo -e "${yellow}Update open-pi Firmware${NC}${normal}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
-    sudo rpi-update
-    sudo ldconfig
+#    echo -e "${yellow}Update open-pi Firmware${NC}${normal}" | tee -a $DIR/$(date +%Y%m%d)_backup.log
+#    sudo rpi-update
+#    sudo ldconfig
 }
 
 # =====================================================================
