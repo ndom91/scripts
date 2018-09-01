@@ -124,6 +124,20 @@ echo "[*] scp to open-pi:/NDO_Backup complete"
 #        fi
 #fi
 
+echo "[*] Cleaning up"
+echo ""
+
+ssh pi@192.168.178.52 'bash -s' <<'ENDSSH'
+if [  -f /mnt/NDO_Backup/ndo3_backup/$FILENAME  ];
+then
+  echo "[*] Current backup found - deleting anything older than 4 weeks"
+  find /mnt/NDO_Backup/ndo3_backup/ -type f -mtime +29 -delete
+else
+  echo "[*] Current backup not found on NDO_Backup - not deleting anything!"
+fi
+ENDSSH
+
+
 echo ""
 echo "[*] Backup complete!"
 echo ""
