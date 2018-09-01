@@ -73,7 +73,7 @@ echo ""
 
 echo "$ rclone copyto "$DESDIR"/"$FILENAME" mega:/ndoX_backup/ndo3_backups/"$FILENAME
 
-rclone copyto $DESDIR/$FILENAME mega:/ndoX_backup/ndo3_backups/$FILENAME
+rclone --config /home/ndo/.config/rclone/rclone.conf copyto $DESDIR/$FILENAME mega:/ndoX_backup/ndo3_backups/$FILENAME
 
 echo ""
 echo "[*] Rclone move complete!"
@@ -112,7 +112,7 @@ else
         # if copy to open-pi was successful delete local copy
         if [ ! -f /opt/ndopi_home/mnt/NDO_Backup/ndo3_backup/$FILENAME ]; then
                 echo "[*] Copy attempt #1 failed. Trying again.."
-                cp --no-preserve=mode,ownership $DESDIR/$FILENAME /opt/ndopi_home/mnt/NDO_Backup/ndo$
+                cp --no-preserve=mode,ownership $DESDIR/$FILENAME /opt/ndopi_home/mnt/NDO_Backup/ndo3_backup
                 echo "[*] Copy attempt #2 complete!"
         else
 		echo ""
