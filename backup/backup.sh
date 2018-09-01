@@ -51,13 +51,13 @@ tar --exclude=/swapfile \
 --exclude=/run \
 --exclude=/media \
 --exclude=/home/ndo/ftp \
---exclude=/home/ndo/Down* \
 --exclude=/home/ndo/.thumbnails \
 --exclude=*tmp* \
 --exclude=*temp* \
 --exclude=*Temp* \
---exclude=/home/ndo/Documents/ndo0_home \
---exclude=/home/ndo/Documents/ndo2_home \
+--exclude=/home/ndo/Downloads/ISOs \
+--exclude=/home/ndo/Documents/openpibackup_310818 \
+--exclude=/home/ndo/Documents/backup_open-pi_20180831_031607 \
 -cvpzf \
 $DESDIR/$FILENAME $SRCDIR >> /dev/null 2>&1
 
@@ -78,48 +78,51 @@ rclone --config /home/ndo/.config/rclone/rclone.conf copyto $DESDIR/$FILENAME me
 echo ""
 echo "[*] Rclone move complete!"
 echo ""
-echo "[*] Testing if open-pi is mounted..."
 
+scp -i /home/ndo/.ssh/id_ndo3 $DESDIR/$FILENAME pi@192.168.178.52:/mnt/NDO_Backup/ndo3_backup/$FILENAME
+echo "[*] scp to open-pi:/NDO_Backup complete"
+
+#echo "[*] Testing if open-pi is mounted..."
 # If open-pi is mounted, continue with copy. If not - mount and then continue
-if [ -d "/opt/ndopi_home/mnt/NDO_Backup" ]; then
-	echo ""
-	echo "[*] open-pi mounted. Continuing..."
-
-	cp --no-preserve=mode,ownership $DESDIR/$FILENAME /opt/ndopi_home/mnt/NDO_Backup/ndo3_backup
-
-	# if copy to open-pi was successful delete local copy
-	if [ ! -f /opt/ndopi_home/mnt/NDO_Backup/ndo3_backup/$FILENAME ]; then
-		echo "[*] Copy attempt #1 failed. Trying again.."
-		cp --no-preserve=mode,ownership $DESDIR/$FILENAME /opt/ndopi_home/mnt/NDO_Backup/ndo3_backup
-		echo "[*] Copy attempt #2 complete!"
-
-	else
-		echo ""
-		echo "$ rm "$DESDIR"/"$FILENAME
-		rm $DESDIR/$FILENAME
-	fi
-else
-	echo ""
-	echo "[*] open-pi not mounted."
-	echo "[*] Mounting now."
-
-	umount /opt/ndopi_home
-	fusermount -u /opt/ndopi_home
-	bash /home/ndo/Documents/scripts/mounts/sshfs_ndo3_ndopi.sh
-
-        cp --no-preserve=mode,ownership $DESDIR/$FILENAME /opt/ndopi_home/mnt/NDO_Backup/ndo3_backup
-
-        # if copy to open-pi was successful delete local copy
-        if [ ! -f /opt/ndopi_home/mnt/NDO_Backup/ndo3_backup/$FILENAME ]; then
-                echo "[*] Copy attempt #1 failed. Trying again.."
-                cp --no-preserve=mode,ownership $DESDIR/$FILENAME /opt/ndopi_home/mnt/NDO_Backup/ndo3_backup
-                echo "[*] Copy attempt #2 complete!"
-        else
-		echo ""
-                echo "$ rm "$DESDIR"/"$FILENAME
-                rm $DESDIR/$FILENAME
-        fi
-fi
+#if [ -d "/opt/ndopi_home/mnt/NDO_Backup" ]; then
+#	echo ""
+#	echo "[*] open-pi mounted. Continuing..."
+#
+#	cp --no-preserve=mode,ownership $DESDIR/$FILENAME /opt/ndopi_home/mnt/NDO_Backup/ndo3_backup
+#
+#	# if copy to open-pi was successful delete local copy
+#	if [ ! -f /opt/ndopi_home/mnt/NDO_Backup/ndo3_backup/$FILENAME ]; then
+#		echo "[*] Copy attempt #1 failed. Trying again.."
+#		cp --no-preserve=mode,ownership $DESDIR/$FILENAME /opt/ndopi_home/mnt/NDO_Backup/ndo3_backup
+#		echo "[*] Copy attempt #2 complete!"
+#
+#	else
+#		echo ""
+#		echo "$ rm "$DESDIR"/"$FILENAME
+#		rm $DESDIR/$FILENAME
+#	fi
+#else
+#	echo ""
+#	echo "[*] open-pi not mounted."
+#	echo "[*] Mounting now."
+#
+#	umount /opt/ndopi_home
+#	fusermount -u /opt/ndopi_home
+#	bash /home/ndo/Documents/scripts/mounts/sshfs_ndo3_ndopi.sh
+#
+#        cp --no-preserve=mode,ownership $DESDIR/$FILENAME /opt/ndopi_home/mnt/NDO_Backup/ndo3_backup
+#
+#       # if copy to open-pi was successful delete local copy
+#       if [ ! -f /opt/ndopi_home/mnt/NDO_Backup/ndo3_backup/$FILENAME ]; then
+#                echo "[*] Copy attempt #1 failed. Trying again.."
+#                cp --no-preserve=mode,ownership $DESDIR/$FILENAME /opt/ndopi_home/mnt/NDO_Backup/ndo3_backup
+#                echo "[*] Copy attempt #2 complete!"
+#        else
+#		echo ""
+#                echo "$ rm "$DESDIR"/"$FILENAME
+#                rm $DESDIR/$FILENAME
+#        fi
+#fi
 
 echo ""
 echo "[*] Backup complete!"
