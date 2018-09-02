@@ -58,18 +58,27 @@ echo ""
 echo "[*] Move complete!"
 echo ""
 echo "[*] Cleaning up!"
-
+echo "[*] Checking if file made it to NDO_Backup successfully..."
 echo ""
 
-echo "$ rm "$DESDIR"/"$FILENAME
 
-rm -f $DESDIR/$FILENAME
 
-ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone delete --config /home/pi/.config/rclone/rclone.conf --min-age 7d mega:ndoX_backup/mm-pi"
-ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "find /mnt/NDO_Backup/pi_backups/mm-pi -type f -mtime +10 -delete"
+ssh pi@192.168.178.52 'bash -s' <<'ENDSSH'
+if [  -f /mnt/NDO_Backup/pi_backups/mm-pi/$FILENAME  ];
+then
+  echo "[*] Current backup found!"
+  echo "[*] Continuing clean up - deleting anything older than 10 days"
+  echo ""
+  echo "$ rm "$DESDIR"/"$FILENAME
+  rm -f $DESDIR/$FILENAME
+  ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "find /mnt/NDO_Backup/pi_backups/mm-pi -type f -mtime +10 -delete"
+  ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone delete --config /home/pi/.config/rclone/rclone.conf --min-age 7d mega:ndoX_backup/mm-pi"
+else
+  echo "[*] Current backup not found on NDO_Backup - not deleting anything!"
+fi
+ENDSSH
 
 echo ""
-
 echo "[*] Clean up complete"
 
 FILESIZE=$(/usr/bin/ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone ls mega:/ndoX_backup/mm-pi/backup-configs-mmpi-$TIME.tar.gz | awk '{print \$1}'")
