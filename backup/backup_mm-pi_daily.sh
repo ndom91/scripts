@@ -58,7 +58,7 @@ echo ""
 echo "[*] Move complete!"
 echo ""
 echo "[*] Cleaning up!"
-echo "[*] Checking if file made it to NDO_Backup successfully..."
+echo "[*] Checking if $FILENAME made it to NDO_Backup successfully..."
 echo ""
 
 
