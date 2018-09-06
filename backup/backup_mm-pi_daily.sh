@@ -49,9 +49,9 @@ echo "[*] Backup complete!"
 echo "[*] Moving to open-pi:/mnt/NDO_Backup/pi_backups/mm-pi"
 echo "    and mega:/ndoX_backup/mm-pi/"
 
-scp -i /home/pi/.ssh/id_pihole $DESDIR/$FILENAME pi@192.168.178.52:/mnt/NDO_Backup/pi_backups/mm-pi
+scp -i /home/pi/.ssh/id_mmpi $DESDIR/$FILENAME pi@192.168.178.52:/mnt/NDO_Backup/pi_backups/mm-pi
 
-ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone copy --config /home/pi/.config/rclone/rclone.conf --log-file /home/pi/rclonelogs/backup-mmpi-$TIME.log /mnt/NDO_Backup/pi_backups/mm-pi/$FILENAME mega:ndoX_backup/mm-pi >> /dev/null"
+ssh -i /home/pi/.ssh/id_mmpi pi@192.168.178.52 "/usr/bin/rclone copy --config /home/pi/.config/rclone/rclone.conf --log-file /home/pi/rclonelogs/backup-mmpi-$TIME.log /mnt/NDO_Backup/pi_backups/mm-pi/$FILENAME mega:ndoX_backup/mm-pi >> /dev/null"
 
 echo ""
 
@@ -71,8 +71,8 @@ then
   echo ""
   echo "$ rm "$DESDIR"/"$FILENAME
   rm -f $DESDIR/$FILENAME
-  ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "find /mnt/NDO_Backup/pi_backups/mm-pi -type f -mtime +10 -delete"
-  ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone delete --config /home/pi/.config/rclone/rclone.conf --min-age 7d mega:ndoX_backup/mm-pi"
+  ssh -i /home/pi/.ssh/id_mmpi pi@192.168.178.52 "find /mnt/NDO_Backup/pi_backups/mm-pi -type f -mtime +10 -delete"
+  ssh -i /home/pi/.ssh/id_mmpi pi@192.168.178.52 "/usr/bin/rclone delete --config /home/pi/.config/rclone/rclone.conf --min-age 7d mega:ndoX_backup/mm-pi"
 else
   echo "[*] Current backup not found on NDO_Backup - not deleting anything!"
 fi
@@ -81,7 +81,7 @@ ENDSSH
 echo ""
 echo "[*] Clean up complete"
 
-FILESIZE=$(/usr/bin/ssh -i /home/pi/.ssh/id_pihole pi@192.168.178.52 "/usr/bin/rclone ls mega:/ndoX_backup/mm-pi/backup-configs-mmpi-$TIME.tar.gz | awk '{print \$1}'")
+FILESIZE=$(/usr/bin/ssh -i /home/pi/.ssh/id_mmpi pi@192.168.178.52 "/usr/bin/rclone ls mega:/ndoX_backup/mm-pi/backup-configs-mmpi-$TIME.tar.gz | awk '{print \$1}'")
 FILESIZE2=$(/usr/bin/bc -l <<< "scale=2; $FILESIZE / 1048576")
 
 echo "[*] Backup complete!"
