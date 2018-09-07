@@ -63,7 +63,7 @@ echo ""
 
 
 
-ssh pi@192.168.178.52 'bash -s' <<'ENDSSH'
+ssh -i /home/pi/.ssh/id_mmpi pi@192.168.178.52 'bash -s' <<'ENDSSH'
 if [  -f /mnt/NDO_Backup/pi_backups/mm-pi/$FILENAME  ];
 then
   echo "[*] Current backup found!"
