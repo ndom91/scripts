@@ -1,8 +1,21 @@
 #!/bin/bash
 
-/usr/bin/gxmessage -center -geometry 400x120 -borderless -ontop -fn "monospace 24" "Shutdown in 2 min!"
+# TIMER
 
-#/usr/bin/zenity --info --text="Shutdown in 2 Minutes. GET READY FOR WORK!"
+curr=$(date +"%H:%M:%S")
+date2=$(date -d "($cur) +2minutes" +%H:%M:%S)
 
-/sbin/shutdown
+# POPUP Message
 
+export DISPLAY=:0
+
+DBUS=$(pgrep -ou ndo xfce)
+DBUS="$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$DBUS/environ | sed 's/DBUS_SESSION_BUS_ADDRESS=//')"
+DBUS_SESSION_BUS_ADDRESS="$DBUS" /usr/bin/notify-send  -i computer 'Shutdown Requested' 'Computer will shutdown at '$date2
+
+# OPTIONAL EXTRA LINE:
+#\nIt is currently '$(date "+%H:%M:%S")
+
+# SHUTDOWN
+
+/sbin/shutdown +2
