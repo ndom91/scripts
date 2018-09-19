@@ -3,7 +3,7 @@
 
 progress=1
 
-total=13
+total=12
 
 apt install -y git 
 
