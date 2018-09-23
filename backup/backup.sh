@@ -79,8 +79,11 @@ echo ""
 echo "[*] Rclone move complete!"
 echo ""
 
-scp -i /home/ndo/.ssh/id_ndo3 $DESDIR/$FILENAME pi@192.168.178.52:/mnt/NDO_Backup/ndo3_backup/$FILENAME
-echo "[*] scp to open-pi:/NDO_Backup complete"
+echo "[*] Beginning rsync to open-pi:/mnt/NDO_Backup"
+rsync -aHAXxv --numeric-ids --progress -e "ssh -T -o Compression=no -x" $DESDIR/$FILENAME pi@192.168.178.52:/mnt/NDO_Backup/ndo3_backup/$FILENAME
+echo "[*] rsync to open-pi:/mnt/NDO_Backup complete"
+
+#scp -i /home/ndo/.ssh/id_ndo3 $DESDIR/$FILENAME pi@192.168.178.52:/mnt/NDO_Backup/ndo3_backup/$FILENAME
 
 #echo "[*] Testing if open-pi is mounted..."
 # If open-pi is mounted, continue with copy. If not - mount and then continue
@@ -124,6 +127,7 @@ echo "[*] scp to open-pi:/NDO_Backup complete"
 #        fi
 #fi
 
+echo ""
 echo "[*] Cleaning up"
 echo ""
 
