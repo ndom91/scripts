@@ -71,6 +71,10 @@ echo "[*] Backup complete!"
 echo "[*] Now moving to rclone mega:/ndoX_backup/ndo3"
 echo ""
 
+echo "[*] Beginning rsync to open-pi:/mnt/NDO_Backup"
+rsync -aHAXxv --numeric-ids --progress -e "ssh -T -o Compression=no -x" $DESDIR/$FILENAME pi@192.168.178.52:/mnt/NDO_Backup/ndo3_backup/$FILENAME
+echo "[*] rsync to open-pi:/mnt/NDO_Backup complete"
+
 echo "$ rclone copyto "$DESDIR"/"$FILENAME" mega:/ndoX_backup/ndo3_backups/"$FILENAME
 
 rclone --config /home/ndo/.config/rclone/rclone.conf copyto $DESDIR/$FILENAME mega:/ndoX_backup/ndo3_backups/$FILENAME
@@ -78,10 +82,6 @@ rclone --config /home/ndo/.config/rclone/rclone.conf copyto $DESDIR/$FILENAME me
 echo ""
 echo "[*] Rclone move complete!"
 echo ""
-
-echo "[*] Beginning rsync to open-pi:/mnt/NDO_Backup"
-rsync -aHAXxv --numeric-ids --progress -e "ssh -T -o Compression=no -x" $DESDIR/$FILENAME pi@192.168.178.52:/mnt/NDO_Backup/ndo3_backup/$FILENAME
-echo "[*] rsync to open-pi:/mnt/NDO_Backup complete"
 
 #scp -i /home/ndo/.ssh/id_ndo3 $DESDIR/$FILENAME pi@192.168.178.52:/mnt/NDO_Backup/ndo3_backup/$FILENAME
 
