@@ -80,7 +80,7 @@ else
 fi
 EOF
 
-find /home/pi/Backups -type f -mtime +7 -delete
+find /home/pi/Backup -type f -mtime +7 -delete
 
 echo ""
 echo "[*] Clean up complete"
