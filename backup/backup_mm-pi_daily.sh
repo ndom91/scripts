@@ -63,7 +63,7 @@ echo ""
 
 
 
-ssh -i /home/pi/.ssh/id_mmpi pi@192.168.178.52 'bash -s' <<'ENDSSH'
+ssh -i /home/pi/.ssh/id_mmpi pi@192.168.178.52 /bin/bash << EOF
 if [  -f /mnt/NDO_Backup/pi_backups/mm-pi/$FILENAME  ];
 then
   echo "[*] Current backup found!"
@@ -71,12 +71,16 @@ then
   echo ""
   echo "$ rm "$DESDIR"/"$FILENAME
   rm -f $DESDIR/$FILENAME
-  ssh -i /home/pi/.ssh/id_mmpi pi@192.168.178.52 "find /mnt/NDO_Backup/pi_backups/mm-pi -type f -mtime +10 -delete"
-  ssh -i /home/pi/.ssh/id_mmpi pi@192.168.178.52 "/usr/bin/rclone delete --config /home/pi/.config/rclone/rclone.conf --min-age 7d mega:ndoX_backup/mm-pi"
+  find /mnt/NDO_Backup/pi_backups/mm-pi -type f -mtime +7 -delete
+  /usr/bin/rclone delete --config /home/pi/.config/rclone/rclone.conf --min-age 7d mega:ndoX_backup/mm-pi
+  #ssh -i /home/pi/.ssh/id_mmpi pi@192.168.178.52 "find /mnt/NDO_Backup/pi_backups/mm-pi -type f -mtime +10 -delete"
+  #ssh -i /home/pi/.ssh/id_mmpi pi@192.168.178.52 "/usr/bin/rclone delete --config /home/pi/.config/rclone/rclone.conf --min-age 7d mega:ndoX_backup/mm-pi"
 else
   echo "[*] Current backup not found on NDO_Backup - not deleting anything!"
 fi
-ENDSSH
+EOF
+
+find /home/pi/Backups -type f -mtime +7 -delete
 
 echo ""
 echo "[*] Clean up complete"
