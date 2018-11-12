@@ -130,17 +130,27 @@ echo ""
 echo ""
 echo "[*] Cleaning up"
 echo ""
+openpibackupstatus = 0
 
-ssh pi@192.168.178.52 'bash -s' <<'ENDSSH'
+ssh pi@openpi 'bash -s' <<'ENDSSH'
 if [  -f /mnt/NDO_Backup/ndo3_backup/$FILENAME  ];
 then
-  echo "[*] Current backup found - deleting anything older than 4 weeks"
+  openpibackupstatus = 1
+  #echo "[*] Current backup found - deleting anything older than 4 weeks"
   find /mnt/NDO_Backup/ndo3_backup/ -type f -mtime +29 -delete
 else
-  echo "[*] Current backup not found on NDO_Backup - not deleting anything!"
+  openpibackupstatus = 2
+  #echo "[*] Current backup not found on NDO_Backup - not deleting anything!"
 fi
 ENDSSH
 
+if openpibackupstatus = 1 then
+  echo "[*] Current backup found - deleting anything older than 4 weeks"
+else if openpibackupstatus = 2 then
+  echo "[*] Current backup not found on NDO_Backup - not deleting anything!"
+else
+  echo "[*] openpibackupstatus didnt work :("
+fi
 
 echo ""
 echo "[*] Backup complete!"
