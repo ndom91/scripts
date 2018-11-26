@@ -72,16 +72,16 @@ echo "[*] Now moving to rclone mega:/ndoX_backup/ndo3"
 echo ""
 
 echo "[*] Beginning rsync to open-pi:/mnt/NDO_Backup"
-rsync -aHAXxv --numeric-ids --progress -e "ssh -T -o Compression=no -x  -i /home/ndo/.ssh/id_openpi" $DESDIR/$FILENAME pi@192.168.178.52:/mnt/NDO_Backup/ndo3_backup/$FILENAME
+rsync -aHAXxv --numeric-ids -e "ssh -T -o Compression=no -x  -i /home/ndo/.ssh/id_openpi" $DESDIR/$FILENAME pi@192.168.178.52:/mnt/NDO_Backup/ndo3_backup/$FILENAME
 echo "[*] rsync to open-pi:/mnt/NDO_Backup complete"
 
-echo "$ rclone copyto "$DESDIR"/"$FILENAME" mega:/ndoX_backup/ndo3_backups/"$FILENAME
+#echo "$ rclone move "$DESDIR"/"$FILENAME" mega:/ndoX_backup/ndo3_backups/"$FILENAME
 
-rclone --config /home/ndo/.config/rclone/rclone.conf copyto $DESDIR/$FILENAME mega:/ndoX_backup/ndo3_backups/$FILENAME
+#rclone --config /home/ndo/.config/rclone/rclone.conf move $DESDIR/$FILENAME mega:/ndoX_backup/ndo3_backups/$FILENAME
 
-echo ""
-echo "[*] Rclone move complete!"
-echo ""
+#echo ""
+#echo "[*] Rclone move complete!"
+#echo ""
 
 #scp -i /home/ndo/.ssh/id_ndo3 $DESDIR/$FILENAME pi@192.168.178.52:/mnt/NDO_Backup/ndo3_backup/$FILENAME
 
@@ -145,7 +145,10 @@ fi
 ENDSSH
 
 if openpibackupstatus = 1 then
-  echo "[*] Current backup found - deleting anything older than 4 weeks"
+  echo "[*] Current backup found on openpi - deleting local copy"
+  rm $DESDIR/$FILENAME
+  echo "[*] Deleting anything older than 4 weeks on openpi"
+  find /mnt/NDO_Backup/ndo3_backups -type f -mtime +29 -delete
 else if openpibackupstatus = 2 then
   echo "[*] Current backup not found on NDO_Backup - not deleting anything!"
 else
