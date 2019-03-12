@@ -130,29 +130,15 @@ echo "[*] rsync to open-pi:/mnt/NDO_Backup complete"
 echo ""
 echo "[*] Cleaning up"
 echo ""
-openpibackupstatus = 0
 
-ssh pi@openpi 'bash -s' <<'ENDSSH'
-if [  -f /mnt/NDO_Backup/ndo3_backup/$FILENAME  ];
+if [  -f /opt/ndopi_home/mnt/NDO_Backup/ndo3_backup/$FILENAME  ];
 then
-  openpibackupstatus = 1
-  #echo "[*] Current backup found - deleting anything older than 4 weeks"
-  find /mnt/NDO_Backup/ndo3_backup/ -type f -mtime +29 -delete
-else
-  openpibackupstatus = 2
-  #echo "[*] Current backup not found on NDO_Backup - not deleting anything!"
-fi
-ENDSSH
-
-if openpibackupstatus = 1 then
-  echo "[*] Current backup found on openpi - deleting local copy"
+  echo "[*] Current backup found - deleting anything older than 4 weeks on openpi"
+  find /opt/ndopi_home/mnt/NDO_Backup/ndo3_backup/ -type f -mtime +32 -delete
+  echo "[*] Deleting local copy"
   rm $DESDIR/$FILENAME
-  echo "[*] Deleting anything older than 4 weeks on openpi"
-  find /mnt/NDO_Backup/ndo3_backups -type f -mtime +29 -delete
-else if openpibackupstatus = 2 then
-  echo "[*] Current backup not found on NDO_Backup - not deleting anything!"
 else
-  echo "[*] openpibackupstatus didnt work :("
+  echo "[*] Current backup not found on NDO_Backup - not deleting anything!"
 fi
 
 echo ""
