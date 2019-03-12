@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 
 tmp_file="$(mktemp)"
 echo "--- find <$2> in <$1>" > $tmp_file
