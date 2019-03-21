@@ -7,7 +7,7 @@
 CURDATE=$(date '+%d-%m-%Y %H:%M')
 PLEXPATH=/home/ndo/Documents/scripts/plex
 
-/home/ndo/Documents/scripts/plex/push_plex3.sh > $PLEXPATH/push_output.txt
+/home/ndo/Documents/scripts/plex/push_plex_ndo6.sh > $PLEXPATH/push_output.txt
 
 output=$(cat $PLEXPATH/push_output.txt)
 

@@ -43,11 +43,11 @@ done
 
 echo "########################################"
 echo "#"
-echo "#               Backup ndo3"
+echo "#                      Backup ndo6"
 echo "#"
-echo "#            "$(date)
+echo "#                   "$(date)
 echo "#"
-echo "#                Author: ndom91"
+echo "#                         Author: ndom91"
 echo "#"
 echo "########################################"
 echo ""
@@ -67,7 +67,7 @@ else
 
 		# for each item in array grab the basename (TV Show)
 
-		for file in "${TV_ARRAY[$i]}"/*; do
+		for file in "${TV_ARRAY[$i]}"/*/*; do
 			TV_BASE=$(basename "$file")
 			dir=$(basename "${TV_ARRAY[$i]}")
 
@@ -82,7 +82,6 @@ else
 				if [[ $tv_count -gt 0 ]]; then
 
 					# FOUND in destination
-
 					echo "[*] Warning: '$dir' found in /mnt/gdrive.., not moving!"
 				else
 
