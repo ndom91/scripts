@@ -78,7 +78,7 @@ else
 
 				# Check to see if the source content is already in the destination folder
 
-				tv_count=$(find /mnt/mega/plex_enc/tv -name "$TV_BASE" | wc -l)
+				tv_count=$(find /opt/media/tv -name "$TV_BASE" | wc -l)
 				if [[ $tv_count -gt 0 ]]; then
 
 					# FOUND in destination
@@ -142,7 +142,7 @@ else
 
 		# check if movie file is already at destination
 
-		if [ -d "/mnt/mega/plex_enc/movies/$MOV_MATCH" ]; then
+		if [ -d "/opt/media/movies/$MOV_MATCH" ]; then
 		  echo "[*] '$MOV_MATCH' already at destination. Not moving."
 		else
 
@@ -195,7 +195,7 @@ else
 
 			# check dest if album already exists at
 
-			if [ -d "/mnt/mega/plex_enc/music/$MUS_MATCH" ]; then
+			if [ -d "/opt/media/music/$MUS_MATCH" ]; then
 			  echo "[*] '$MUS_MATCH' already at destination"
 			else
 
