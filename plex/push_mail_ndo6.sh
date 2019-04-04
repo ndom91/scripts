@@ -24,9 +24,9 @@ countmoved=$(grep -c " None!" $PLEXPATH/push_output.txt)
 if (( $countmoved == 3 )); then
 	exit 1
 else
-	(echo "From: ndo2 <ndo2@iamnico.xyz>";
+	(echo "From: ndo7 <ndo7@iamnico.xyz>";
         echo "To: yo@iamnico.xyz";
-        echo "Subject: [Plex - ndo6] - Upload Complete ($CURDATE)";
+        echo "Subject: [Plex - ndo7] - Upload Complete ($CURDATE)";
 
         echo "$output";) | /usr/sbin/sendmail -oi yo@iamnico.xyz;
 fi

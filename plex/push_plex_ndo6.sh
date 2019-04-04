@@ -15,13 +15,13 @@
 TIME=$(date '+%d%m%Y')
 CURDATE1=$(date '+%d-%m-%Y %H:%M')
 DIFFTIME1=$(date '+%s%N')
-TV_DIR=/mnt/torrent/downloads/tv
-MOV_DIR=/mnt/torrent/downloads/movies
-MUS_DIR=/mnt/torrent/downloads/music
+TV_DIR=/opt/downloads/tv
+MOV_DIR=/opt/downloads/movies
+MUS_DIR=/opt/downloads/music
 
-TV_ARRAY=(/mnt/torrent/downloads/tv/*)
-MOV_ARRAY=(/mnt/torrent/downloads/movies/*)
-MUS_ARRAY=(/mnt/torrent/downloads/music/*)
+TV_ARRAY=(/opt/downloads/tv/*)
+MOV_ARRAY=(/opt/downloads/movies/*)
+MUS_ARRAY=(/opt/downloads/music/*)
 
 tv_counter=0
 mov_counter=0
@@ -87,9 +87,9 @@ else
 
 					# NOT in destination - move to mega:plex_enc/tv/[basename]
 
-					/usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_tv_move_"$TIME".log --log-level INFO --drive-chunk-size 16M "${TV_ARRAY[$i]}" mega:plex_enc/tv/"$dir"
+					/usr/bin/rclone copy --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /var/log/rclone_uploads/rclone_tv_move_"$TIME".log --log-level INFO --drive-chunk-size 16M "${TV_ARRAY[$i]}" mega:plex_enc/tv/"$dir"
 					sleep 30
-					rmdir /mnt/torrent/downloads/tv/"$dir"
+					rmdir /opt/torrent/downloads/tv/"$dir"
 					echo "[*] '$TV_BASE' moved"
 					tv_counter=$((tv_counter+1))
 				fi
@@ -111,7 +111,7 @@ else
 			echo ""
 			sleep 120
 			echo "[*] Refreshing TV Library..."
-			curl https://p3.ni.co.de/library/sections/1/refresh?X-Plex-Token=$tokenndo >> /dev/null 2>&1
+			curl https://watch.ndo.dev/library/sections/1/refresh?X-Plex-Token=$tokenndo >> /dev/null 2>&1
 			echo ""
 			echo "[*] Plex TV Refreshed."
 		else
@@ -148,9 +148,9 @@ else
 
 		  # if not already at dest then rclone move it to mega:plex_enc/movies/[basename]
 
-		  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_movie_move_"$TIME".log --log-level INFO --drive-chunk-size 16M "$MOV_DIR"/"$MOV_MATCH" mega:plex_enc/movies/"$MOV_MATCH"
+		  /usr/bin/rclone copy --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /var/log/rclone_uploads/rclone_movie_move_"$TIME".log --log-level INFO --drive-chunk-size 16M "$MOV_DIR"/"$MOV_MATCH" mega:plex_enc/movies/"$MOV_MATCH"
 		  sleep 30
-		  rmdir /mnt/torrent/downloads/movies/"$MOV_MATCH"
+		  rmdir /opt/downloads/movies/"$MOV_MATCH"
 		  echo "[*] '$MOV_MATCH' moved to mega:/plex_enc/movies"
 		  mov_counter=$((mov_counter+1))
 		fi
@@ -164,7 +164,7 @@ else
 	if (( mov_counter > 0 )); then
 	  sleep 120
 	  echo "[*] Refreshing Movie Library..."
-	  curl https://p3.ni.co.de/library/sections/2/refresh?X-Plex-Token=$tokenndo >> /dev/null 2>&1
+	  curl https://watch.ndo.dev/library/sections/2/refresh?X-Plex-Token=$tokenndo >> /dev/null 2>&1
 	  echo "[*] Plex Movie Refreshed."
 	else
 	  echo "[*] Nothing moved, no need to refresh! None!"
@@ -201,9 +201,9 @@ else
 
 			  # if it doesnt already exists then rclone move it to mega:plex_enc/music/[basename]
 
-			  /usr/bin/rclone move --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /opt/rclone_upload_logs/rclone_music_move_"$TIME".log --log-level INFO --drive-chunk-size 16M "$MUS_DIR"/"$MUS_MATCH" mega:plex_enc/music/"$MUS_MATCH"
+			  /usr/bin/rclone copy --config /home/ndo/.config/rclone/rclone.conf --delete-empty-src-dirs --log-file /var/log/rclone_uploads/rclone_music_move_"$TIME".log --log-level INFO --drive-chunk-size 16M "$MUS_DIR"/"$MUS_MATCH" mega:plex_enc/music/"$MUS_MATCH"
 			  sleep 30
-			  rmdir /mnt/torrent/downloads/music/"$MUS_MATCH"
+			  rmdir /opt/torrent/downloads/music/"$MUS_MATCH"
 			  echo "[*] '$MUS_MATCH' moved to mega:plex_enc/music"
 			  mus_counter=$((mus_counter+1))
 			fi
@@ -215,7 +215,7 @@ else
 	if (( mus_counter > 0 )); then
 	  sleep 120
 	  echo "[*] Refreshing Music Library..."
-	  curl https://p3.ni.co.de/library/sections/7/refresh?X-Plex-Token=$tokenndo >> /dev/null 2>&1
+	  curl https://watch.ndo.dev/library/sections/7/refresh?X-Plex-Token=$tokenndo >> /dev/null 2>&1
 	  echo "[*] Plex Music Refreshed."
 	else
 	  echo "[*] Nothing moved, no need to refresh! None!"
