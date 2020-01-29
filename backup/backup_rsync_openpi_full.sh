@@ -23,7 +23,7 @@ DIR=$MOUNTPOINT/$SUBDIR
 SCRIPTDIR=/home/pi/Documents/scripts/backup
 EXCLUDESFILE=rsync-openpi-full-exclude.txt
 TIME=$(date +%b-%d-%y)
-RETENTIONPERIOD=14 # days to keep old backups
+RETENTIONPERIOD=7 # days to keep old backups
 POSTPROCESS=1 # 1 to use a postProcessSucess function after successfull backup
 
 function stopServices {
