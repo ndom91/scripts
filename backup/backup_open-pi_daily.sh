@@ -39,6 +39,7 @@ mkdir $DESDIR/$DATE
 /usr/share/openhab2/runtime/bin/backup $DESDIR/$DATE/$FILENAME2
 cd $DESDIR/$DATE
 /usr/local/bin/pihole -a -t
+cp /etc/default/cloudflared $DESDIR/$DATE
 
 tar \
 -cvpzf \
@@ -52,16 +53,14 @@ $DESDIR/$DATE >> /dev/null 2>&1
 echo ""
 
 echo "[*] Backup complete. "
-echo "[*] Now to mega:/ndoX_backup/open-pi/"
+# echo "[*] Now to mega:/ndoX_backup/open-pi/"
 
-#sudo cp $DESDIR/$FILENAME /mnt/NDO_Backup/pi_backups/open-pi
+# /usr/bin/rclone move --config /home/pi/.config/rclone/rclone.conf --log-file /home/pi/rclonelogs/backup-$TIME.log $DESDIR/$FILENAME mega:ndoX_backup/open-pi >> /dev/null
 
-/usr/bin/rclone move --config /home/pi/.config/rclone/rclone.conf --log-file /home/pi/rclonelogs/backup-$TIME.log $DESDIR/$FILENAME mega:ndoX_backup/open-pi >> /dev/null
+# echo ""
 
-echo ""
-
-echo "[*] Move complete!"
-echo ""
+# echo "[*] Move complete!"
+# echo ""
 echo "[*] Cleaning up!"
 
 # echo ""
@@ -72,8 +71,6 @@ echo "[*] Cleaning up!"
 	# echo "[*] File succesfully transfered!"
 	# echo "[*] Clean up can continue..."
 	# echo "$ rm "$DESDIR"/"$FILENAME
-	# rm -r $DESDIR/$DATE
-	# find /mnt/NDO_Backup/pi_backups/open-pi -type f -mtime +10 -delete
 	# /usr/bin/rclone delete --config /home/pi/.config/rclone/rclone.conf --min-age 7d mega:ndoX_backup/open-pi
 # else
 	# echo ""
@@ -81,9 +78,13 @@ echo "[*] Cleaning up!"
 	# echo "[*] NOT deleting $DESDIR/$DATE !!! "
 # fi
 
+# rm -r $DESDIR/$DATE
+find /mnt/NDO_Backup/pi_backups/open-pi -type f -mtime +6 -delete
+
 echo ""
-find ~/Backups -iname "*.tar.gz" -mtime +7 -type f -delete
-find ~/Backups -mtime +7 -type d -delete
+
+find /home/pi/Backups -iname "*.tar.gz" -mtime +4 -type f -delete
+find /home/pi/Backups -mtime +1 -type d -delete
 
 echo "[*] Clean up complete"
 
